@@ -42379,7 +42379,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile enters the audience.\nAudience Exited: Sends an event when a profile exits the audience.\nAudience Membership Changed: Sends an event for both profile entries and profile exits.\nEntity Added: Sends an event when an entity enters the audience.\nEntity Removed: Sends an event when an entity exits the audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile or entity enters the audience.\nAudience Exited: Sends an event when a profile or entity exits the audience.\nAudience Membership Changed: Sends an event for both entries and exits. This does not apply to entities.\nEntity Added: Sends an event when an entity is added to the audience.\nEntity Removed: Sends an event when an entity is removed from the audience.\nEntity Values Changed: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\nAll Events: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -42707,635 +42707,6 @@
         },
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
-      },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
-      },
-      "AuditEventV1": {
-        "title": "AuditEventV1",
-        "required": [
-          "actor",
-          "id",
-          "resourceId",
-          "resourceName",
-          "resourceType",
-          "timestamp",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Unique identifier for this audit trail event."
-          },
-          "timestamp": {
-            "title": "timestamp",
-            "type": "string",
-            "description": "The timestamp of this event in ISO-8601 format."
-          },
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "The type of this event."
-          },
-          "actor": {
-            "title": "actor",
-            "type": "string",
-            "description": "The user or API token that triggered this event."
-          },
-          "actorEmail": {
-            "title": "actorEmail",
-            "type": "string",
-            "description": "The email of the user that triggered this event."
-          },
-          "resourceId": {
-            "title": "resourceId",
-            "type": "string",
-            "description": "The identifier of the resource affected by this event."
-          },
-          "resourceType": {
-            "title": "resourceType",
-            "type": "string",
-            "description": "The kind of resource affected by this event."
-          },
-          "resourceName": {
-            "title": "resourceName",
-            "type": "string",
-            "description": "The name of the resource affected by this event."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents an Audit Trail event."
-      },
-      "ListAuditEventsV1Input": {
-        "title": "ListAuditEventsV1Input",
-        "type": "object",
-        "description": "Retrieves all Audit Trail events for the current Workspace."
-      },
-      "ListAuditEventsV1Output": {
-        "title": "ListAuditEventsV1Output",
-        "required": [
-          "events"
-        ],
-        "type": "object",
-        "properties": {
-          "events": {
-            "title": "events",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AuditEventV1"
-            },
-            "description": "Audit trail events for the current Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Audit Trail events for the current Workspace."
-      },
-      "TraitDefinition": {
-        "title": "TraitDefinition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "additionalProperties": false
-      },
-      "TraitOptions": {
-        "title": "TraitOptions",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "additionalProperties": false
-      },
-      "ComputedTraitsDefinition": {
-        "title": "ComputedTraitsDefinition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          },
-          "type": {
-            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines an computed trait definition."
-      },
-      "CreateComputedTraitAlphaInput": {
-        "title": "CreateComputedTraitAlphaInput",
-        "required": [
-          "definition",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "The name of the computation."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Determines whether a computation is enabled."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "The description of the computation."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputDefinition"
-          },
-          "options": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputOptions"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to create a trait."
-      },
-      "CreateComputedTraitAlphaOutput": {
-        "title": "CreateComputedTraitAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for create."
-      },
-      "ComputedTraitSummary": {
-        "title": "ComputedTraitSummary",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a Computed trait."
-      },
-      "GetComputedTraitAlphaInput": {
-        "title": "GetComputedTraitAlphaInput",
-        "type": "object",
-        "description": "Input to get a computed trait."
-      },
-      "ListComputedTraitsAlphaInput": {
-        "title": "ListComputedTraitsAlphaInput",
-        "type": "object",
-        "description": "Input to list computed traits for a space id."
-      },
-      "UpdateComputedTraitForSpaceAlphaInput": {
-        "title": "UpdateComputedTraitForSpaceAlphaInput",
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "The name of the computation."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "The description of the computation."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaInputDefinition"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to update a computed trait."
-      },
-      "RemoveComputedTraitFromSpaceAlphaInput": {
-        "title": "RemoveComputedTraitFromSpaceAlphaInput",
-        "type": "object",
-        "description": "Input to delete a computed trait."
-      },
-      "GetComputedTraitAlphaOutput": {
-        "title": "GetComputedTraitAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/GetComputedTraitAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for get and update."
-      },
-      "UpdateComputedTraitForSpaceAlphaOutput": {
-        "title": "UpdateComputedTraitForSpaceAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for get and update."
-      },
-      "ListComputedTraitsAlphaOutput": {
-        "title": "ListComputedTraitsAlphaOutput",
-        "required": [
-          "computedTraits",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTraits": {
-            "title": "computedTraits",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComputedTraitSummary"
-            },
-            "description": "A list of computed trait summary results."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListComputedTraitsAlphaOutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "List computed traits endpoint output."
-      },
-      "RemoveComputedTraitFromSpaceAlphaOutput": {
-        "title": "RemoveComputedTraitFromSpaceAlphaOutput",
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/SuccessStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Delete computed trait endpoint output."
-      },
-      "CredentialSettingsV1": {
-        "title": "CredentialSettingsV1",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CredentialSettingsV1AdditionalProperties"
-        },
-        "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-      },
-      "CredentialV1": {
-        "title": "CredentialV1",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
-      },
-      "CreateCredentialV1Input": {
-        "title": "CreateCredentialV1Input",
-        "required": [
-          "name",
-          "settings"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Create a new Credential based on a set of parameters."
-      },
-      "CreateCredentialV1Output": {
-        "title": "CreateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the newly created Credential."
-      },
-      "UpdateCredentialV1Input": {
-        "title": "UpdateCredentialV1Input",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "An optional human-readable name to associate with this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
-      },
-      "UpdateCredentialV1Output": {
-        "title": "UpdateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the updated Credential."
-      },
-      "ListCredentialsV1Input": {
-        "title": "ListCredentialsV1Input",
-        "type": "object",
-        "description": "Gets a list of Credentials belonging to a Workspace."
-      },
-      "ListCredentialsV1Output": {
-        "title": "ListCredentialsV1Output",
-        "required": [
-          "credentials",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "credentials": {
-            "title": "credentials",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialV1"
-            },
-            "description": "A list of Credentials that belong to the Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Credentials that belong to a Workspace."
-      },
-      "GetCredentialV1Input": {
-        "title": "GetCredentialV1Input",
-        "type": "object",
-        "description": "Looks up a Credential by id."
-      },
-      "GetCredentialV1Output": {
-        "title": "GetCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a Credential."
-      },
-      "DeleteCredentialV1Input": {
-        "title": "DeleteCredentialV1Input",
-        "type": "object",
-        "description": "Deletes a Credential."
-      },
-      "DeleteCredentialV1Output": {
-        "title": "DeleteCredentialV1Output",
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/SuccessStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the status of a Credential deletion."
-      },
-      "ListCredentialConsumersV1Input": {
-        "title": "ListCredentialConsumersV1Input",
-        "type": "object",
-        "description": "Looks up the Warehouses and Sources that consume a Credential."
-      },
-      "ListCredentialConsumersV1Output": {
-        "title": "ListCredentialConsumersV1Output",
-        "required": [
-          "sources",
-          "sourcesPagination",
-          "warehouses",
-          "warehousesPagination"
-        ],
-        "type": "object",
-        "properties": {
-          "warehouses": {
-            "title": "warehouses",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WarehouseV1"
-            },
-            "description": "The Warehouses that use this Credential."
-          },
-          "warehousesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
-          },
-          "sources": {
-            "title": "sources",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SourceV1"
-            },
-            "description": "The Sources that use this Credential."
-          },
-          "sourcesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -45068,6 +44439,340 @@
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
       },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
+      },
+      "AuditEventV1": {
+        "title": "AuditEventV1",
+        "required": [
+          "actor",
+          "id",
+          "resourceId",
+          "resourceName",
+          "resourceType",
+          "timestamp",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Unique identifier for this audit trail event."
+          },
+          "timestamp": {
+            "title": "timestamp",
+            "type": "string",
+            "description": "The timestamp of this event in ISO-8601 format."
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The type of this event."
+          },
+          "actor": {
+            "title": "actor",
+            "type": "string",
+            "description": "The user or API token that triggered this event."
+          },
+          "actorEmail": {
+            "title": "actorEmail",
+            "type": "string",
+            "description": "The email of the user that triggered this event."
+          },
+          "resourceId": {
+            "title": "resourceId",
+            "type": "string",
+            "description": "The identifier of the resource affected by this event."
+          },
+          "resourceType": {
+            "title": "resourceType",
+            "type": "string",
+            "description": "The kind of resource affected by this event."
+          },
+          "resourceName": {
+            "title": "resourceName",
+            "type": "string",
+            "description": "The name of the resource affected by this event."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an Audit Trail event."
+      },
+      "ListAuditEventsV1Input": {
+        "title": "ListAuditEventsV1Input",
+        "type": "object",
+        "description": "Retrieves all Audit Trail events for the current Workspace."
+      },
+      "ListAuditEventsV1Output": {
+        "title": "ListAuditEventsV1Output",
+        "required": [
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditEventV1"
+            },
+            "description": "Audit trail events for the current Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Audit Trail events for the current Workspace."
+      },
+      "CredentialSettingsV1": {
+        "title": "CredentialSettingsV1",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CredentialSettingsV1AdditionalProperties"
+        },
+        "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+      },
+      "CredentialV1": {
+        "title": "CredentialV1",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
+      },
+      "CreateCredentialV1Input": {
+        "title": "CreateCredentialV1Input",
+        "required": [
+          "name",
+          "settings"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Create a new Credential based on a set of parameters."
+      },
+      "CreateCredentialV1Output": {
+        "title": "CreateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the newly created Credential."
+      },
+      "UpdateCredentialV1Input": {
+        "title": "UpdateCredentialV1Input",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "An optional human-readable name to associate with this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
+      },
+      "UpdateCredentialV1Output": {
+        "title": "UpdateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the updated Credential."
+      },
+      "ListCredentialsV1Input": {
+        "title": "ListCredentialsV1Input",
+        "type": "object",
+        "description": "Gets a list of Credentials belonging to a Workspace."
+      },
+      "ListCredentialsV1Output": {
+        "title": "ListCredentialsV1Output",
+        "required": [
+          "credentials",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "credentials": {
+            "title": "credentials",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CredentialV1"
+            },
+            "description": "A list of Credentials that belong to the Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Credentials that belong to a Workspace."
+      },
+      "GetCredentialV1Input": {
+        "title": "GetCredentialV1Input",
+        "type": "object",
+        "description": "Looks up a Credential by id."
+      },
+      "GetCredentialV1Output": {
+        "title": "GetCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a Credential."
+      },
+      "DeleteCredentialV1Input": {
+        "title": "DeleteCredentialV1Input",
+        "type": "object",
+        "description": "Deletes a Credential."
+      },
+      "DeleteCredentialV1Output": {
+        "title": "DeleteCredentialV1Output",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the status of a Credential deletion."
+      },
+      "ListCredentialConsumersV1Input": {
+        "title": "ListCredentialConsumersV1Input",
+        "type": "object",
+        "description": "Looks up the Warehouses and Sources that consume a Credential."
+      },
+      "ListCredentialConsumersV1Output": {
+        "title": "ListCredentialConsumersV1Output",
+        "required": [
+          "sources",
+          "sourcesPagination",
+          "warehouses",
+          "warehousesPagination"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouses": {
+            "title": "warehouses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WarehouseV1"
+            },
+            "description": "The Warehouses that use this Credential."
+          },
+          "warehousesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
+          },
+          "sources": {
+            "title": "sources",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SourceV1"
+            },
+            "description": "The Sources that use this Credential."
+          },
+          "sourcesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
+      },
       "CreateDownloadAlphaInput": {
         "title": "CreateDownloadAlphaInput",
         "required": [
@@ -45120,6 +44825,301 @@
           }
         },
         "additionalProperties": false
+      },
+      "TraitDefinition": {
+        "title": "TraitDefinition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "additionalProperties": false
+      },
+      "TraitOptions": {
+        "title": "TraitOptions",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComputedTraitsDefinition": {
+        "title": "ComputedTraitsDefinition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          },
+          "type": {
+            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines an computed trait definition."
+      },
+      "CreateComputedTraitAlphaInput": {
+        "title": "CreateComputedTraitAlphaInput",
+        "required": [
+          "definition",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the computation."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Determines whether a computation is enabled."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "The description of the computation."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputDefinition"
+          },
+          "options": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to create a trait."
+      },
+      "CreateComputedTraitAlphaOutput": {
+        "title": "CreateComputedTraitAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for create."
+      },
+      "ComputedTraitSummary": {
+        "title": "ComputedTraitSummary",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a Computed trait."
+      },
+      "GetComputedTraitAlphaInput": {
+        "title": "GetComputedTraitAlphaInput",
+        "type": "object",
+        "description": "Input to get a computed trait."
+      },
+      "ListComputedTraitsAlphaInput": {
+        "title": "ListComputedTraitsAlphaInput",
+        "type": "object",
+        "description": "Input to list computed traits for a space id."
+      },
+      "UpdateComputedTraitForSpaceAlphaInput": {
+        "title": "UpdateComputedTraitForSpaceAlphaInput",
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the computation."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "The description of the computation."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaInputDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to update a computed trait."
+      },
+      "RemoveComputedTraitFromSpaceAlphaInput": {
+        "title": "RemoveComputedTraitFromSpaceAlphaInput",
+        "type": "object",
+        "description": "Input to delete a computed trait."
+      },
+      "GetComputedTraitAlphaOutput": {
+        "title": "GetComputedTraitAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/GetComputedTraitAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for get and update."
+      },
+      "UpdateComputedTraitForSpaceAlphaOutput": {
+        "title": "UpdateComputedTraitForSpaceAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for get and update."
+      },
+      "ListComputedTraitsAlphaOutput": {
+        "title": "ListComputedTraitsAlphaOutput",
+        "required": [
+          "computedTraits",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTraits": {
+            "title": "computedTraits",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComputedTraitSummary"
+            },
+            "description": "A list of computed trait summary results."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListComputedTraitsAlphaOutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "List computed traits endpoint output."
+      },
+      "RemoveComputedTraitFromSpaceAlphaOutput": {
+        "title": "RemoveComputedTraitFromSpaceAlphaOutput",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Delete computed trait endpoint output."
       },
       "CreateDbtModelSyncTriggerInput": {
         "title": "CreateDbtModelSyncTriggerInput",
@@ -55975,680 +55975,6 @@
         },
         "description": "An optional pagination object that is present when pagination input is present."
       },
-      "ListAuditEventsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
-      "CreateComputedTraitAlphaInputDefinition": {
-        "title": "definition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "description": "Represents the Compute Query Language definition of the computation and type of computation."
-      },
-      "CreateComputedTraitAlphaInputOptions": {
-        "title": "options",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "description": "Options which should be applied when aggregating computed traits."
-      },
-      "CreateComputedTraitAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "ComputedTraitSummaryDefinition": {
-        "title": "definition",
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ComputedTraitsDefinition"
-          }
-        ],
-        "properties": {
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          },
-          "type": {
-            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
-          }
-        },
-        "description": "Query language definition and type.",
-        "nullable": true
-      },
-      "ComputedTraitSummaryOptions": {
-        "title": "options",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "description": "Options which should be applied when segmenting traits."
-      },
-      "UpdateComputedTraitForSpaceAlphaInputDefinition": {
-        "title": "definition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "description": "Query language definition and type.\nNote: The definition for a Computed Trait updated using the API is not editable through the Segment App."
-      },
-      "GetComputedTraitAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "UpdateComputedTraitForSpaceAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "ListComputedTraitsAlphaOutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
-      },
-      "CredentialV1Settings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
-      },
-      "CreateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
-      },
-      "CreateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The newly created Credential."
-      },
-      "UpdateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
-      },
-      "UpdateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The updated Credential."
-      },
-      "ListCredentialsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
-      "GetCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The returned Credential object."
-      },
-      "ListCredentialConsumersV1OutputWarehousesPagination": {
-        "title": "warehousesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of the Warehouses list."
-      },
-      "ListCredentialConsumersV1OutputSourcesPagination": {
-        "title": "sourcesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of the Sources list."
-      },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
         "required": [
@@ -58785,6 +58111,305 @@
         },
         "description": "The run information."
       },
+      "ListAuditEventsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
+      "CredentialV1Settings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
+      },
+      "CreateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
+      },
+      "CreateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The newly created Credential."
+      },
+      "UpdateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
+      },
+      "UpdateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The updated Credential."
+      },
+      "ListCredentialsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
+      "GetCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The returned Credential object."
+      },
+      "ListCredentialConsumersV1OutputWarehousesPagination": {
+        "title": "warehousesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of the Warehouses list."
+      },
+      "ListCredentialConsumersV1OutputSourcesPagination": {
+        "title": "sourcesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of the Sources list."
+      },
       "CreateDownloadAlphaOutputDownload": {
         "title": "download",
         "required": [
@@ -58802,6 +58427,381 @@
           }
         },
         "description": "An object containing the downloaded data."
+      },
+      "CreateComputedTraitAlphaInputDefinition": {
+        "title": "definition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "description": "Represents the Compute Query Language definition of the computation and type of computation."
+      },
+      "CreateComputedTraitAlphaInputOptions": {
+        "title": "options",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "description": "Options which should be applied when aggregating computed traits."
+      },
+      "CreateComputedTraitAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "ComputedTraitSummaryDefinition": {
+        "title": "definition",
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ComputedTraitsDefinition"
+          }
+        ],
+        "properties": {
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          },
+          "type": {
+            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
+          }
+        },
+        "description": "Query language definition and type.",
+        "nullable": true
+      },
+      "ComputedTraitSummaryOptions": {
+        "title": "options",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "description": "Options which should be applied when segmenting traits."
+      },
+      "UpdateComputedTraitForSpaceAlphaInputDefinition": {
+        "title": "definition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "description": "Query language definition and type.\nNote: The definition for a Computed Trait updated using the API is not editable through the Segment App."
+      },
+      "GetComputedTraitAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "UpdateComputedTraitForSpaceAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "ListComputedTraitsAlphaOutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
       },
       "CreateDbtModelSyncTriggerOutputDbtModelSyncTrigger": {
         "title": "dbtModelSyncTrigger",
@@ -70336,9 +70336,6 @@
         "type": "object",
         "description": "The settings that a Destination requires to create audiences on a third-party platform."
       },
-      "CredentialSettingsV1AdditionalProperties": {
-        "type": "object"
-      },
       "AudiencePreviewEntitiesResultEntitiesProperty": {
         "type": "object",
         "description": "Related entities that are one level deeper will only be returned if those entities are referenced in the audience definition."
@@ -70348,6 +70345,9 @@
         "description": "Related entities that are one level deeper will only be returned if those entities are referenced in the audience definition."
       },
       "EntityPropertiesAdditionalProperties": {
+        "type": "object"
+      },
+      "CredentialSettingsV1AdditionalProperties": {
         "type": "object"
       },
       "DestinationFilterActionV1FieldsProperty": {
@@ -70521,54 +70521,6 @@
             {
               "value": "SUCCESS",
               "name": "Success"
-            }
-          ]
-        }
-      },
-      "TraitDefinitionType": {
-        "title": "type",
-        "enum": [
-          "ACCOUNTS",
-          "USERS"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
-        "x-ms-enum": {
-          "name": "TraitDefinitionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ACCOUNTS",
-              "name": "Accounts"
-            },
-            {
-              "value": "USERS",
-              "name": "Users"
-            }
-          ]
-        }
-      },
-      "ComputedTraitsDefinitionType": {
-        "title": "type",
-        "enum": [
-          "ACCOUNTS",
-          "USERS"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
-        "x-ms-enum": {
-          "name": "ComputedTraitsDefinitionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ACCOUNTS",
-              "name": "Accounts"
-            },
-            {
-              "value": "USERS",
-              "name": "Users"
             }
           ]
         }
@@ -71109,6 +71061,54 @@
             {
               "value": "SPECIFIC_DAYS",
               "name": "SpecificDays"
+            }
+          ]
+        }
+      },
+      "TraitDefinitionType": {
+        "title": "type",
+        "enum": [
+          "ACCOUNTS",
+          "USERS"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
+        "x-ms-enum": {
+          "name": "TraitDefinitionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCOUNTS",
+              "name": "Accounts"
+            },
+            {
+              "value": "USERS",
+              "name": "Users"
+            }
+          ]
+        }
+      },
+      "ComputedTraitsDefinitionType": {
+        "title": "type",
+        "enum": [
+          "ACCOUNTS",
+          "USERS"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
+        "x-ms-enum": {
+          "name": "ComputedTraitsDefinitionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCOUNTS",
+              "name": "Accounts"
+            },
+            {
+              "value": "USERS",
+              "name": "Users"
             }
           ]
         }
