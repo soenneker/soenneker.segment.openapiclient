@@ -42379,7 +42379,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile or entity enters the audience.\nAudience Exited: Sends an event when a profile or entity exits the audience.\nAudience Membership Changed: Sends an event for both entries and exits. This does not apply to entities.\nEntity Added: Sends an event when an entity is added to the audience.\nEntity Removed: Sends an event when an entity is removed from the audience.\nEntity Values Changed: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\nAll Events: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\n\n- **Audience Entered**: Sends an event when a profile or entity enters the audience.\n- **Audience Exited**: Sends an event when a profile or entity exits the audience.\n- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.\n- **Entity Added**: Sends an event when an entity is added to the audience.\n- **Entity Removed**: Sends an event when an entity is removed from the audience.\n- **Entity Values Changed**: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\n- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -42595,7 +42595,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile enters the audience.\nAudience Exited: Sends an event when a profile exits the audience.\nAudience Membership Changed: Sends an event for both profile entries and profile exits.\nEntity Added: Sends an event when an entity enters the audience.\nEntity Removed: Sends an event when an entity exits the audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\n- **Audience Entered**: Sends an event when a profile or entity enters the audience.\n- **Audience Exited**: Sends an event when a profile or entity exits the audience.\n- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.\n- **Entity Added**: Sends an event when an entity is added to the audience.\n- **Entity Removed**: Sends an event when an entity is removed from the audience.\n- **Entity Values Changed**: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\n- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -42707,6 +42707,33 @@
         },
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
+      },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -44439,33 +44466,6 @@
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
       },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
-      },
       "AuditEventV1": {
         "title": "AuditEventV1",
         "required": [
@@ -44845,6 +44845,59 @@
         "additionalProperties": false,
         "description": "Delete computed trait endpoint output."
       },
+      "CreateDownloadAlphaInput": {
+        "title": "CreateDownloadAlphaInput",
+        "required": [
+          "collectionId",
+          "hour"
+        ],
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "title": "collectionId",
+            "type": "string",
+            "description": "The collection\u0027s unique id."
+          },
+          "hour": {
+            "title": "hour",
+            "type": "string",
+            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to create presigned URLs for Granular Observability Collection logs."
+      },
+      "Download": {
+        "title": "Download",
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "properties": {
+          "urls": {
+            "title": "urls",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of presigned URLs from S3."
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateDownloadAlphaOutput": {
+        "title": "CreateDownloadAlphaOutput",
+        "required": [
+          "download"
+        ],
+        "type": "object",
+        "properties": {
+          "download": {
+            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
+          }
+        },
+        "additionalProperties": false
+      },
       "CredentialSettingsV1": {
         "title": "CredentialSettingsV1",
         "type": "object",
@@ -45067,59 +45120,6 @@
         },
         "additionalProperties": false,
         "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
-      },
-      "CreateDownloadAlphaInput": {
-        "title": "CreateDownloadAlphaInput",
-        "required": [
-          "collectionId",
-          "hour"
-        ],
-        "type": "object",
-        "properties": {
-          "collectionId": {
-            "title": "collectionId",
-            "type": "string",
-            "description": "The collection\u0027s unique id."
-          },
-          "hour": {
-            "title": "hour",
-            "type": "string",
-            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to create presigned URLs for Granular Observability Collection logs."
-      },
-      "Download": {
-        "title": "Download",
-        "required": [
-          "urls"
-        ],
-        "type": "object",
-        "properties": {
-          "urls": {
-            "title": "urls",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of presigned URLs from S3."
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateDownloadAlphaOutput": {
-        "title": "CreateDownloadAlphaOutput",
-        "required": [
-          "download"
-        ],
-        "type": "object",
-        "properties": {
-          "download": {
-            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
-          }
-        },
-        "additionalProperties": false
       },
       "CreateDbtModelSyncTriggerInput": {
         "title": "CreateDbtModelSyncTriggerInput",
@@ -49418,6 +49418,34 @@
         "additionalProperties": false,
         "description": "Output for DeleteLivePlugin."
       },
+      "LogosBeta": {
+        "title": "LogosBeta",
+        "required": [
+          "default"
+        ],
+        "type": "object",
+        "properties": {
+          "default": {
+            "title": "default",
+            "type": "string",
+            "description": "The default URL for this logo."
+          },
+          "mark": {
+            "title": "mark",
+            "type": "string",
+            "description": "The logo mark.",
+            "nullable": true
+          },
+          "alt": {
+            "title": "alt",
+            "type": "string",
+            "description": "The alternative text for this logo.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a logo."
+      },
       "EventSourceV1": {
         "title": "EventSourceV1",
         "required": [
@@ -49617,34 +49645,6 @@
         },
         "additionalProperties": false,
         "description": "GetEventVolumeOutputQuery represents the input query sent to output."
-      },
-      "LogosBeta": {
-        "title": "LogosBeta",
-        "required": [
-          "default"
-        ],
-        "type": "object",
-        "properties": {
-          "default": {
-            "title": "default",
-            "type": "string",
-            "description": "The default URL for this logo."
-          },
-          "mark": {
-            "title": "mark",
-            "type": "string",
-            "description": "The logo mark.",
-            "nullable": true
-          },
-          "alt": {
-            "title": "alt",
-            "type": "string",
-            "description": "The alternative text for this logo.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents a logo."
       },
       "ProfilesWarehouseAlpha": {
         "title": "ProfilesWarehouseAlpha",
@@ -55652,7 +55652,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile enters the audience.\nAudience Exited: Sends an event when a profile exits the audience.\nAudience Membership Changed: Sends an event for both profile entries and profile exits.\nEntity Added: Sends an event when an entity enters the audience.\nEntity Removed: Sends an event when an entity exits the audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\n- **Audience Entered**: Sends an event when a profile or entity enters the audience.\n- **Audience Exited**: Sends an event when a profile or entity exits the audience.\n- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.\n- **Entity Added**: Sends an event when an entity is added to the audience.\n- **Entity Removed**: Sends an event when an entity is removed from the audience.\n- **Entity Values Changed**: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\n- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -55726,7 +55726,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile enters the audience.\nAudience Exited: Sends an event when a profile exits the audience.\nAudience Membership Changed: Sends an event for both profile entries and profile exits.\nEntity Added: Sends an event when an entity enters the audience.\nEntity Removed: Sends an event when an entity exits the audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\n- **Audience Entered**: Sends an event when a profile or entity enters the audience.\n- **Audience Exited**: Sends an event when a profile or entity exits the audience.\n- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.\n- **Entity Added**: Sends an event when an entity is added to the audience.\n- **Entity Removed**: Sends an event when an entity is removed from the audience.\n- **Entity Values Changed**: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\n- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -55800,7 +55800,7 @@
           "activationType": {
             "title": "activationType",
             "type": "string",
-            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\nAudience Entered: Sends an event when a profile enters the audience.\nAudience Exited: Sends an event when a profile exits the audience.\nAudience Membership Changed: Sends an event for both profile entries and profile exits.\nEntity Added: Sends an event when an entity enters the audience.\nEntity Removed: Sends an event when an entity exits the audience."
+            "description": "Determines when an event is sent to the Destination.\n\nPossible values:\n- **Audience Entered**: Sends an event when a profile or entity enters the audience.\n- **Audience Exited**: Sends an event when a profile or entity exits the audience.\n- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.\n- **Entity Added**: Sends an event when an entity is added to the audience.\n- **Entity Removed**: Sends an event when an entity is removed from the audience.\n- **Entity Values Changed**: Sends an event when an entity\u0027s property values change. Restricted to freshness-enabled Destinations.\n- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).\n\nNote that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience."
           },
           "activationName": {
             "title": "activationName",
@@ -58518,6 +58518,24 @@
         },
         "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
       },
+      "CreateDownloadAlphaOutputDownload": {
+        "title": "download",
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "properties": {
+          "urls": {
+            "title": "urls",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of presigned URLs from S3."
+          }
+        },
+        "description": "An object containing the downloaded data."
+      },
       "CredentialV1Settings": {
         "title": "settings",
         "type": "object",
@@ -58784,24 +58802,6 @@
           }
         },
         "description": "Information about the pagination of the Sources list."
-      },
-      "CreateDownloadAlphaOutputDownload": {
-        "title": "download",
-        "required": [
-          "urls"
-        ],
-        "type": "object",
-        "properties": {
-          "urls": {
-            "title": "urls",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of presigned URLs from S3."
-          }
-        },
-        "description": "An object containing the downloaded data."
       },
       "CreateDbtModelSyncTriggerOutputDbtModelSyncTrigger": {
         "title": "dbtModelSyncTrigger",
