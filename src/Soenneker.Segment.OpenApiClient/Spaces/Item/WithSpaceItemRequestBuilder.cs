@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Segment.OpenApiClient.Models;
+using Soenneker.Segment.OpenApiClient.Spaces.Item.Activations;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.AudienceType;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.ComputedTraits;
@@ -26,6 +27,11 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSpaceItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The activations property</summary>
+        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Activations.ActivationsRequestBuilder Activations
+        {
+            get => new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Activations.ActivationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The audiences property</summary>
         public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.AudiencesRequestBuilder Audiences
         {
