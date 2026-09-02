@@ -42193,6 +42193,117 @@
   },
   "components": {
     "schemas": {
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
+      },
+      "AuditEventV1": {
+        "title": "AuditEventV1",
+        "required": [
+          "actor",
+          "id",
+          "resourceId",
+          "resourceName",
+          "resourceType",
+          "timestamp",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Unique identifier for this audit trail event."
+          },
+          "timestamp": {
+            "title": "timestamp",
+            "type": "string",
+            "description": "The timestamp of this event in ISO-8601 format."
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The type of this event."
+          },
+          "actor": {
+            "title": "actor",
+            "type": "string",
+            "description": "The user or API token that triggered this event."
+          },
+          "actorEmail": {
+            "title": "actorEmail",
+            "type": "string",
+            "description": "The email of the user that triggered this event."
+          },
+          "resourceId": {
+            "title": "resourceId",
+            "type": "string",
+            "description": "The identifier of the resource affected by this event."
+          },
+          "resourceType": {
+            "title": "resourceType",
+            "type": "string",
+            "description": "The kind of resource affected by this event."
+          },
+          "resourceName": {
+            "title": "resourceName",
+            "type": "string",
+            "description": "The name of the resource affected by this event."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an Audit Trail event."
+      },
+      "ListAuditEventsV1Input": {
+        "title": "ListAuditEventsV1Input",
+        "type": "object",
+        "description": "Retrieves all Audit Trail events for the current Workspace."
+      },
+      "ListAuditEventsV1Output": {
+        "title": "ListAuditEventsV1Output",
+        "required": [
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditEventV1"
+            },
+            "description": "Audit trail events for the current Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Audit Trail events for the current Workspace."
+      },
       "IdSyncConfigurationInput": {
         "title": "IDSyncConfigurationInput",
         "required": [
@@ -42904,117 +43015,6 @@
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
       },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
-      },
-      "AuditEventV1": {
-        "title": "AuditEventV1",
-        "required": [
-          "actor",
-          "id",
-          "resourceId",
-          "resourceName",
-          "resourceType",
-          "timestamp",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Unique identifier for this audit trail event."
-          },
-          "timestamp": {
-            "title": "timestamp",
-            "type": "string",
-            "description": "The timestamp of this event in ISO-8601 format."
-          },
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "The type of this event."
-          },
-          "actor": {
-            "title": "actor",
-            "type": "string",
-            "description": "The user or API token that triggered this event."
-          },
-          "actorEmail": {
-            "title": "actorEmail",
-            "type": "string",
-            "description": "The email of the user that triggered this event."
-          },
-          "resourceId": {
-            "title": "resourceId",
-            "type": "string",
-            "description": "The identifier of the resource affected by this event."
-          },
-          "resourceType": {
-            "title": "resourceType",
-            "type": "string",
-            "description": "The kind of resource affected by this event."
-          },
-          "resourceName": {
-            "title": "resourceName",
-            "type": "string",
-            "description": "The name of the resource affected by this event."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents an Audit Trail event."
-      },
-      "ListAuditEventsV1Input": {
-        "title": "ListAuditEventsV1Input",
-        "type": "object",
-        "description": "Retrieves all Audit Trail events for the current Workspace."
-      },
-      "ListAuditEventsV1Output": {
-        "title": "ListAuditEventsV1Output",
-        "required": [
-          "events"
-        ],
-        "type": "object",
-        "properties": {
-          "events": {
-            "title": "events",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AuditEventV1"
-            },
-            "description": "Audit trail events for the current Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Audit Trail events for the current Workspace."
-      },
       "TraitDefinition": {
         "title": "TraitDefinition",
         "required": [
@@ -43532,6 +43532,59 @@
         },
         "additionalProperties": false,
         "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
+      },
+      "CreateDownloadAlphaInput": {
+        "title": "CreateDownloadAlphaInput",
+        "required": [
+          "collectionId",
+          "hour"
+        ],
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "title": "collectionId",
+            "type": "string",
+            "description": "The collection\u0027s unique id."
+          },
+          "hour": {
+            "title": "hour",
+            "type": "string",
+            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to create presigned URLs for Granular Observability Collection logs."
+      },
+      "Download": {
+        "title": "Download",
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "properties": {
+          "urls": {
+            "title": "urls",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of presigned URLs from S3."
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateDownloadAlphaOutput": {
+        "title": "CreateDownloadAlphaOutput",
+        "required": [
+          "download"
+        ],
+        "type": "object",
+        "properties": {
+          "download": {
+            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
+          }
+        },
+        "additionalProperties": false
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -45263,59 +45316,6 @@
         },
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
-      },
-      "CreateDownloadAlphaInput": {
-        "title": "CreateDownloadAlphaInput",
-        "required": [
-          "collectionId",
-          "hour"
-        ],
-        "type": "object",
-        "properties": {
-          "collectionId": {
-            "title": "collectionId",
-            "type": "string",
-            "description": "The collection\u0027s unique id."
-          },
-          "hour": {
-            "title": "hour",
-            "type": "string",
-            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to create presigned URLs for Granular Observability Collection logs."
-      },
-      "Download": {
-        "title": "Download",
-        "required": [
-          "urls"
-        ],
-        "type": "object",
-        "properties": {
-          "urls": {
-            "title": "urls",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of presigned URLs from S3."
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateDownloadAlphaOutput": {
-        "title": "CreateDownloadAlphaOutput",
-        "required": [
-          "download"
-        ],
-        "type": "object",
-        "properties": {
-          "download": {
-            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
-          }
-        },
-        "additionalProperties": false
       },
       "CreateDbtModelSyncTriggerInput": {
         "title": "CreateDbtModelSyncTriggerInput",
@@ -55660,6 +55660,38 @@
         },
         "description": "Envelope type for RequestErrors."
       },
+      "ListAuditEventsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
       "DestinationSubscriptionConfigurationSettings": {
         "title": "settings",
         "type": "object",
@@ -56222,38 +56254,6 @@
           }
         },
         "description": "An optional pagination object that is present when pagination input is present."
-      },
-      "ListAuditEventsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
       },
       "CreateComputedTraitAlphaInputDefinition": {
         "title": "definition",
@@ -56896,6 +56896,24 @@
           }
         },
         "description": "Information about the pagination of the Sources list."
+      },
+      "CreateDownloadAlphaOutputDownload": {
+        "title": "download",
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "properties": {
+          "urls": {
+            "title": "urls",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of presigned URLs from S3."
+          }
+        },
+        "description": "An object containing the downloaded data."
       },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
@@ -59032,24 +59050,6 @@
           }
         },
         "description": "The run information."
-      },
-      "CreateDownloadAlphaOutputDownload": {
-        "title": "download",
-        "required": [
-          "urls"
-        ],
-        "type": "object",
-        "properties": {
-          "urls": {
-            "title": "urls",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of presigned URLs from S3."
-          }
-        },
-        "description": "An object containing the downloaded data."
       },
       "CreateDbtModelSyncTriggerOutputDbtModelSyncTrigger": {
         "title": "dbtModelSyncTrigger",
