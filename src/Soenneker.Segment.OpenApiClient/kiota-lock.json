@@ -2,7 +2,7 @@
   "descriptionHash": "A55D303EE2BB669541F2295706264D91CCF35F58EB6709F6B09E60F4205C7203A6A08395B09B85139DEC446D45D789E20F4B15347EDC9B89FD1636E4CEA37A9A",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.1",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "SegmentOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Segment.OpenApiClient",

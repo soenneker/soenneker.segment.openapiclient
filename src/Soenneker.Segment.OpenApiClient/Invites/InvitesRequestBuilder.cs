@@ -130,7 +130,7 @@ namespace Soenneker.Segment.OpenApiClient.Invites
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Invites.InvitesRequestBuilder.InvitesRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/invites?emails={emails}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/invites{?emails*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
             return requestInfo;

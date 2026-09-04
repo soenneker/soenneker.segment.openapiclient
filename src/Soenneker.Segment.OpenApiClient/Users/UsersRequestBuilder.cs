@@ -114,7 +114,7 @@ namespace Soenneker.Segment.OpenApiClient.Users
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Users.UsersRequestBuilder.UsersRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users?userIds={userIds}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/users{?userIds*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
             return requestInfo;

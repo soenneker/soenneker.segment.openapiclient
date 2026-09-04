@@ -103,7 +103,7 @@ namespace Soenneker.Segment.OpenApiClient.Group.Item.Users
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Group.Item.Users.UsersRequestBuilder.UsersRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/group/{userGroupId}/users?emails={emails}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/group/{userGroupId}/users{?emails*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
             return requestInfo;

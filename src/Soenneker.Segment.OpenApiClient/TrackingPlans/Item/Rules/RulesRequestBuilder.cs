@@ -159,7 +159,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Rules
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Rules.RulesRequestBuilder.RulesRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tracking-plans/{trackingPlanId}/rules?rules={rules}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tracking-plans/{trackingPlanId}/rules{?rules*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
             return requestInfo;
