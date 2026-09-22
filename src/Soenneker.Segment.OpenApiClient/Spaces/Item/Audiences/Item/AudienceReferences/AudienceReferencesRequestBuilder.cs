@@ -34,9 +34,9 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
         {
         }
         /// <summary>
-        /// Returns the list of consumers for the given audience.• This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+        /// Returns the list of consumers for the given audience.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1AlphaJsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1JsonResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1AlphaJsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences.AudienceReferencesRequestBuilder.AudienceReferencesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences.AudienceReferencesRequestBuilder.AudienceReferencesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1AlphaJsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences.AudienceReferencesRequestBuilder.AudienceReferencesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences.AudienceReferencesRequestBuilder.AudienceReferencesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,10 +58,10 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1AlphaJsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1AlphaJsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudience200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the list of consumers for the given audience.• This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+        /// Returns the list of consumers for the given audience.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
+            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
             return requestInfo;
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
             return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences.AudienceReferencesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the list of consumers for the given audience.• This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+        /// Returns the list of consumers for the given audience.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AudienceReferencesRequestBuilderGetQueryParameters 

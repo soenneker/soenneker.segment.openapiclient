@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// List Audience consumers output.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListAudienceConsumersFromSpaceAndAudienceAlphaOutput : IParsable
+    public partial class ListAudienceConsumersFromSpaceAndAudienceOutput : IParsable
     {
         /// <summary>The list of audience consumers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,20 +24,20 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Information about the pagination of this response.[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination? Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination? Pagination { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination Pagination { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutput();
+            return new global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutput();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "audiences", n => { Audiences = n.GetCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummary>(global::Soenneker.Segment.OpenApiClient.Models.AudienceSummary.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination>(global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination.CreateFromDiscriminatorValue); } },
+                { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination>(global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummary>("audiences", Audiences);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination>("pagination", Pagination);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination>("pagination", Pagination);
         }
     }
 }

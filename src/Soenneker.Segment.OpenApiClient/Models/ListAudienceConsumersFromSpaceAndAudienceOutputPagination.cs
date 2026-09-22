@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Information about the pagination of this response.[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination : IAdditionalDataHolder, IParsable
+    public partial class ListAudienceConsumersFromSpaceAndAudienceOutputPagination : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -42,21 +42,21 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The total number of entries available in the collection.If calculating it impacts performance, the response may omit this field.</summary>
         public double? TotalEntries { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination"/> and sets the default values.
         /// </summary>
-        public ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination()
+        public ListAudienceConsumersFromSpaceAndAudienceOutputPagination()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceAlphaOutputPagination();
+            return new global::Soenneker.Segment.OpenApiClient.Models.ListAudienceConsumersFromSpaceAndAudienceOutputPagination();
         }
         /// <summary>
         /// The deserialization information for the current model
