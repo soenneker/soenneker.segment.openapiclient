@@ -8,7 +8,7 @@
       "url": "https://docs.segmentapis.com",
       "email": "friends@segment.com"
     },
-    "version": "73.4.0",
+    "version": "73.5.0",
     "x-logo": {
       "url": "https://assets.twilio.com/public_assets/segment-assets/1.0.0/logos/twilio-segment.webp",
       "backgroundColor": "#ebf4ff",
@@ -757,6 +757,16 @@
                     "status": "CONNECTED"
                   }
                 }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                }
               }
             }
           },
@@ -915,6 +925,16 @@
               "application/vnd.segment.v1alpha\u002Bjson": {
                 "schema": {
                   "$ref": "#/components/schemas/RemoveSourceConnectionFromWarehouse200SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "SUCCESS"
+                  }
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveSourceConnectionFromWarehouse200SegmentV2JsonResponse"
                 },
                 "example": {
                   "data": {
@@ -15055,6 +15075,14 @@
                   "password": "test"
                 }
               }
+            },
+            "application/vnd.segment.v2\u002Bjson": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateValidationInWarehouseV2Input"
+              },
+              "example": {
+                "credentialId": "crd_2geY9JXJypYTuhwysuRTgm"
+              }
             }
           },
           "required": true
@@ -15096,6 +15124,16 @@
               "application/vnd.segment.v1alpha\u002Bjson": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateValidationInWarehouse200SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateValidationInWarehouse200SegmentV2JsonResponse"
                 },
                 "example": {
                   "data": {
@@ -15266,6 +15304,15 @@
                   "database": "TEST_DB"
                 }
               }
+            },
+            "application/vnd.segment.v2\u002Bjson": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWarehouseV2Input"
+              },
+              "example": {
+                "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                "name": "Analytics Warehouse"
+              }
             }
           },
           "required": true
@@ -15389,6 +15436,31 @@
                     }
                   }
                 }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "sYpBdHf9aHd7sXEuExZisp",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Analytics Warehouse",
+                      "enabled": true,
+                      "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                      "settings": {
+                        "hostname": "address.us-west-2.redshift.amazonaws.com",
+                        "port": "5439",
+                        "database": "db",
+                        "username": "user",
+                        "password": "\u003Credacted\u003E"
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
+                    }
+                  }
+                }
               }
             }
           },
@@ -15490,7 +15562,7 @@
           {
             "name": "pagination",
             "in": "query",
-            "description": "Defines the pagination parameters.\n\nThis parameter exists in v1.",
+            "description": "Defines the pagination parameters.\n\nThis parameter exists in v2.",
             "schema": {
               "$ref": "#/components/schemas/PaginationInput"
             },
@@ -15952,6 +16024,37 @@
                     }
                   }
                 }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWarehouses200SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouses": [
+                      {
+                        "id": "kjU72LCJexvrqL7G4TMHHN",
+                        "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                        "name": "Analytics Warehouse",
+                        "enabled": true,
+                        "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                        "settings": {
+                          "hostname": "address.us-west-2.redshift.amazonaws.com",
+                          "port": "5439",
+                          "database": "db",
+                          "username": "user",
+                          "password": "\u003Credacted\u003E"
+                        },
+                        "createdAt": "2006-01-02T15:04:05.000Z",
+                        "updatedAt": "2006-01-02T15:04:05.000Z"
+                      }
+                    ],
+                    "pagination": {
+                      "current": "MA==",
+                      "totalEntries": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -16030,15 +16133,15 @@
           },
           {
             "lang": "Java",
-            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.WarehousesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        WarehousesApi apiInstance = new WarehousesApi(defaultClient);\n        PaginationInput pagination = new PaginationInput(); // PaginationInput | Defines the pagination parameters.  This parameter exists in v1.\n        try {\n            ListWarehouses200Response result = apiInstance.listWarehouses(pagination);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling WarehousesApi#listWarehouses\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
+            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.WarehousesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        WarehousesApi apiInstance = new WarehousesApi(defaultClient);\n        PaginationInput pagination = new PaginationInput(); // PaginationInput | Defines the pagination parameters.  This parameter exists in v2.\n        try {\n            ListWarehouses200Response result = apiInstance.listWarehouses(pagination);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling WarehousesApi#listWarehouses\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
           },
           {
             "lang": "Python",
-            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.list_warehouses200_response import ListWarehouses200Response\nfrom segment_public_api.models.pagination_input import PaginationInput\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.WarehousesApi(api_client)\n    pagination = segment_public_api.PaginationInput(count=10) # PaginationInput | Defines the pagination parameters.  This parameter exists in v1. (optional)\n\n    try:\n        # List Warehouses\n        api_response = api_instance.list_warehouses(pagination=pagination)\n        print(\u0022The response of WarehousesApi-\u003Elist_warehouses:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling WarehousesApi-\u003Elist_warehouses: %s\\n\u0022 % e)"
+            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.list_warehouses200_response import ListWarehouses200Response\nfrom segment_public_api.models.pagination_input import PaginationInput\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.WarehousesApi(api_client)\n    pagination = segment_public_api.PaginationInput(count=10) # PaginationInput | Defines the pagination parameters.  This parameter exists in v2. (optional)\n\n    try:\n        # List Warehouses\n        api_response = api_instance.list_warehouses(pagination=pagination)\n        print(\u0022The response of WarehousesApi-\u003Elist_warehouses:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling WarehousesApi-\u003Elist_warehouses: %s\\n\u0022 % e)"
           },
           {
             "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    pagination := *api.NewPaginationInput(10) // PaginationInput | Defines the pagination parameters.  This parameter exists in v1. (optional)\n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.WarehousesAPI.ListWarehouses(ctx).Pagination(pagination).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060WarehousesAPI.ListWarehouses\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060ListWarehouses\u0060: ListWarehouses200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060WarehousesAPI.ListWarehouses\u0060: %v\\n\u0022, resp.GetData())\n}"
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    pagination := *api.NewPaginationInput(10) // PaginationInput | Defines the pagination parameters.  This parameter exists in v2. (optional)\n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.WarehousesAPI.ListWarehouses(ctx).Pagination(pagination).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060WarehousesAPI.ListWarehouses\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060ListWarehouses\u0060: ListWarehouses200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060WarehousesAPI.ListWarehouses\u0060: %v\\n\u0022, resp.GetData())\n}"
           }
         ]
       }
@@ -23832,7 +23935,7 @@
               "minimum": 1,
               "type": "string"
             },
-            "example": "tmiTtiPi58udvDAjcxKUJY"
+            "example": "createdWarehouseId"
           }
         ],
         "responses": {
@@ -23872,6 +23975,16 @@
               "application/vnd.segment.v1alpha\u002Bjson": {
                 "schema": {
                   "$ref": "#/components/schemas/DeleteWarehouse200SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "SUCCESS"
+                  }
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteWarehouse200SegmentV2JsonResponse"
                 },
                 "example": {
                   "data": {
@@ -23952,19 +24065,19 @@
         "x-codeSamples": [
           {
             "lang": "TypeScript",
-            "source": "import { configureApis, unwrap } from \u0027@segment/public-api-sdk-typescript\u0027\n\nconst api = configureApis(\u0027/* Insert your Public API token here */\u0027)\n\ntry {\n  const result = await unwrap(api.warehouses.deleteWarehouse(\u0027tmiTtiPi58udvDAjcxKUJY\u0027))\n  console.log(JSON.stringify(result))\n} catch (e) {\n  console.log(\u0027ERROR:\u0027, e)\n}\n"
+            "source": "import { configureApis, unwrap } from \u0027@segment/public-api-sdk-typescript\u0027\n\nconst api = configureApis(\u0027/* Insert your Public API token here */\u0027)\n\ntry {\n  const result = await unwrap(api.warehouses.deleteWarehouse(\u0027createdWarehouseId\u0027))\n  console.log(JSON.stringify(result))\n} catch (e) {\n  console.log(\u0027ERROR:\u0027, e)\n}\n"
           },
           {
             "lang": "Java",
-            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.WarehousesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        WarehousesApi apiInstance = new WarehousesApi(defaultClient);\n        String warehouseId = \u0022tmiTtiPi58udvDAjcxKUJY\u0022; // String | \n        try {\n            DeleteWarehouse200Response result = apiInstance.deleteWarehouse(warehouseId);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling WarehousesApi#deleteWarehouse\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
+            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.WarehousesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        WarehousesApi apiInstance = new WarehousesApi(defaultClient);\n        String warehouseId = \u0022createdWarehouseId\u0022; // String | \n        try {\n            DeleteWarehouse200Response result = apiInstance.deleteWarehouse(warehouseId);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling WarehousesApi#deleteWarehouse\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
           },
           {
             "lang": "Python",
-            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.delete_warehouse200_response import DeleteWarehouse200Response\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.WarehousesApi(api_client)\n    warehouse_id = \u0027tmiTtiPi58udvDAjcxKUJY\u0027 # str | \n\n    try:\n        # Delete Warehouse\n        api_response = api_instance.delete_warehouse(warehouse_id)\n        print(\u0022The response of WarehousesApi-\u003Edelete_warehouse:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling WarehousesApi-\u003Edelete_warehouse: %s\\n\u0022 % e)"
+            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.delete_warehouse200_response import DeleteWarehouse200Response\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.WarehousesApi(api_client)\n    warehouse_id = \u0027createdWarehouseId\u0027 # str | \n\n    try:\n        # Delete Warehouse\n        api_response = api_instance.delete_warehouse(warehouse_id)\n        print(\u0022The response of WarehousesApi-\u003Edelete_warehouse:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling WarehousesApi-\u003Edelete_warehouse: %s\\n\u0022 % e)"
           },
           {
             "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    warehouseId := \u0022tmiTtiPi58udvDAjcxKUJY\u0022 // string | \n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.WarehousesAPI.DeleteWarehouse(ctx, warehouseId).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060WarehousesAPI.DeleteWarehouse\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060DeleteWarehouse\u0060: DeleteWarehouse200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060WarehousesAPI.DeleteWarehouse\u0060: %v\\n\u0022, resp.GetData())\n}"
+            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    warehouseId := \u0022createdWarehouseId\u0022 // string | \n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.WarehousesAPI.DeleteWarehouse(ctx, warehouseId).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060WarehousesAPI.DeleteWarehouse\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060DeleteWarehouse\u0060: DeleteWarehouse200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060WarehousesAPI.DeleteWarehouse\u0060: %v\\n\u0022, resp.GetData())\n}"
           }
         ]
       },
@@ -24223,6 +24336,31 @@
                     }
                   }
                 }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWarehouse200SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "kjU72LCJexvrqL7G4TMHHN",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Analytics Warehouse",
+                      "enabled": true,
+                      "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                      "settings": {
+                        "hostname": "address.us-west-2.redshift.amazonaws.com",
+                        "port": "5439",
+                        "database": "db",
+                        "username": "user",
+                        "password": "\u003Credacted\u003E"
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
+                    }
+                  }
+                }
               }
             }
           },
@@ -24369,6 +24507,15 @@
               "example": {
                 "name": "API Example Test Warehouse Update",
                 "settings": {}
+              }
+            },
+            "application/vnd.segment.v2\u002Bjson": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWarehouseV2Input"
+              },
+              "example": {
+                "name": "Analytics Warehouse",
+                "credentialId": "crd_2geY9JXJypYTuhwysuRTgm"
               }
             }
           },
@@ -24614,6 +24761,31 @@
                       "settings": {
                         "name": "API Example Test Warehouse Update"
                       }
+                    }
+                  }
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateWarehouse200SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "kjU72LCJexvrqL7G4TMHHN",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Analytics Warehouse",
+                      "enabled": true,
+                      "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                      "settings": {
+                        "hostname": "address.us-west-2.redshift.amazonaws.com",
+                        "port": "5439",
+                        "database": "db",
+                        "username": "user",
+                        "password": "\u003Credacted\u003E"
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
                     }
                   }
                 }
@@ -28390,6 +28562,16 @@
               "application/vnd.segment.v1alpha\u002Bjson": {
                 "schema": {
                   "$ref": "#/components/schemas/GetConnectionStateFromWarehouse200SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "connectionState": "CONNECTED"
+                  }
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConnectionStateFromWarehouse200SegmentV2JsonResponse"
                 },
                 "example": {
                   "data": {
@@ -38298,6 +38480,49 @@
                     }
                   }
                 }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListConnectedSourcesFromWarehouse200SegmentV2JsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "sources": [
+                      {
+                        "id": "qQEHquLrjRDN9j1ByrChyn",
+                        "slug": "swift",
+                        "name": "",
+                        "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                        "enabled": true,
+                        "writeKeys": [
+                          "bEj5MzDqCkHYRqreZgbPuH"
+                        ],
+                        "metadata": {
+                          "id": "dZeHygTSD4",
+                          "slug": "swift",
+                          "name": "Apple",
+                          "categories": [
+                            "Mobile"
+                          ],
+                          "description": "The hassle-free way to add Segment analytics to your swift app (iOS, macOS, tvOS).",
+                          "logos": {
+                            "default": "https://cdn.filepicker.io/api/file/qWgSP5cpS7eeW2voq13u",
+                            "alt": "https://cdn.filepicker.io/api/file/qWgSP5cpS7eeW2voq13u",
+                            "mark": "https://cdn.filepicker.io/api/file/CoPDNKCgSlyYVeQow6JW"
+                          },
+                          "options": [],
+                          "isCloudEventSource": false
+                        },
+                        "settings": {},
+                        "labels": []
+                      }
+                    ],
+                    "pagination": {
+                      "current": "MA==",
+                      "totalEntries": 1
+                    }
+                  }
+                }
               }
             }
           },
@@ -47438,6 +47663,33 @@
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
       },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
+      },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
         "required": [
@@ -49196,33 +49448,6 @@
         },
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
-      },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "AuditEventV1": {
         "title": "AuditEventV1",
@@ -60067,6 +60292,228 @@
         "additionalProperties": false,
         "description": "Verifies a set of Warehouse credentials by attempting to connect to it."
       },
+      "WarehouseSettingsV2": {
+        "title": "WarehouseSettingsV2",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/WarehouseSettingsV2AdditionalProperties"
+        },
+        "description": "A key-value object that contains the settings for a Warehouse, derived from its associated Credential."
+      },
+      "WarehouseV2": {
+        "title": "WarehouseV2",
+        "required": [
+          "createdAt",
+          "credentialId",
+          "enabled",
+          "id",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Warehouse."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Warehouse."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "When set to true, this Warehouse receives data."
+          },
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential this Warehouse is connected to."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/WarehouseV2Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Warehouse was created.",
+            "nullable": true
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Warehouse was last updated.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a data Warehouse used as a Destination for Segment data. Unlike the v1 Warehouse, a v2\nWarehouse always has a Credential \u2014 its connection settings are always derived from that\nCredential rather than being stored directly on the Warehouse. There is no \u0060metadataId\u0060; the\nWarehouse type is inferred from the Credential."
+      },
+      "CreateWarehouseV2Input": {
+        "title": "CreateWarehouseV2Input",
+        "required": [
+          "credentialId"
+        ],
+        "type": "object",
+        "properties": {
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential to connect this Warehouse to. The Warehouse\u0027s type and connection\nsettings are derived from this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "An optional human-readable name for this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enable to allow this Warehouse to receive data. Defaults to true."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Create a new Warehouse connected to a Credential. Unlike the v1 create endpoint, there is no\n\u0060metadataId\u0060 or legacy \u0060settings\u0060 flow \u2014 the Warehouse type and connection settings are always\nderived from the given Credential."
+      },
+      "CreateWarehouseV2Output": {
+        "title": "CreateWarehouseV2Output",
+        "required": [
+          "warehouse"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouse": {
+            "$ref": "#/components/schemas/CreateWarehouseV2OutputWarehouse"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the newly created Warehouse."
+      },
+      "UpdateWarehouseV2Input": {
+        "title": "UpdateWarehouseV2Input",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "An optional human-readable name to associate with this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enable to allow this Warehouse to receive data."
+          },
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of a Credential to connect this Warehouse to. Swapping the Credential re-derives this\nWarehouse\u0027s connection settings and re-validates the connection. The Credential must be the\nsame type as the Warehouse\u0027s existing type \u2014 a Warehouse\u0027s type cannot be changed after\ncreation, so a mismatched Credential is rejected rather than silently ignored."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Updates an existing Warehouse based on a set of parameters. There is no per-Warehouse settings\noverride \u2014 settings are always fully derived from the associated Credential."
+      },
+      "UpdateWarehouseV2Output": {
+        "title": "UpdateWarehouseV2Output",
+        "required": [
+          "warehouse"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouse": {
+            "$ref": "#/components/schemas/UpdateWarehouseV2OutputWarehouse"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the updated Warehouse."
+      },
+      "ListWarehousesV2Input": {
+        "title": "ListWarehousesV2Input",
+        "type": "object",
+        "description": "Gets a list of Warehouses belonging to a Workspace."
+      },
+      "ListWarehousesV2Output": {
+        "title": "ListWarehousesV2Output",
+        "required": [
+          "pagination",
+          "warehouses"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouses": {
+            "title": "warehouses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WarehouseV2"
+            },
+            "description": "A list of Warehouses that belong to the Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListWarehousesV2OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Warehouses that belong to a Workspace."
+      },
+      "GetWarehouseV2Input": {
+        "title": "GetWarehouseV2Input",
+        "type": "object",
+        "description": "Looks up a Warehouse by id."
+      },
+      "GetWarehouseV2Output": {
+        "title": "GetWarehouseV2Output",
+        "required": [
+          "warehouse"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouse": {
+            "$ref": "#/components/schemas/GetWarehouseV2OutputWarehouse"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a Warehouse."
+      },
+      "CreateValidationInWarehouseV2Input": {
+        "title": "CreateValidationInWarehouseV2Input",
+        "required": [
+          "credentialId"
+        ],
+        "type": "object",
+        "properties": {
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential to validate the connection with. The Warehouse type is derived from\nthis Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CreateValidationInWarehouseV2InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Verifies a Warehouse connection using a Credential by attempting to connect to it."
+      },
+      "CreateValidationInWarehouseV2Output": {
+        "title": "CreateValidationInWarehouseV2Output",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CreateValidationInWarehouseV2OutputStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the status of a Warehouse connection settings after an attempt to connect to it."
+      },
       "WorkspaceV1": {
         "title": "WorkspaceV1",
         "required": [
@@ -70259,6 +70706,234 @@
         ],
         "description": "The settings to check."
       },
+      "WarehouseV2Settings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains the settings for a Warehouse, derived from its associated Credential."
+          }
+        ],
+        "description": "The settings for this Warehouse, derived from its associated Credential.\n\nSensitive fields are redacted."
+      },
+      "CreateWarehouseV2OutputWarehouse": {
+        "title": "warehouse",
+        "required": [
+          "createdAt",
+          "credentialId",
+          "enabled",
+          "id",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Warehouse."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Warehouse."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "When set to true, this Warehouse receives data."
+          },
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential this Warehouse is connected to."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/WarehouseV2Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Warehouse was created.",
+            "nullable": true
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Warehouse was last updated.",
+            "nullable": true
+          }
+        },
+        "description": "The newly created Warehouse."
+      },
+      "UpdateWarehouseV2OutputWarehouse": {
+        "title": "warehouse",
+        "required": [
+          "createdAt",
+          "credentialId",
+          "enabled",
+          "id",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Warehouse."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Warehouse."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "When set to true, this Warehouse receives data."
+          },
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential this Warehouse is connected to."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/WarehouseV2Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Warehouse was created.",
+            "nullable": true
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Warehouse was last updated.",
+            "nullable": true
+          }
+        },
+        "description": "The updated Warehouse."
+      },
+      "ListWarehousesV2OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
+      "GetWarehouseV2OutputWarehouse": {
+        "title": "warehouse",
+        "required": [
+          "createdAt",
+          "credentialId",
+          "enabled",
+          "id",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Warehouse."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Warehouse."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Warehouse."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "When set to true, this Warehouse receives data."
+          },
+          "credentialId": {
+            "title": "credentialId",
+            "type": "string",
+            "description": "The id of the Credential this Warehouse is connected to."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/WarehouseV2Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Warehouse was created.",
+            "nullable": true
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Warehouse was last updated.",
+            "nullable": true
+          }
+        },
+        "description": "The returned Warehouse object."
+      },
+      "CreateValidationInWarehouseV2InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains the settings for a Warehouse, derived from its associated Credential."
+          }
+        ],
+        "description": "Optional settings overrides to check, layered on top of the Credential\u0027s own settings."
+      },
       "GetWorkspaceV1OutputWorkspace": {
         "title": "workspace",
         "required": [
@@ -70723,6 +71398,14 @@
           }
         }
       },
+      "AddConnectionFromSourceToWarehouse201SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseV1Output"
+          }
+        }
+      },
       "RemoveSourceConnectionFromWarehouse200SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -70748,6 +71431,14 @@
         }
       },
       "RemoveSourceConnectionFromWarehouse200SegmentV1AlphaJsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RemoveSourceConnectionFromWarehouseV1Output"
+          }
+        }
+      },
+      "RemoveSourceConnectionFromWarehouse200SegmentV2JsonResponse": {
         "type": "object",
         "properties": {
           "data": {
@@ -72187,6 +72878,14 @@
           }
         }
       },
+      "CreateValidationInWarehouse200SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateValidationInWarehouseV2Output"
+          }
+        }
+      },
       "CreateWarehouse201SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -72219,6 +72918,14 @@
           }
         }
       },
+      "CreateWarehouse201SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateWarehouseV2Output"
+          }
+        }
+      },
       "ListWarehouses200SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -72248,6 +72955,14 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ListWarehousesV1Output"
+          }
+        }
+      },
+      "ListWarehouses200SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ListWarehousesV2Output"
           }
         }
       },
@@ -73179,6 +73894,14 @@
           }
         }
       },
+      "DeleteWarehouse200SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DeleteWarehouseV1Output"
+          }
+        }
+      },
       "GetWarehouse200SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -73211,6 +73934,14 @@
           }
         }
       },
+      "GetWarehouse200SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GetWarehouseV2Output"
+          }
+        }
+      },
       "UpdateWarehouse200SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -73240,6 +73971,14 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/UpdateWarehouseV1Output"
+          }
+        }
+      },
+      "UpdateWarehouse200SegmentV2JsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UpdateWarehouseV2Output"
           }
         }
       },
@@ -73628,6 +74367,14 @@
         }
       },
       "GetConnectionStateFromWarehouse200SegmentV1AlphaJsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GetConnectionStateFromWarehouseV1Output"
+          }
+        }
+      },
+      "GetConnectionStateFromWarehouse200SegmentV2JsonResponse": {
         "type": "object",
         "properties": {
           "data": {
@@ -74404,6 +75151,14 @@
         }
       },
       "ListConnectedSourcesFromWarehouse200SegmentV1AlphaJsonResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ListConnectedSourcesFromWarehouseV1Output"
+          }
+        }
+      },
+      "ListConnectedSourcesFromWarehouse200SegmentV2JsonResponse": {
         "type": "object",
         "properties": {
           "data": {
@@ -75340,6 +76095,9 @@
       "WarehouseSelectiveSyncItemV1PropertiesProperty": {
         "type": "object",
         "description": "A map that contains the properties within the collection to which the Warehouse should sync."
+      },
+      "WarehouseSettingsV2AdditionalProperties": {
+        "type": "object"
       },
       "RequestErrorData": {
         "title": "data",
@@ -77855,6 +78613,30 @@
         "description": "Represents the status for the current connection settings.",
         "x-ms-enum": {
           "name": "CreateValidationInWarehouseV1OutputStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CONNECTED",
+              "name": "Connected"
+            },
+            {
+              "value": "FAILED",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "CreateValidationInWarehouseV2OutputStatus": {
+        "title": "status",
+        "enum": [
+          "CONNECTED",
+          "FAILED"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Represents the status for the current connection settings.",
+        "x-ms-enum": {
+          "name": "CreateValidationInWarehouseV2OutputStatus",
           "modelAsString": false,
           "values": [
             {

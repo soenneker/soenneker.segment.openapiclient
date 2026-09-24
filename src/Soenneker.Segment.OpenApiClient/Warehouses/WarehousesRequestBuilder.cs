@@ -164,7 +164,7 @@ namespace Soenneker.Segment.OpenApiClient.Warehouses
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WarehousesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Defines the pagination parameters.This parameter exists in v1.</summary>
+            /// <summary>Defines the pagination parameters.This parameter exists in v2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("pagination")]
