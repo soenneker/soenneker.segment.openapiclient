@@ -47663,89 +47663,32 @@
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
       },
-      "AuditEventV1": {
-        "title": "AuditEventV1",
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
         "required": [
-          "actor",
-          "id",
-          "resourceId",
-          "resourceName",
-          "resourceType",
-          "timestamp",
-          "type"
+          "key",
+          "value"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "title": "id",
+          "key": {
+            "title": "key",
             "type": "string",
-            "description": "Unique identifier for this audit trail event."
+            "description": "The key identifier for this label."
           },
-          "timestamp": {
-            "title": "timestamp",
+          "value": {
+            "title": "value",
             "type": "string",
-            "description": "The timestamp of this event in ISO-8601 format."
+            "description": "The value of this label."
           },
-          "type": {
-            "title": "type",
+          "description": {
+            "title": "description",
             "type": "string",
-            "description": "The type of this event."
-          },
-          "actor": {
-            "title": "actor",
-            "type": "string",
-            "description": "The user or API token that triggered this event."
-          },
-          "actorEmail": {
-            "title": "actorEmail",
-            "type": "string",
-            "description": "The email of the user that triggered this event."
-          },
-          "resourceId": {
-            "title": "resourceId",
-            "type": "string",
-            "description": "The identifier of the resource affected by this event."
-          },
-          "resourceType": {
-            "title": "resourceType",
-            "type": "string",
-            "description": "The kind of resource affected by this event."
-          },
-          "resourceName": {
-            "title": "resourceName",
-            "type": "string",
-            "description": "The name of the resource affected by this event."
+            "description": "A description of what this label represents."
           }
         },
         "additionalProperties": false,
-        "description": "Represents an Audit Trail event."
-      },
-      "ListAuditEventsV1Input": {
-        "title": "ListAuditEventsV1Input",
-        "type": "object",
-        "description": "Retrieves all Audit Trail events for the current Workspace."
-      },
-      "ListAuditEventsV1Output": {
-        "title": "ListAuditEventsV1Output",
-        "required": [
-          "events"
-        ],
-        "type": "object",
-        "properties": {
-          "events": {
-            "title": "events",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AuditEventV1"
-            },
-            "description": "Audit trail events for the current Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Audit Trail events for the current Workspace."
+        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -49506,6 +49449,90 @@
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
       },
+      "AuditEventV1": {
+        "title": "AuditEventV1",
+        "required": [
+          "actor",
+          "id",
+          "resourceId",
+          "resourceName",
+          "resourceType",
+          "timestamp",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Unique identifier for this audit trail event."
+          },
+          "timestamp": {
+            "title": "timestamp",
+            "type": "string",
+            "description": "The timestamp of this event in ISO-8601 format."
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The type of this event."
+          },
+          "actor": {
+            "title": "actor",
+            "type": "string",
+            "description": "The user or API token that triggered this event."
+          },
+          "actorEmail": {
+            "title": "actorEmail",
+            "type": "string",
+            "description": "The email of the user that triggered this event."
+          },
+          "resourceId": {
+            "title": "resourceId",
+            "type": "string",
+            "description": "The identifier of the resource affected by this event."
+          },
+          "resourceType": {
+            "title": "resourceType",
+            "type": "string",
+            "description": "The kind of resource affected by this event."
+          },
+          "resourceName": {
+            "title": "resourceName",
+            "type": "string",
+            "description": "The name of the resource affected by this event."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an Audit Trail event."
+      },
+      "ListAuditEventsV1Input": {
+        "title": "ListAuditEventsV1Input",
+        "type": "object",
+        "description": "Retrieves all Audit Trail events for the current Workspace."
+      },
+      "ListAuditEventsV1Output": {
+        "title": "ListAuditEventsV1Output",
+        "required": [
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditEventV1"
+            },
+            "description": "Audit trail events for the current Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Audit Trail events for the current Workspace."
+      },
       "TraitDefinition": {
         "title": "TraitDefinition",
         "required": [
@@ -49800,33 +49827,6 @@
         },
         "additionalProperties": false,
         "description": "Delete computed trait endpoint output."
-      },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "CredentialSettingsV1": {
         "title": "CredentialSettingsV1",
@@ -52338,7 +52338,7 @@
           "functionId": {
             "title": "functionId",
             "type": "string",
-            "description": "Insert Function id to which this instance is associated. \nNote: Remove the ifnd_/ifns_ prefix from the id."
+            "description": "Insert Function id to which this instance is associated.\nNote: Remove the ifnd_/ifns_ prefix from the id."
           },
           "integrationId": {
             "title": "integrationId",
@@ -61232,38 +61232,6 @@
         },
         "description": "An optional pagination object that is present when pagination input is present."
       },
-      "ListAuditEventsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
         "required": [
@@ -63431,6 +63399,38 @@
           }
         },
         "description": "The run information."
+      },
+      "ListAuditEventsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
       },
       "CreateComputedTraitAlphaInputDefinition": {
         "title": "definition",

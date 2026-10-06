@@ -15,7 +15,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     {
         /// <summary>Whether this insert Function instance should be enabled for the Destination.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>Insert Function id to which this instance is associated. Note: Remove the ifnd_/ifns_ prefix from the id.</summary>
+        /// <summary>Insert Function id to which this instance is associated.Note: Remove the ifnd_/ifns_ prefix from the id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FunctionId { get; set; }
