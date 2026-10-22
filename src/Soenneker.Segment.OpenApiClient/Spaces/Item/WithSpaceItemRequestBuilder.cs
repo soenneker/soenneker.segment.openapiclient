@@ -11,7 +11,6 @@ using Soenneker.Segment.OpenApiClient.Spaces.Item.ComputedTraits;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.Entities;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.EntityPaths;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.Events;
-using Soenneker.Segment.OpenApiClient.Spaces.Item.MessagingSubscriptions;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses;
 using Soenneker.Segment.OpenApiClient.Spaces.Item.Traits;
 using System.Collections.Generic;
@@ -61,11 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item
         public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The messagingSubscriptions property</summary>
-        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.MessagingSubscriptions.MessagingSubscriptionsRequestBuilder MessagingSubscriptions
-        {
-            get => new global::Soenneker.Segment.OpenApiClient.Spaces.Item.MessagingSubscriptions.MessagingSubscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The profilesWarehouses property</summary>
         public global::Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses.ProfilesWarehousesRequestBuilder ProfilesWarehouses

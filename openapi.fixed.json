@@ -8,7 +8,7 @@
       "url": "https://docs.segmentapis.com",
       "email": "friends@segment.com"
     },
-    "version": "73.6.0",
+    "version": "74.0.0",
     "x-logo": {
       "url": "https://assets.twilio.com/public_assets/segment-assets/1.0.0/logos/twilio-segment.webp",
       "backgroundColor": "#ebf4ff",
@@ -4207,200 +4207,6 @@
           {
             "lang": "Go",
             "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    spaceId := \u0022spa_9aQ1Lj62S4bomZKLF4DPqW\u0022 // string | \n    batchQueryActivationsForSpaceAlphaInput := *api.NewBatchQueryActivationsForSpaceAlphaInput() // BatchQueryActivationsForSpaceAlphaInput | \n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.ActivationsAPI.BatchQueryActivationsForSpace(ctx, spaceId).BatchQueryActivationsForSpaceAlphaInput(batchQueryActivationsForSpaceAlphaInput).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060ActivationsAPI.BatchQueryActivationsForSpace\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060BatchQueryActivationsForSpace\u0060: BatchQueryActivationsForSpace200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060ActivationsAPI.BatchQueryActivationsForSpace\u0060: %v\\n\u0022, resp.GetData())\n}"
-          }
-        ]
-      }
-    },
-    "/spaces/{spaceId}/messaging-subscriptions/batch": {
-      "post": {
-        "tags": [
-          "Spaces"
-        ],
-        "summary": "Batch Query Messaging Subscriptions for Space",
-        "description": "\n\u003Cdiv style=\u0022background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color: #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\u0022\u003E\n  \u003Cspan style=\u0022color: #ff9800; font-size: 16px; flex-shrink: 0;\u0022\u003E\u26A0\uFE0F\u003C/span\u003E\n  \u003Cdiv style=\u0022line-height: 1.5;\u0022\u003E\n    \u003Cdiv style=\u0022font-weight: 600; font-size: 14px; margin-bottom: 6px;\u0022\u003E\n      Engage Premier features will no longer be available after December 15, 2025.\n    \u003C/div\u003E\n    \u003Cdiv style=\u0022font-size: 13px;\u0022\u003E\n      This API will be deactivated after this date.\n    \u003C/div\u003E\n  \u003C/div\u003E\n\u003C/div\u003E\nGet Messaging Subscriptions for space.\n\n\u2022 This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.\n\n\n\u2022 In order to successfully call this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out to your customer success manager for more information.",
-        "operationId": "BatchQueryMessagingSubscriptionsForSpace",
-        "parameters": [
-          {
-            "name": "spaceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "string"
-            },
-            "example": "9aQ1Lj62S4bomZKLF4DPqW"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/vnd.segment.v1alpha\u002Bjson": {
-              "schema": {
-                "$ref": "#/components/schemas/BatchQueryMessagingSubscriptionsForSpaceAlphaInput"
-              },
-              "example": {
-                "subscriptions": [
-                  {
-                    "key": "jacob@exmple.com",
-                    "type": "EMAIL"
-                  },
-                  {
-                    "key": "jane@exmple.com",
-                    "type": "EMAIL"
-                  },
-                  {
-                    "key": "pgibbonsexample.com",
-                    "type": "EMAIL"
-                  },
-                  {
-                    "key": "\u002B12162226233",
-                    "type": "SMS"
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/vnd.segment.v1alpha\u002Bjson": {
-                "schema": {
-                  "$ref": "#/components/schemas/BatchQueryMessagingSubscriptionsForSpace200SegmentV1AlphaJsonResponse"
-                },
-                "example": {
-                  "data": {
-                    "successes": [
-                      {
-                        "key": "jacob@exmple.com",
-                        "type": "EMAIL",
-                        "status": "SUBSCRIBED",
-                        "updatedAt": "2006-01-02T15:04:05.000Z"
-                      },
-                      {
-                        "key": "jane@exmple.com",
-                        "type": "EMAIL",
-                        "status": "SUBSCRIBED",
-                        "updatedAt": "2006-01-02T15:04:05.000Z",
-                        "groups": [
-                          {
-                            "name": "promotions",
-                            "id": "grp_id",
-                            "status": "SUBSCRIBED",
-                            "updatedAt": "2006-01-02T15:04:05.000Z"
-                          }
-                        ]
-                      },
-                      {
-                        "key": "2162226233",
-                        "type": "SMS",
-                        "status": "DID_NOT_SUBSCRIBE",
-                        "updatedAt": "2006-01-02T15:04:05.000Z"
-                      }
-                    ],
-                    "failures": [
-                      {
-                        "key": "pgibbonsexample.com",
-                        "type": "EMAIL",
-                        "errors": [
-                          {
-                            "code": "INVALID_EMAIL",
-                            "message": "Email is not valid"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "NotFound",
-                      "message": "Resource not found"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation failure",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "ValidationFailure",
-                      "message": "Validation failure"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "headers": {
-              "Retry-After": {
-                "description": "Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present.",
-                "schema": {
-                  "type": "string",
-                  "example": "60"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "RateLimited",
-                      "message": "Rate limit exceeded"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-domain-hierarchy": [
-          "Engage",
-          "Spaces"
-        ],
-        "x-codeSamples": [
-          {
-            "lang": "TypeScript",
-            "source": "import { configureApis, unwrap } from \u0027@segment/public-api-sdk-typescript\u0027\n\nconst api = configureApis(\u0027/* Insert your Public API token here */\u0027)\n\ntry {\n  const result = await unwrap(\n    api.spaces.batchQueryMessagingSubscriptionsForSpace(\u00279aQ1Lj62S4bomZKLF4DPqW\u0027, {\n      subscriptions: [\n        { key: \u0027jacob@exmple.com\u0027, type: \u0027EMAIL\u0027 },\n        { key: \u0027jane@exmple.com\u0027, type: \u0027EMAIL\u0027 },\n        { key: \u0027pgibbonsexample.com\u0027, type: \u0027EMAIL\u0027 },\n        { key: \u0027\u002B12162226233\u0027, type: \u0027SMS\u0027 },\n      ],\n    })\n  )\n  console.log(JSON.stringify(result))\n} catch (e) {\n  console.log(\u0027ERROR:\u0027, e)\n}\n"
-          },
-          {
-            "lang": "Java",
-            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.SpacesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        SpacesApi apiInstance = new SpacesApi(defaultClient);\n        String spaceId = \u00229aQ1Lj62S4bomZKLF4DPqW\u0022; // String | \n        BatchQueryMessagingSubscriptionsForSpaceAlphaInput batchQueryMessagingSubscriptionsForSpaceAlphaInput = new BatchQueryMessagingSubscriptionsForSpaceAlphaInput(); // BatchQueryMessagingSubscriptionsForSpaceAlphaInput | \n        try {\n            BatchQueryMessagingSubscriptionsForSpace200Response result = apiInstance.batchQueryMessagingSubscriptionsForSpace(spaceId, batchQueryMessagingSubscriptionsForSpaceAlphaInput);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling SpacesApi#batchQueryMessagingSubscriptionsForSpace\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
-          },
-          {
-            "lang": "Python",
-            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.batch_query_messaging_subscriptions_for_space200_response import BatchQueryMessagingSubscriptionsForSpace200Response\nfrom segment_public_api.models.batch_query_messaging_subscriptions_for_space_alpha_input import BatchQueryMessagingSubscriptionsForSpaceAlphaInput\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.SpacesApi(api_client)\n    space_id = \u00279aQ1Lj62S4bomZKLF4DPqW\u0027 # str | \n    batch_query_messaging_subscriptions_for_space_alpha_input = {\u0022subscriptions\u0022:[{\u0022key\u0022:\u0022jacob@exmple.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022},{\u0022key\u0022:\u0022jane@exmple.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022},{\u0022key\u0022:\u0022pgibbonsexample.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022},{\u0022key\u0022:\u0022\u002B12162226233\u0022,\u0022type\u0022:\u0022SMS\u0022}]} # BatchQueryMessagingSubscriptionsForSpaceAlphaInput | \n\n    try:\n        # Batch Query Messaging Subscriptions for Space\n        api_response = api_instance.batch_query_messaging_subscriptions_for_space(space_id, batch_query_messaging_subscriptions_for_space_alpha_input)\n        print(\u0022The response of SpacesApi-\u003Ebatch_query_messaging_subscriptions_for_space:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling SpacesApi-\u003Ebatch_query_messaging_subscriptions_for_space: %s\\n\u0022 % e)"
-          },
-          {
-            "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    spaceId := \u00229aQ1Lj62S4bomZKLF4DPqW\u0022 // string | \n    batchQueryMessagingSubscriptionsForSpaceAlphaInput := *api.NewBatchQueryMessagingSubscriptionsForSpaceAlphaInput([]api.GetSubscriptionRequest{*api.NewGetSubscriptionRequest(\u0022Key_example\u0022, \u0022Type_example\u0022)}) // BatchQueryMessagingSubscriptionsForSpaceAlphaInput | \n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.SpacesAPI.BatchQueryMessagingSubscriptionsForSpace(ctx, spaceId).BatchQueryMessagingSubscriptionsForSpaceAlphaInput(batchQueryMessagingSubscriptionsForSpaceAlphaInput).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060SpacesAPI.BatchQueryMessagingSubscriptionsForSpace\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060BatchQueryMessagingSubscriptionsForSpace\u0060: BatchQueryMessagingSubscriptionsForSpace200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060SpacesAPI.BatchQueryMessagingSubscriptionsForSpace\u0060: %v\\n\u0022, resp.GetData())\n}"
           }
         ]
       }
@@ -46524,207 +46330,6 @@
         ]
       }
     },
-    "/spaces/{spaceId}/messaging-subscriptions": {
-      "put": {
-        "tags": [
-          "Spaces"
-        ],
-        "summary": "Replace Messaging Subscriptions in Spaces",
-        "description": "\n\u003Cdiv style=\u0022background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color: #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\u0022\u003E\n  \u003Cspan style=\u0022color: #ff9800; font-size: 16px; flex-shrink: 0;\u0022\u003E\u26A0\uFE0F\u003C/span\u003E\n  \u003Cdiv style=\u0022line-height: 1.5;\u0022\u003E\n    \u003Cdiv style=\u0022font-weight: 600; font-size: 14px; margin-bottom: 6px;\u0022\u003E\n      Engage Premier features will no longer be available after December 15, 2025.\n    \u003C/div\u003E\n    \u003Cdiv style=\u0022font-size: 13px;\u0022\u003E\n      This API will be deactivated after this date.\n    \u003C/div\u003E\n  \u003C/div\u003E\n\u003C/div\u003E\nReplace Messaging Subscriptions in Spaces.\n\n\u2022 This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.\n\n\n\u2022 In order to successfully call this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out to your customer success manager for more information.\n\n\nThe rate limit for this endpoint is 60 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.",
-        "operationId": "ReplaceMessagingSubscriptionsInSpaces",
-        "parameters": [
-          {
-            "name": "spaceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "string"
-            },
-            "example": "9aQ1Lj62S4bomZKLF4DPqW"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/vnd.segment.v1alpha\u002Bjson": {
-              "schema": {
-                "$ref": "#/components/schemas/ReplaceMessagingSubscriptionsInSpacesAlphaInput"
-              },
-              "example": {
-                "subscriptions": [
-                  {
-                    "key": "jacob@exmple.com",
-                    "type": "EMAIL",
-                    "status": "SUBSCRIBED"
-                  },
-                  {
-                    "key": "jane@exmple.com",
-                    "type": "EMAIL",
-                    "status": "SUBSCRIBED",
-                    "groups": [
-                      {
-                        "name": "promotions",
-                        "status": "SUBSCRIBED"
-                      }
-                    ]
-                  },
-                  {
-                    "key": "pgibbonsexample.com",
-                    "type": "EMAIL",
-                    "status": "UNSUBSCRIBED"
-                  },
-                  {
-                    "key": "\u002B12162226233",
-                    "type": "SMS",
-                    "status": "DID_NOT_SUBSCRIBE"
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/vnd.segment.v1alpha\u002Bjson": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReplaceMessagingSubscriptionsInSpaces200SegmentV1AlphaJsonResponse"
-                },
-                "example": {
-                  "data": {
-                    "successes": [
-                      {
-                        "key": "jacob@exmple.com",
-                        "type": "EMAIL",
-                        "status": "SUBSCRIBED"
-                      },
-                      {
-                        "key": "jane@exmple.com",
-                        "type": "EMAIL",
-                        "status": "SUBSCRIBED",
-                        "groups": [
-                          {
-                            "name": "promotions",
-                            "status": "SUBSCRIBED",
-                            "id": "grp_id"
-                          }
-                        ]
-                      },
-                      {
-                        "key": "2162226233",
-                        "type": "SMS",
-                        "status": "DID_NOT_SUBSCRIBE"
-                      }
-                    ],
-                    "failures": [
-                      {
-                        "key": "pgibbonsexample.com",
-                        "type": "EMAIL",
-                        "status": "UNSUBSCRIBED",
-                        "errors": [
-                          {
-                            "code": "INVALID_EMAIL",
-                            "message": "Email is not valid"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "NotFound",
-                      "message": "Resource not found"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation failure",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "ValidationFailure",
-                      "message": "Validation failure"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests",
-            "headers": {
-              "Retry-After": {
-                "description": "Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present.",
-                "schema": {
-                  "type": "string",
-                  "example": "60"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestErrorEnvelope"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "type": "RateLimited",
-                      "message": "Rate limit exceeded"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-domain-hierarchy": [
-          "Engage",
-          "Spaces"
-        ],
-        "x-codeSamples": [
-          {
-            "lang": "TypeScript",
-            "source": "import { configureApis, unwrap } from \u0027@segment/public-api-sdk-typescript\u0027\n\nconst api = configureApis(\u0027/* Insert your Public API token here */\u0027)\n\ntry {\n  const result = await unwrap(\n    api.spaces.replaceMessagingSubscriptionsInSpaces(\u00279aQ1Lj62S4bomZKLF4DPqW\u0027, {\n      subscriptions: [\n        { key: \u0027jacob@exmple.com\u0027, type: \u0027EMAIL\u0027, status: \u0027SUBSCRIBED\u0027 },\n        { key: \u0027jane@exmple.com\u0027, type: \u0027EMAIL\u0027, status: \u0027SUBSCRIBED\u0027, groups: [{ name: \u0027promotions\u0027, status: \u0027SUBSCRIBED\u0027 }] },\n        { key: \u0027pgibbonsexample.com\u0027, type: \u0027EMAIL\u0027, status: \u0027UNSUBSCRIBED\u0027 },\n        { key: \u0027\u002B12162226233\u0027, type: \u0027SMS\u0027, status: \u0027DID_NOT_SUBSCRIBE\u0027 },\n      ],\n    })\n  )\n  console.log(JSON.stringify(result))\n} catch (e) {\n  console.log(\u0027ERROR:\u0027, e)\n}\n"
-          },
-          {
-            "lang": "Java",
-            "source": "// Import classes:\nimport com.segment.publicapi.ApiClient;\nimport com.segment.publicapi.ApiException;\nimport com.segment.publicapi.Configuration;\nimport com.segment.publicapi.auth.*;\nimport com.segment.publicapi.models.*;\nimport com.segment.publicapi.api.SpacesApi;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure HTTP bearer authorization: token\n        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication(\u0022token\u0022);\n        token.setBearerToken(\u0022BEARER TOKEN\u0022);\n\n        SpacesApi apiInstance = new SpacesApi(defaultClient);\n        String spaceId = \u00229aQ1Lj62S4bomZKLF4DPqW\u0022; // String | \n        ReplaceMessagingSubscriptionsInSpacesAlphaInput replaceMessagingSubscriptionsInSpacesAlphaInput = new ReplaceMessagingSubscriptionsInSpacesAlphaInput(); // ReplaceMessagingSubscriptionsInSpacesAlphaInput | \n        try {\n            ReplaceMessagingSubscriptionsInSpaces200Response result = apiInstance.replaceMessagingSubscriptionsInSpaces(spaceId, replaceMessagingSubscriptionsInSpacesAlphaInput);\n            System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\u0022Exception when calling SpacesApi#replaceMessagingSubscriptionsInSpaces\u0022);\n            System.err.println(\u0022Status code: \u0022 \u002B e.getCode());\n            System.err.println(\u0022Reason: \u0022 \u002B e.getResponseBody());\n            System.err.println(\u0022Response headers: \u0022 \u002B e.getResponseHeaders());\n            e.printStackTrace();\n        }\n    }\n}"
-          },
-          {
-            "lang": "Python",
-            "source": "import time\nimport os\nimport segment_public_api\nfrom segment_public_api.models.replace_messaging_subscriptions_in_spaces200_response import ReplaceMessagingSubscriptionsInSpaces200Response\nfrom segment_public_api.models.replace_messaging_subscriptions_in_spaces_alpha_input import ReplaceMessagingSubscriptionsInSpacesAlphaInput\nfrom segment_public_api.rest import ApiException\nfrom pprint import pprint\n\n\n\n# Configure Bearer authorization: token\nconfiguration = segment_public_api.Configuration(\n    access_token = os.environ[\u0022BEARER_TOKEN\u0022]\n)\n# Enter a context with an instance of the API client\nwith segment_public_api.ApiClient(configuration) as api_client:\n    # Create an instance of the API class\n    api_instance = segment_public_api.SpacesApi(api_client)\n    space_id = \u00279aQ1Lj62S4bomZKLF4DPqW\u0027 # str | \n    replace_messaging_subscriptions_in_spaces_alpha_input = {\u0022subscriptions\u0022:[{\u0022key\u0022:\u0022jacob@exmple.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022,\u0022status\u0022:\u0022SUBSCRIBED\u0022},{\u0022key\u0022:\u0022jane@exmple.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022,\u0022status\u0022:\u0022SUBSCRIBED\u0022,\u0022groups\u0022:[{\u0022name\u0022:\u0022promotions\u0022,\u0022status\u0022:\u0022SUBSCRIBED\u0022}]},{\u0022key\u0022:\u0022pgibbonsexample.com\u0022,\u0022type\u0022:\u0022EMAIL\u0022,\u0022status\u0022:\u0022UNSUBSCRIBED\u0022},{\u0022key\u0022:\u0022\u002B12162226233\u0022,\u0022type\u0022:\u0022SMS\u0022,\u0022status\u0022:\u0022DID_NOT_SUBSCRIBE\u0022}]} # ReplaceMessagingSubscriptionsInSpacesAlphaInput | \n\n    try:\n        # Replace Messaging Subscriptions in Spaces\n        api_response = api_instance.replace_messaging_subscriptions_in_spaces(space_id, replace_messaging_subscriptions_in_spaces_alpha_input)\n        print(\u0022The response of SpacesApi-\u003Ereplace_messaging_subscriptions_in_spaces:\\n\u0022)\n        pprint(api_response)\n    except Exception as e:\n        print(\u0022Exception when calling SpacesApi-\u003Ereplace_messaging_subscriptions_in_spaces: %s\\n\u0022 % e)"
-          },
-          {
-            "lang": "Go",
-            "source": "package main\n\nimport (\n    \u0022context\u0022\n    \u0022fmt\u0022\n    \u0022os\u0022\n    api \u0022github.com/segmentio/public-api-sdk-go\u0022\n)\n\nfunc main() {\n    spaceId := \u00229aQ1Lj62S4bomZKLF4DPqW\u0022 // string | \n    replaceMessagingSubscriptionsInSpacesAlphaInput := *api.NewReplaceMessagingSubscriptionsInSpacesAlphaInput([]api.MessagesSubscriptionRequest{*api.NewMessagesSubscriptionRequest(\u0022Key_example\u0022, \u0022Type_example\u0022)}) // ReplaceMessagingSubscriptionsInSpacesAlphaInput | \n\n    configuration := api.NewConfiguration()\n    apiClient := api.NewAPIClient(configuration)\n    token := \u0022\u003CBEARER_TOKEN\u003E\u0022\n    ctx := context.WithValue(context.Background(), api.ContextAccessToken, token)\n    resp, r, err := apiClient.SpacesAPI.ReplaceMessagingSubscriptionsInSpaces(ctx, spaceId).ReplaceMessagingSubscriptionsInSpacesAlphaInput(replaceMessagingSubscriptionsInSpacesAlphaInput).Execute()\n    if err != nil {\n        fmt.Fprintf(os.Stderr, \u0022Error when calling \u0060SpacesAPI.ReplaceMessagingSubscriptionsInSpaces\u0060\u0060: %v\\n\u0022, err)\n        fmt.Fprintf(os.Stderr, \u0022Full HTTP response: %v\\n\u0022, r)\n        responseErrors := api.UnwrapFullErrors(err)\n        if responseErrors != nil {\n            for _, responseError := range responseErrors.Errors {\n                fmt.Fprintf(os.Stderr, \u0022Full error message: %v\\n\u0022, *responseError.Message)\n            }\n        }\n    }\n    // response from \u0060ReplaceMessagingSubscriptionsInSpaces\u0060: ReplaceMessagingSubscriptionsInSpaces200Response\n    fmt.Fprintf(os.Stdout, \u0022Response from \u0060SpacesAPI.ReplaceMessagingSubscriptionsInSpaces\u0060: %v\\n\u0022, resp.GetData())\n}"
-          }
-        ]
-      }
-    },
     "/warehouses/{warehouseId}/selective-sync": {
       "patch": {
         "tags": [
@@ -47689,6 +47294,608 @@
         },
         "additionalProperties": false,
         "description": "Defines a label that you may apply to resources within a Workspace."
+      },
+      "AuditEventV1": {
+        "title": "AuditEventV1",
+        "required": [
+          "actor",
+          "id",
+          "resourceId",
+          "resourceName",
+          "resourceType",
+          "timestamp",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Unique identifier for this audit trail event."
+          },
+          "timestamp": {
+            "title": "timestamp",
+            "type": "string",
+            "description": "The timestamp of this event in ISO-8601 format."
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The type of this event."
+          },
+          "actor": {
+            "title": "actor",
+            "type": "string",
+            "description": "The user or API token that triggered this event."
+          },
+          "actorEmail": {
+            "title": "actorEmail",
+            "type": "string",
+            "description": "The email of the user that triggered this event."
+          },
+          "resourceId": {
+            "title": "resourceId",
+            "type": "string",
+            "description": "The identifier of the resource affected by this event."
+          },
+          "resourceType": {
+            "title": "resourceType",
+            "type": "string",
+            "description": "The kind of resource affected by this event."
+          },
+          "resourceName": {
+            "title": "resourceName",
+            "type": "string",
+            "description": "The name of the resource affected by this event."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an Audit Trail event."
+      },
+      "ListAuditEventsV1Input": {
+        "title": "ListAuditEventsV1Input",
+        "type": "object",
+        "description": "Retrieves all Audit Trail events for the current Workspace."
+      },
+      "ListAuditEventsV1Output": {
+        "title": "ListAuditEventsV1Output",
+        "required": [
+          "events"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "title": "events",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditEventV1"
+            },
+            "description": "Audit trail events for the current Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Audit Trail events for the current Workspace."
+      },
+      "TraitDefinition": {
+        "title": "TraitDefinition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "additionalProperties": false
+      },
+      "TraitOptions": {
+        "title": "TraitOptions",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComputedTraitsDefinition": {
+        "title": "ComputedTraitsDefinition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          },
+          "type": {
+            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines an computed trait definition."
+      },
+      "CreateComputedTraitAlphaInput": {
+        "title": "CreateComputedTraitAlphaInput",
+        "required": [
+          "definition",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the computation."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Determines whether a computation is enabled."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "The description of the computation."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputDefinition"
+          },
+          "options": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to create a trait."
+      },
+      "CreateComputedTraitAlphaOutput": {
+        "title": "CreateComputedTraitAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/CreateComputedTraitAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for create."
+      },
+      "ComputedTraitSummary": {
+        "title": "ComputedTraitSummary",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a Computed trait."
+      },
+      "GetComputedTraitAlphaInput": {
+        "title": "GetComputedTraitAlphaInput",
+        "type": "object",
+        "description": "Input to get a computed trait."
+      },
+      "ListComputedTraitsAlphaInput": {
+        "title": "ListComputedTraitsAlphaInput",
+        "type": "object",
+        "description": "Input to list computed traits for a space id."
+      },
+      "UpdateComputedTraitForSpaceAlphaInput": {
+        "title": "UpdateComputedTraitForSpaceAlphaInput",
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the computation."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "The description of the computation."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaInputDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to update a computed trait."
+      },
+      "RemoveComputedTraitFromSpaceAlphaInput": {
+        "title": "RemoveComputedTraitFromSpaceAlphaInput",
+        "type": "object",
+        "description": "Input to delete a computed trait."
+      },
+      "GetComputedTraitAlphaOutput": {
+        "title": "GetComputedTraitAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/GetComputedTraitAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for get and update."
+      },
+      "UpdateComputedTraitForSpaceAlphaOutput": {
+        "title": "UpdateComputedTraitForSpaceAlphaOutput",
+        "required": [
+          "computedTrait"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTrait": {
+            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaOutputComputedTrait"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Computed Trait output for get and update."
+      },
+      "ListComputedTraitsAlphaOutput": {
+        "title": "ListComputedTraitsAlphaOutput",
+        "required": [
+          "computedTraits",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "computedTraits": {
+            "title": "computedTraits",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComputedTraitSummary"
+            },
+            "description": "A list of computed trait summary results."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListComputedTraitsAlphaOutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "List computed traits endpoint output."
+      },
+      "RemoveComputedTraitFromSpaceAlphaOutput": {
+        "title": "RemoveComputedTraitFromSpaceAlphaOutput",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Delete computed trait endpoint output."
+      },
+      "CredentialSettingsV1": {
+        "title": "CredentialSettingsV1",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CredentialSettingsV1AdditionalProperties"
+        },
+        "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+      },
+      "CredentialV1": {
+        "title": "CredentialV1",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
+      },
+      "CreateCredentialV1Input": {
+        "title": "CreateCredentialV1Input",
+        "required": [
+          "name",
+          "settings"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Create a new Credential based on a set of parameters."
+      },
+      "CreateCredentialV1Output": {
+        "title": "CreateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the newly created Credential."
+      },
+      "UpdateCredentialV1Input": {
+        "title": "UpdateCredentialV1Input",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "An optional human-readable name to associate with this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
+      },
+      "UpdateCredentialV1Output": {
+        "title": "UpdateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the updated Credential."
+      },
+      "ListCredentialsV1Input": {
+        "title": "ListCredentialsV1Input",
+        "type": "object",
+        "description": "Gets a list of Credentials belonging to a Workspace."
+      },
+      "ListCredentialsV1Output": {
+        "title": "ListCredentialsV1Output",
+        "required": [
+          "credentials",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "credentials": {
+            "title": "credentials",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CredentialV1"
+            },
+            "description": "A list of Credentials that belong to the Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Credentials that belong to a Workspace."
+      },
+      "GetCredentialV1Input": {
+        "title": "GetCredentialV1Input",
+        "type": "object",
+        "description": "Looks up a Credential by id."
+      },
+      "GetCredentialV1Output": {
+        "title": "GetCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a Credential."
+      },
+      "DeleteCredentialV1Input": {
+        "title": "DeleteCredentialV1Input",
+        "type": "object",
+        "description": "Deletes a Credential."
+      },
+      "DeleteCredentialV1Output": {
+        "title": "DeleteCredentialV1Output",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the status of a Credential deletion."
+      },
+      "ListCredentialConsumersV1Input": {
+        "title": "ListCredentialConsumersV1Input",
+        "type": "object",
+        "description": "Looks up the Warehouses and Sources that consume a Credential."
+      },
+      "ListCredentialConsumersV1Output": {
+        "title": "ListCredentialConsumersV1Output",
+        "required": [
+          "sources",
+          "sourcesPagination",
+          "warehouses",
+          "warehousesPagination"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouses": {
+            "title": "warehouses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WarehouseV1"
+            },
+            "description": "The Warehouses that use this Credential."
+          },
+          "warehousesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
+          },
+          "sources": {
+            "title": "sources",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SourceV1"
+            },
+            "description": "The Sources that use this Credential."
+          },
+          "sourcesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -49449,385 +49656,6 @@
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
       },
-      "AuditEventV1": {
-        "title": "AuditEventV1",
-        "required": [
-          "actor",
-          "id",
-          "resourceId",
-          "resourceName",
-          "resourceType",
-          "timestamp",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Unique identifier for this audit trail event."
-          },
-          "timestamp": {
-            "title": "timestamp",
-            "type": "string",
-            "description": "The timestamp of this event in ISO-8601 format."
-          },
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "The type of this event."
-          },
-          "actor": {
-            "title": "actor",
-            "type": "string",
-            "description": "The user or API token that triggered this event."
-          },
-          "actorEmail": {
-            "title": "actorEmail",
-            "type": "string",
-            "description": "The email of the user that triggered this event."
-          },
-          "resourceId": {
-            "title": "resourceId",
-            "type": "string",
-            "description": "The identifier of the resource affected by this event."
-          },
-          "resourceType": {
-            "title": "resourceType",
-            "type": "string",
-            "description": "The kind of resource affected by this event."
-          },
-          "resourceName": {
-            "title": "resourceName",
-            "type": "string",
-            "description": "The name of the resource affected by this event."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents an Audit Trail event."
-      },
-      "ListAuditEventsV1Input": {
-        "title": "ListAuditEventsV1Input",
-        "type": "object",
-        "description": "Retrieves all Audit Trail events for the current Workspace."
-      },
-      "ListAuditEventsV1Output": {
-        "title": "ListAuditEventsV1Output",
-        "required": [
-          "events"
-        ],
-        "type": "object",
-        "properties": {
-          "events": {
-            "title": "events",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AuditEventV1"
-            },
-            "description": "Audit trail events for the current Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListAuditEventsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Audit Trail events for the current Workspace."
-      },
-      "TraitDefinition": {
-        "title": "TraitDefinition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "additionalProperties": false
-      },
-      "TraitOptions": {
-        "title": "TraitOptions",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "additionalProperties": false
-      },
-      "ComputedTraitsDefinition": {
-        "title": "ComputedTraitsDefinition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          },
-          "type": {
-            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines an computed trait definition."
-      },
-      "CreateComputedTraitAlphaInput": {
-        "title": "CreateComputedTraitAlphaInput",
-        "required": [
-          "definition",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "The name of the computation."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Determines whether a computation is enabled."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "The description of the computation."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputDefinition"
-          },
-          "options": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaInputOptions"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to create a trait."
-      },
-      "CreateComputedTraitAlphaOutput": {
-        "title": "CreateComputedTraitAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/CreateComputedTraitAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for create."
-      },
-      "ComputedTraitSummary": {
-        "title": "ComputedTraitSummary",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a Computed trait."
-      },
-      "GetComputedTraitAlphaInput": {
-        "title": "GetComputedTraitAlphaInput",
-        "type": "object",
-        "description": "Input to get a computed trait."
-      },
-      "ListComputedTraitsAlphaInput": {
-        "title": "ListComputedTraitsAlphaInput",
-        "type": "object",
-        "description": "Input to list computed traits for a space id."
-      },
-      "UpdateComputedTraitForSpaceAlphaInput": {
-        "title": "UpdateComputedTraitForSpaceAlphaInput",
-        "type": "object",
-        "properties": {
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "The name of the computation."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "The description of the computation."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaInputDefinition"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to update a computed trait."
-      },
-      "RemoveComputedTraitFromSpaceAlphaInput": {
-        "title": "RemoveComputedTraitFromSpaceAlphaInput",
-        "type": "object",
-        "description": "Input to delete a computed trait."
-      },
-      "GetComputedTraitAlphaOutput": {
-        "title": "GetComputedTraitAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/GetComputedTraitAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for get and update."
-      },
-      "UpdateComputedTraitForSpaceAlphaOutput": {
-        "title": "UpdateComputedTraitForSpaceAlphaOutput",
-        "required": [
-          "computedTrait"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTrait": {
-            "$ref": "#/components/schemas/UpdateComputedTraitForSpaceAlphaOutputComputedTrait"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Computed Trait output for get and update."
-      },
-      "ListComputedTraitsAlphaOutput": {
-        "title": "ListComputedTraitsAlphaOutput",
-        "required": [
-          "computedTraits",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "computedTraits": {
-            "title": "computedTraits",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ComputedTraitSummary"
-            },
-            "description": "A list of computed trait summary results."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListComputedTraitsAlphaOutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "List computed traits endpoint output."
-      },
-      "RemoveComputedTraitFromSpaceAlphaOutput": {
-        "title": "RemoveComputedTraitFromSpaceAlphaOutput",
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/SuccessStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Delete computed trait endpoint output."
-      },
       "CreateDownloadAlphaInput": {
         "title": "CreateDownloadAlphaInput",
         "required": [
@@ -49880,229 +49708,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "CredentialSettingsV1": {
-        "title": "CredentialSettingsV1",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CredentialSettingsV1AdditionalProperties"
-        },
-        "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-      },
-      "CredentialV1": {
-        "title": "CredentialV1",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
-      },
-      "CreateCredentialV1Input": {
-        "title": "CreateCredentialV1Input",
-        "required": [
-          "name",
-          "settings"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Create a new Credential based on a set of parameters."
-      },
-      "CreateCredentialV1Output": {
-        "title": "CreateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the newly created Credential."
-      },
-      "UpdateCredentialV1Input": {
-        "title": "UpdateCredentialV1Input",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "An optional human-readable name to associate with this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
-      },
-      "UpdateCredentialV1Output": {
-        "title": "UpdateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the updated Credential."
-      },
-      "ListCredentialsV1Input": {
-        "title": "ListCredentialsV1Input",
-        "type": "object",
-        "description": "Gets a list of Credentials belonging to a Workspace."
-      },
-      "ListCredentialsV1Output": {
-        "title": "ListCredentialsV1Output",
-        "required": [
-          "credentials",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "credentials": {
-            "title": "credentials",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialV1"
-            },
-            "description": "A list of Credentials that belong to the Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Credentials that belong to a Workspace."
-      },
-      "GetCredentialV1Input": {
-        "title": "GetCredentialV1Input",
-        "type": "object",
-        "description": "Looks up a Credential by id."
-      },
-      "GetCredentialV1Output": {
-        "title": "GetCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a Credential."
-      },
-      "DeleteCredentialV1Input": {
-        "title": "DeleteCredentialV1Input",
-        "type": "object",
-        "description": "Deletes a Credential."
-      },
-      "DeleteCredentialV1Output": {
-        "title": "DeleteCredentialV1Output",
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/SuccessStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the status of a Credential deletion."
-      },
-      "ListCredentialConsumersV1Input": {
-        "title": "ListCredentialConsumersV1Input",
-        "type": "object",
-        "description": "Looks up the Warehouses and Sources that consume a Credential."
-      },
-      "ListCredentialConsumersV1Output": {
-        "title": "ListCredentialConsumersV1Output",
-        "required": [
-          "sources",
-          "sourcesPagination",
-          "warehouses",
-          "warehousesPagination"
-        ],
-        "type": "object",
-        "properties": {
-          "warehouses": {
-            "title": "warehouses",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WarehouseV1"
-            },
-            "description": "The Warehouses that use this Credential."
-          },
-          "warehousesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
-          },
-          "sources": {
-            "title": "sources",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SourceV1"
-            },
-            "description": "The Sources that use this Credential."
-          },
-          "sourcesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
       },
       "CreateDbtModelSyncTriggerInput": {
         "title": "CreateDbtModelSyncTriggerInput",
@@ -57535,362 +57140,6 @@
         "additionalProperties": false,
         "description": "Response for the list spaces endpoint."
       },
-      "GroupSubscriptionStatus": {
-        "title": "GroupSubscriptionStatus",
-        "required": [
-          "name",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the group."
-          },
-          "status": {
-            "$ref": "#/components/schemas/GroupSubscriptionStatusStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GroupSubscriptionStatusResponse": {
-        "title": "GroupSubscriptionStatusResponse",
-        "required": [
-          "id",
-          "name",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the group."
-          },
-          "status": {
-            "$ref": "#/components/schemas/GroupSubscriptionStatusResponseStatus"
-          },
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The group id."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of this subscription status\u0027s last change."
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateGroupSubscriptionStatusResponse": {
-        "title": "UpdateGroupSubscriptionStatusResponse",
-        "required": [
-          "id",
-          "name",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the group."
-          },
-          "status": {
-            "$ref": "#/components/schemas/UpdateGroupSubscriptionStatusResponseStatus"
-          },
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The group id."
-          }
-        },
-        "additionalProperties": false
-      },
-      "MessagesSubscriptionRequest": {
-        "title": "MessagesSubscriptionRequest",
-        "required": [
-          "key",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key is the phone number or email."
-          },
-          "type": {
-            "$ref": "#/components/schemas/MessagesSubscriptionRequestType"
-          },
-          "status": {
-            "$ref": "#/components/schemas/MessagesSubscriptionRequestStatus"
-          },
-          "groups": {
-            "title": "groups",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GroupSubscriptionStatus"
-            },
-            "description": "Optional groups subscription status."
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReplaceMessagingSubscriptionsInSpacesAlphaInput": {
-        "title": "ReplaceMessagingSubscriptionsInSpacesAlphaInput",
-        "required": [
-          "subscriptions"
-        ],
-        "type": "object",
-        "properties": {
-          "subscriptions": {
-            "title": "subscriptions",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessagesSubscriptionRequest"
-            },
-            "description": "An array of subscriptions."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input for the endpoint."
-      },
-      "MessageSubscriptionResponseError": {
-        "title": "MessageSubscriptionResponseError",
-        "required": [
-          "code",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "title": "code",
-            "type": "string",
-            "description": "Error code."
-          },
-          "message": {
-            "title": "message",
-            "type": "string",
-            "description": "Error message."
-          }
-        },
-        "additionalProperties": false
-      },
-      "MessageSubscriptionResponse": {
-        "title": "MessageSubscriptionResponse",
-        "required": [
-          "key",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key is the phone number or email."
-          },
-          "type": {
-            "$ref": "#/components/schemas/MessageSubscriptionResponseType"
-          },
-          "status": {
-            "$ref": "#/components/schemas/MessageSubscriptionResponseStatus"
-          },
-          "errors": {
-            "title": "errors",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessageSubscriptionResponseError"
-            },
-            "description": "Error messages."
-          },
-          "groups": {
-            "title": "groups",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateGroupSubscriptionStatusResponse"
-            },
-            "description": "Optional subscription groups."
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReplaceMessagingSubscriptionsInSpacesAlphaOutput": {
-        "title": "ReplaceMessagingSubscriptionsInSpacesAlphaOutput",
-        "required": [
-          "failures",
-          "successes"
-        ],
-        "type": "object",
-        "properties": {
-          "successes": {
-            "title": "successes",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessageSubscriptionResponse"
-            },
-            "description": "Array of successful subscription status."
-          },
-          "failures": {
-            "title": "failures",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessageSubscriptionResponse"
-            },
-            "description": "Array of failure subscription status."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ReplaceMessagingSubscriptionsInSpacesAlphaOutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Output for the endpoint."
-      },
-      "GetMessagingSubscriptionSuccessResponse": {
-        "title": "GetMessagingSubscriptionSuccessResponse",
-        "required": [
-          "key",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key is the phone number or email."
-          },
-          "type": {
-            "$ref": "#/components/schemas/GetMessagingSubscriptionSuccessResponseType"
-          },
-          "status": {
-            "$ref": "#/components/schemas/GetMessagingSubscriptionSuccessResponseStatus"
-          },
-          "groups": {
-            "title": "groups",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GroupSubscriptionStatusResponse"
-            },
-            "description": "Optional subscription groups."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of this subscription status\u0027s last change."
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetMessagingSubscriptionFailureResponse": {
-        "title": "GetMessagingSubscriptionFailureResponse",
-        "required": [
-          "errors",
-          "key",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key is the phone number or email."
-          },
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "This will be the exact type as given in the request."
-          },
-          "errors": {
-            "title": "errors",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessageSubscriptionResponseError"
-            },
-            "description": "Per key errors, such as validation errors."
-          }
-        },
-        "additionalProperties": false
-      },
-      "BatchQueryMessagingSubscriptionsForSpaceAlphaOutput": {
-        "title": "BatchQueryMessagingSubscriptionsForSpaceAlphaOutput",
-        "required": [
-          "errors",
-          "failures",
-          "successes"
-        ],
-        "type": "object",
-        "properties": {
-          "successes": {
-            "title": "successes",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetMessagingSubscriptionSuccessResponse"
-            },
-            "description": "Array of successful subscription status."
-          },
-          "failures": {
-            "title": "failures",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetMessagingSubscriptionFailureResponse"
-            },
-            "description": "Validation errors due to invalid types or email/phone numbers."
-          },
-          "errors": {
-            "title": "errors",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessageSubscriptionResponseError"
-            },
-            "description": "General errors when making the request such as invalid payload or wrong http method errors."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/BatchQueryMessagingSubscriptionsForSpaceAlphaOutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Batch get response."
-      },
-      "GetSubscriptionRequest": {
-        "title": "GetSubscriptionRequest",
-        "required": [
-          "key",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key is the phone number or email."
-          },
-          "type": {
-            "$ref": "#/components/schemas/GetSubscriptionRequestType"
-          }
-        },
-        "additionalProperties": false
-      },
-      "BatchQueryMessagingSubscriptionsForSpaceAlphaInput": {
-        "title": "BatchQueryMessagingSubscriptionsForSpaceAlphaInput",
-        "required": [
-          "subscriptions"
-        ],
-        "type": "object",
-        "properties": {
-          "subscriptions": {
-            "title": "subscriptions",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetSubscriptionRequest"
-            },
-            "description": "A list of subscriptions to retrieve subscription status."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Batch get request."
-      },
       "TrackingPlanV1": {
         "title": "TrackingPlanV1",
         "required": [
@@ -61232,6 +60481,680 @@
         },
         "description": "An optional pagination object that is present when pagination input is present."
       },
+      "ListAuditEventsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
+      "CreateComputedTraitAlphaInputDefinition": {
+        "title": "definition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "description": "Represents the Compute Query Language definition of the computation and type of computation."
+      },
+      "CreateComputedTraitAlphaInputOptions": {
+        "title": "options",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "description": "Options which should be applied when aggregating computed traits."
+      },
+      "CreateComputedTraitAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "ComputedTraitSummaryDefinition": {
+        "title": "definition",
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ComputedTraitsDefinition"
+          }
+        ],
+        "properties": {
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          },
+          "type": {
+            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
+          }
+        },
+        "description": "Query language definition and type.",
+        "nullable": true
+      },
+      "ComputedTraitSummaryOptions": {
+        "title": "options",
+        "type": "object",
+        "properties": {
+          "includeHistoricalData": {
+            "title": "includeHistoricalData",
+            "type": "boolean",
+            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
+          },
+          "includeAnonymousUsers": {
+            "title": "includeAnonymousUsers",
+            "type": "boolean",
+            "description": "Determines whether anonymous users should be included when determining the computed trait value."
+          },
+          "backfillDurationDays": {
+            "title": "backfillDurationDays",
+            "type": "number",
+            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
+          }
+        },
+        "description": "Options which should be applied when segmenting traits."
+      },
+      "UpdateComputedTraitForSpaceAlphaInputDefinition": {
+        "title": "definition",
+        "required": [
+          "query",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/TraitDefinitionType"
+          },
+          "query": {
+            "title": "query",
+            "type": "string",
+            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
+          }
+        },
+        "description": "Query language definition and type.\nNote: The definition for a Computed Trait updated using the API is not editable through the Segment App."
+      },
+      "GetComputedTraitAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "UpdateComputedTraitForSpaceAlphaOutputComputedTrait": {
+        "title": "computedTrait",
+        "required": [
+          "createdAt",
+          "createdBy",
+          "definition",
+          "enabled",
+          "id",
+          "key",
+          "name",
+          "spaceId",
+          "updatedAt",
+          "updatedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Computed trait id."
+          },
+          "spaceId": {
+            "title": "spaceId",
+            "type": "string",
+            "description": "Space id for the computed trait."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the computed trait."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the computed trait."
+          },
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Key for the computed trait."
+          },
+          "enabled": {
+            "title": "enabled",
+            "type": "boolean",
+            "description": "Enabled/disabled status for the computed trait."
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
+          },
+          "createdBy": {
+            "title": "createdBy",
+            "type": "string",
+            "description": "User id who created the computed trait."
+          },
+          "updatedBy": {
+            "title": "updatedBy",
+            "type": "string",
+            "description": "User id who last updated the computed trait."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s creation."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The timestamp of the computed trait\u0027s last change."
+          },
+          "options": {
+            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
+          }
+        },
+        "description": "The computed trait summary output."
+      },
+      "ListComputedTraitsAlphaOutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
+      },
+      "CredentialV1Settings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
+      },
+      "CreateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
+      },
+      "CreateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The newly created Credential."
+      },
+      "UpdateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            },
+            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+          }
+        ],
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
+      },
+      "UpdateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The updated Credential."
+      },
+      "ListCredentialsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of this response."
+      },
+      "GetCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "description": "The returned Credential object."
+      },
+      "ListCredentialConsumersV1OutputWarehousesPagination": {
+        "title": "warehousesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of the Warehouses list."
+      },
+      "ListCredentialConsumersV1OutputSourcesPagination": {
+        "title": "sourcesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "description": "Information about the pagination of the Sources list."
+      },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
         "required": [
@@ -63400,413 +63323,6 @@
         },
         "description": "The run information."
       },
-      "ListAuditEventsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
-      "CreateComputedTraitAlphaInputDefinition": {
-        "title": "definition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "description": "Represents the Compute Query Language definition of the computation and type of computation."
-      },
-      "CreateComputedTraitAlphaInputOptions": {
-        "title": "options",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "description": "Options which should be applied when aggregating computed traits."
-      },
-      "CreateComputedTraitAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "ComputedTraitSummaryDefinition": {
-        "title": "definition",
-        "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/ComputedTraitsDefinition"
-          }
-        ],
-        "properties": {
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          },
-          "type": {
-            "$ref": "#/components/schemas/ComputedTraitsDefinitionType"
-          }
-        },
-        "description": "Query language definition and type.",
-        "nullable": true
-      },
-      "ComputedTraitSummaryOptions": {
-        "title": "options",
-        "type": "object",
-        "properties": {
-          "includeHistoricalData": {
-            "title": "includeHistoricalData",
-            "type": "boolean",
-            "description": "Determines whether data prior to the computed trait being created is included when determining the computed trait value.\nNote that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true."
-          },
-          "includeAnonymousUsers": {
-            "title": "includeAnonymousUsers",
-            "type": "boolean",
-            "description": "Determines whether anonymous users should be included when determining the computed trait value."
-          },
-          "backfillDurationDays": {
-            "title": "backfillDurationDays",
-            "type": "number",
-            "description": "If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.\nIf unspecified, defer to the value of \u0060includeHistoricalData\u0060 to determine whether historical data is either entirely included or entirely excluded when determining audience membership."
-          }
-        },
-        "description": "Options which should be applied when segmenting traits."
-      },
-      "UpdateComputedTraitForSpaceAlphaInputDefinition": {
-        "title": "definition",
-        "required": [
-          "query",
-          "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/TraitDefinitionType"
-          },
-          "query": {
-            "title": "query",
-            "type": "string",
-            "description": "The query language string defining the computed trait aggregation criteria.\nFor guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language)."
-          }
-        },
-        "description": "Query language definition and type.\nNote: The definition for a Computed Trait updated using the API is not editable through the Segment App."
-      },
-      "GetComputedTraitAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "UpdateComputedTraitForSpaceAlphaOutputComputedTrait": {
-        "title": "computedTrait",
-        "required": [
-          "createdAt",
-          "createdBy",
-          "definition",
-          "enabled",
-          "id",
-          "key",
-          "name",
-          "spaceId",
-          "updatedAt",
-          "updatedBy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "Computed trait id."
-          },
-          "spaceId": {
-            "title": "spaceId",
-            "type": "string",
-            "description": "Space id for the computed trait."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "Name of the computed trait."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "Description of the computed trait."
-          },
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "Key for the computed trait."
-          },
-          "enabled": {
-            "title": "enabled",
-            "type": "boolean",
-            "description": "Enabled/disabled status for the computed trait."
-          },
-          "definition": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryDefinition"
-          },
-          "status": {
-            "title": "status",
-            "type": "string",
-            "description": "Status for the computed trait.\n\nPossible values: Backfilling, Computing, Failed, Live, Awaiting Destinations, Disabled."
-          },
-          "createdBy": {
-            "title": "createdBy",
-            "type": "string",
-            "description": "User id who created the computed trait."
-          },
-          "updatedBy": {
-            "title": "updatedBy",
-            "type": "string",
-            "description": "User id who last updated the computed trait."
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s creation."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The timestamp of the computed trait\u0027s last change."
-          },
-          "options": {
-            "$ref": "#/components/schemas/ComputedTraitSummaryOptions"
-          }
-        },
-        "description": "The computed trait summary output."
-      },
-      "ListComputedTraitsAlphaOutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
-      },
       "CreateDownloadAlphaOutputDownload": {
         "title": "download",
         "required": [
@@ -63824,273 +63340,6 @@
           }
         },
         "description": "An object containing the downloaded data."
-      },
-      "CredentialV1Settings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
-      },
-      "CreateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
-      },
-      "CreateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The newly created Credential."
-      },
-      "UpdateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object"
-            },
-            "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-          }
-        ],
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
-      },
-      "UpdateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The updated Credential."
-      },
-      "ListCredentialsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
-      "GetCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "description": "The returned Credential object."
-      },
-      "ListCredentialConsumersV1OutputWarehousesPagination": {
-        "title": "warehousesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of the Warehouses list."
-      },
-      "ListCredentialConsumersV1OutputSourcesPagination": {
-        "title": "sourcesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of the Sources list."
       },
       "CreateDbtModelSyncTriggerOutputDbtModelSyncTrigger": {
         "title": "dbtModelSyncTrigger",
@@ -69152,70 +68401,6 @@
         },
         "description": "Information about the pagination of this response."
       },
-      "ReplaceMessagingSubscriptionsInSpacesAlphaOutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
-      "BatchQueryMessagingSubscriptionsForSpaceAlphaOutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "description": "Information about the pagination of this response."
-      },
       "ListTrackingPlansV1OutputPagination": {
         "title": "pagination",
         "required": [
@@ -71819,14 +71004,6 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/BatchQueryActivationsForSpaceAlphaOutput"
-          }
-        }
-      },
-      "BatchQueryMessagingSubscriptionsForSpace200SegmentV1AlphaJsonResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/BatchQueryMessagingSubscriptionsForSpaceAlphaOutput"
           }
         }
       },
@@ -75902,14 +75079,6 @@
           }
         }
       },
-      "ReplaceMessagingSubscriptionsInSpaces200SegmentV1AlphaJsonResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ReplaceMessagingSubscriptionsInSpacesAlphaOutput"
-          }
-        }
-      },
       "UpdateSelectiveSyncForWarehouse200SegmentV1JsonResponse": {
         "type": "object",
         "properties": {
@@ -75975,6 +75144,9 @@
         "type": "object",
         "description": "The settings that a Destination requires to create audiences on a third-party platform."
       },
+      "CredentialSettingsV1AdditionalProperties": {
+        "type": "object"
+      },
       "AudiencePreviewEntitiesResultEntitiesProperty": {
         "type": "object",
         "description": "Related entities that are one level deeper will only be returned if those entities are referenced in the audience definition."
@@ -75984,9 +75156,6 @@
         "description": "Related entities that are one level deeper will only be returned if those entities are referenced in the audience definition."
       },
       "EntityPropertiesAdditionalProperties": {
-        "type": "object"
-      },
-      "CredentialSettingsV1AdditionalProperties": {
         "type": "object"
       },
       "DestinationFilterActionV1FieldsProperty": {
@@ -76163,6 +75332,54 @@
             {
               "value": "SUCCESS",
               "name": "Success"
+            }
+          ]
+        }
+      },
+      "TraitDefinitionType": {
+        "title": "type",
+        "enum": [
+          "ACCOUNTS",
+          "USERS"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
+        "x-ms-enum": {
+          "name": "TraitDefinitionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCOUNTS",
+              "name": "Accounts"
+            },
+            {
+              "value": "USERS",
+              "name": "Users"
+            }
+          ]
+        }
+      },
+      "ComputedTraitsDefinitionType": {
+        "title": "type",
+        "enum": [
+          "ACCOUNTS",
+          "USERS"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
+        "x-ms-enum": {
+          "name": "ComputedTraitsDefinitionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCOUNTS",
+              "name": "Accounts"
+            },
+            {
+              "value": "USERS",
+              "name": "Users"
             }
           ]
         }
@@ -76703,54 +75920,6 @@
             {
               "value": "SPECIFIC_DAYS",
               "name": "SpecificDays"
-            }
-          ]
-        }
-      },
-      "TraitDefinitionType": {
-        "title": "type",
-        "enum": [
-          "ACCOUNTS",
-          "USERS"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
-        "x-ms-enum": {
-          "name": "TraitDefinitionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ACCOUNTS",
-              "name": "Accounts"
-            },
-            {
-              "value": "USERS",
-              "name": "Users"
-            }
-          ]
-        }
-      },
-      "ComputedTraitsDefinitionType": {
-        "title": "type",
-        "enum": [
-          "ACCOUNTS",
-          "USERS"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The underlying data type being aggregated for this computed trait.\n\nPossible values: users, accounts.",
-        "x-ms-enum": {
-          "name": "ComputedTraitsDefinitionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ACCOUNTS",
-              "name": "Accounts"
-            },
-            {
-              "value": "USERS",
-              "name": "Users"
             }
           ]
         }
@@ -77908,336 +77077,6 @@
             {
               "value": "OMIT_TRAITS",
               "name": "OmitTraits"
-            }
-          ]
-        }
-      },
-      "GroupSubscriptionStatusStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status.",
-        "x-ms-enum": {
-          "name": "GroupSubscriptionStatusStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "GroupSubscriptionStatusResponseStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status.",
-        "x-ms-enum": {
-          "name": "GroupSubscriptionStatusResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "UpdateGroupSubscriptionStatusResponseStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status.",
-        "x-ms-enum": {
-          "name": "UpdateGroupSubscriptionStatusResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "MessagesSubscriptionRequestType": {
-        "title": "type",
-        "enum": [
-          "ANDROID_PUSH",
-          "EMAIL",
-          "IOS_PUSH",
-          "SMS",
-          "WHATSAPP"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type is communication medium used.",
-        "x-ms-enum": {
-          "name": "MessagesSubscriptionRequestType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ANDROID_PUSH",
-              "name": "AndroidPush"
-            },
-            {
-              "value": "EMAIL",
-              "name": "Email"
-            },
-            {
-              "value": "IOS_PUSH",
-              "name": "IosPush"
-            },
-            {
-              "value": "SMS",
-              "name": "Sms"
-            },
-            {
-              "value": "WHATSAPP",
-              "name": "Whatsapp"
-            }
-          ]
-        }
-      },
-      "MessagesSubscriptionRequestStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status globally.",
-        "x-ms-enum": {
-          "name": "MessagesSubscriptionRequestStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "MessageSubscriptionResponseType": {
-        "title": "type",
-        "enum": [
-          "ANDROID_PUSH",
-          "EMAIL",
-          "IOS_PUSH",
-          "SMS",
-          "WHATSAPP"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type is communication medium used. Either SMS, EMAIL or WHATSAPP.",
-        "x-ms-enum": {
-          "name": "MessageSubscriptionResponseType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ANDROID_PUSH",
-              "name": "AndroidPush"
-            },
-            {
-              "value": "EMAIL",
-              "name": "Email"
-            },
-            {
-              "value": "IOS_PUSH",
-              "name": "IosPush"
-            },
-            {
-              "value": "SMS",
-              "name": "Sms"
-            },
-            {
-              "value": "WHATSAPP",
-              "name": "Whatsapp"
-            }
-          ]
-        }
-      },
-      "MessageSubscriptionResponseStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status.",
-        "x-ms-enum": {
-          "name": "MessageSubscriptionResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "GetMessagingSubscriptionSuccessResponseType": {
-        "title": "type",
-        "enum": [
-          "ANDROID_PUSH",
-          "EMAIL",
-          "IOS_PUSH",
-          "SMS",
-          "WHATSAPP"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type is communication medium used.",
-        "x-ms-enum": {
-          "name": "GetMessagingSubscriptionSuccessResponseType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ANDROID_PUSH",
-              "name": "AndroidPush"
-            },
-            {
-              "value": "EMAIL",
-              "name": "Email"
-            },
-            {
-              "value": "IOS_PUSH",
-              "name": "IosPush"
-            },
-            {
-              "value": "SMS",
-              "name": "Sms"
-            },
-            {
-              "value": "WHATSAPP",
-              "name": "Whatsapp"
-            }
-          ]
-        }
-      },
-      "GetMessagingSubscriptionSuccessResponseStatus": {
-        "title": "status",
-        "enum": [
-          "DID_NOT_SUBSCRIBE",
-          "SUBSCRIBED",
-          "UNSUBSCRIBED"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The user subscribed, unsubscribed, or on initial status. This is absent if the phone number or email is not found.",
-        "x-ms-enum": {
-          "name": "GetMessagingSubscriptionSuccessResponseStatus",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "DID_NOT_SUBSCRIBE",
-              "name": "DidNotSubscribe"
-            },
-            {
-              "value": "SUBSCRIBED",
-              "name": "Subscribed"
-            },
-            {
-              "value": "UNSUBSCRIBED",
-              "name": "Unsubscribed"
-            }
-          ]
-        }
-      },
-      "GetSubscriptionRequestType": {
-        "title": "type",
-        "enum": [
-          "ANDROID_PUSH",
-          "EMAIL",
-          "IOS_PUSH",
-          "SMS",
-          "WHATSAPP"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type is communication medium used.",
-        "x-ms-enum": {
-          "name": "GetSubscriptionRequestType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ANDROID_PUSH",
-              "name": "AndroidPush"
-            },
-            {
-              "value": "EMAIL",
-              "name": "Email"
-            },
-            {
-              "value": "IOS_PUSH",
-              "name": "IosPush"
-            },
-            {
-              "value": "SMS",
-              "name": "Sms"
-            },
-            {
-              "value": "WHATSAPP",
-              "name": "Whatsapp"
             }
           ]
         }
@@ -79494,10 +78333,6 @@
       "description": "A Tracking Plan is a data spec outlining the events and properties you intend to collect across your Segment Sources.\n\nThe Segment Tracking Plan feature allows you to validate your expected events against the live events that Segment receives. Segment generates violations when an event doesn\u2019t match the spec\u2019d event in the Tracking Plan.\n\nYou can store your Tracking Plans in your Workspace, and connect them to one or more Sources.\n\nUsing the Segment Public API, you can create, delete, update, list, and connect Tracking Plans and their Rules.\n\n## Migrate from the Config API\n\nThe [getTrackingPlan endpoint](https://reference.segmentapis.com/#1092fe01-379b-4ca1-8b1d-9f42b33d2899) returns the following fields:\n\n| Config API     | Public API  |\n| -------------- | ----------- |\n| \u0060display_name\u0060 | \u0060name\u0060      |\n| \u0060name\u0060         | \u0060slug\u0060      |\n| \u0060updateTime\u0060   | \u0060updatedAt\u0060 |\n| \u0060createTime\u0060   | \u0060createdAt\u0060 |\n\nTo migrate, replace any use of the Config API endpoints with the Segment Public API counterparts, using the field mappings in the table above.\n"
     },
     {
-      "name": "Spaces",
-      "description": "A space is a separate Personas environment. Consider the two main reasons you might use spaces:\n\n- To separate your development and production environments (highly recommended)\n- To separate environments for distinct teams or geographical regions\n"
-    },
-    {
       "name": "Reverse ETL",
       "description": "Reverse ETL allows the use of a database (aka: Segment Warehouse) as a source of\ndata to be connected and sent to supported Segment Destinations. Previously, it\nwas only possible to use a Segment Warehouse as a destination.\n\n## Reverse ETL Sync schedule JSON configuration\n\nThe structure of \u0060config\u0060 varies with the value in \u0060strategy\u0060.\nAll strategies will employ a key/value object with _minimum_ depth of 1.\n\n### Strategy: \u0022manual\u0022\n\nWhen \u0060strategy\u0060 is \u0022manual\u0022, \u0060config\u0060 can be excluded altogether. With\nthis strategy, syncs will never be triggered automatically, so they must be\ntriggered manually through the UI or Public API route.\n\n\u0060\u0060\u0060json\n\u0022reverseETLSchedule\u0022: {\n  \u0022strategy\u0022: \u0022manual\u0022\n}\n\u0060\u0060\u0060\n\n### Strategy: \u0022periodic\u0022\n\nWhen \u0060strategy\u0060 is \u0022periodic\u0022, the only supported \u0060config\u0060 key is \u0022interval\u0022,\nwhich will be a string that is in a format accepted by Go\u0027s\n[time.ParseDuration][go-time-parse-duration] function. For example, \u00223h\u0022 will\nsync every 3 hours, while \u002230m\u0022 will sync every 30 minutes. The interval must be\ngreater than 10 minutes (\u002210m\u0022) and shorter than 1 week (\u0022168h\u0022).\n\nAn example schedule would look like this:\n\n\u0060\u0060\u0060json\n\u0022reverseETLSchedule\u0022: {\n  {\n    \u0022config\u0022: {\n      \u0022interval\u0022: \u00221h\u0022\n    },\n    \u0022strategy\u0022: \u0022periodic\u0022\n  }\n}\n\u0060\u0060\u0060\n\n### Strategy: \u0022specific_days\u0022\n\nWhen \u0060strategy\u0060 is \u0022specific_days\u0022, there are only 3 supported \u0060config\u0060 keys:\n\u0022days\u0022, \u0022hours\u0022 and \u0022timezone\u0022.\n\nThe \u0022days\u0022 field must be an array of numbers, corresponding to the desired days\nof the week that syncs should run. Each item must be a number from 0 (Sunday) up\nto 6 (Saturday). There needs to be at least 1 item, but also no more than 7.\n\nFor example: \u0060[0, 6]\u0060 would correspond to the weekend (Saturday and Sunday)\nwhile \u0060[1, 2, 3, 4, 5]\u0060 would correspond to the weekdays (Monday through\nFriday).\n\nThe \u0022hours\u0022 field must be an array of numbers, corresponding to the desired\nhours of the day that syncs should run. Each item must be a number from 0 (12am\nor 0:00) up to 23 (11pm or 23:00). There needs to be at least 1 item, but also\nno more than 24.\n\nFor example: \u0060[0, 12]\u0060 would correspond to the running at midnight (12:00am /\n0:00) and noon (12:00pm / 12:00).\n\nThe \u0022timezone\u0022 field must be a valid value from the IANA database used by\nGolang, which should match the list found [here][iana-timezones]. This allows\nthe \u0022hours\u0022 above to reflect your own time zone which may be easier to\nconfigure, but you can also choose \u0022UTC\u0022 if you want to avoid things like DST\n(daylight savings).\n\nA simple example config would look like:\n\n\u0060\u0060\u0060json\n\u0022reverseETLSchedule\u0022: {\n  \u0022config\u0022: {\n    \u0022days\u0022: [1],\n    \u0022hours\u0022: [15],\n    \u0022timezone\u0022: \u0022America/New_York\u0022\n  },\n  \u0022strategy\u0022: \u0022specific_days\u0022\n}\n\u0060\u0060\u0060\n\nA more complex example:\n\n\u0060\u0060\u0060json\n\u0022reverseETLSchedule\u0022: {\n  \u0022config\u0022: {\n    \u0022days\u0022: [0, 6],\n    \u0022hours\u0022: [0, 6, 12, 18],\n    \u0022timezone\u0022: \u0022America/Los_Angeles\u0022\n  },\n  \u0022strategy\u0022: \u0022specific_days\u0022\n}\n\u0060\u0060\u0060\n\nThis would run syncs 4 times per day (midnight, 6am, noon, 6pm) but only on\nweekends (Saturday and Sunday).\n\n[go-time-parse-duration]: https://pkg.go.dev/time#ParseDuration\n[iana-timezones]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones\n\n### Strategy: \u0022cron\u0022\n\nUse the \u0060cron\u0060 expression for precise scheduling. Remember to include only five fields, not six, as Segment\u0027s smallest time unit is minutes. If you need help, use a [cron expression generator](https://crontab.cronhub.io/) to create the ideal schedule.\n\nNote: \u0060cron\u0060 strategy does not allow expressions lower than 15 minutes.\n\nHere is an example indicating \u0027At 15 minutes past the hour, every 3 hours, on day 1 of the month\u0027, for example (Tuesday October 01, 2024 at 12:15 am)\n\n\u0060\u0060\u0060json\n\u0022reverseETLSchedule\u0022: {\n  \u0022config\u0022: {\n    \u0022spec\u0022: \u002215 */3 1 * *\u0022,\n    \u0022timezone\u0022: \u0022America/Los_Angeles\u0022\n  },\n  \u0022strategy\u0022: \u0022cron\u0022\n}\n\u0060\u0060\u0060\n"
     },
@@ -79580,6 +78415,10 @@
     {
       "name": "Events",
       "description": ""
+    },
+    {
+      "name": "Spaces",
+      "description": "A space is a separate Personas environment. Consider the two main reasons you might use spaces:\n\n- To separate your development and production environments (highly recommended)\n- To separate environments for distinct teams or geographical regions\n"
     },
     {
       "name": "Workspaces",
