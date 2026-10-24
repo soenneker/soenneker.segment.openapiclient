@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The user object.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetUserV1OutputUser : IAdditionalDataHolder, IParsable
+    public partial class GetUserV1OutputUser : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The email address associated with this user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,13 +45,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<global::Soenneker.Segment.OpenApiClient.Models.PermissionV1> Permissions { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetUserV1OutputUser"/> and sets the default values.
-        /// </summary>
-        public GetUserV1OutputUser()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -89,7 +80,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PermissionV1>("permissions", Permissions);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

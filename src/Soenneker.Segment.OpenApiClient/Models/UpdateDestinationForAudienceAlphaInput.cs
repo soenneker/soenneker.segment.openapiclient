@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform.The supplied object replaces the stored settings outright, so include every setting that should remain. Settings that are omitted are removed.An empty object is treated the same as omitting the field and leaves the stored settings unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaInputConnectionSettings? ConnectionSettings { get; set; }
+        public UntypedNode? ConnectionSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaInputConnectionSettings ConnectionSettings { get; set; }
+        public UntypedNode ConnectionSettings { get; set; }
 #endif
         /// <summary>Identifier sync configuration - array of external IDs to sync with their strategies. Maximum 5 items allowed.The supplied array replaces the entire stored configuration, so include every external id that should remain. Omitting mapTo on an entry clears any value stored for it.An empty array is treated the same as omitting the field and leaves the stored configuration unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaInputConnectionSettings>(global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaInputConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "idSyncConfiguration", n => { IdSyncConfiguration = n.GetCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>(global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaInputConnectionSettings>("connectionSettings", ConnectionSettings);
+            writer.WriteObjectValue<UntypedNode>("connectionSettings", ConnectionSettings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>("idSyncConfiguration", IdSyncConfiguration);
         }
     }

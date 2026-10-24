@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Runs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\runs
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\runs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Runs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/runs", pathParameters)
+        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/runs", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Runs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/runs", rawUrl)
+        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/runs", rawUrl)
         {
         }
         /// <summary>

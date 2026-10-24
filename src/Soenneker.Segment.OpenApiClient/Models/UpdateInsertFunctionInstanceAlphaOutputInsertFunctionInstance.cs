@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The updated instance.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstance : IAdditionalDataHolder, IParsable
+    public partial class UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstance : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The classId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,10 +34,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The encryptedSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceEncryptedSettings? EncryptedSettings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaEncryptedSettingsProperty? EncryptedSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceEncryptedSettings EncryptedSettings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaEncryptedSettingsProperty EncryptedSettings { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,10 +66,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceSettings? Settings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaSettingsProperty? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceSettings Settings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaSettingsProperty Settings { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,13 +79,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string UpdatedAt { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstance"/> and sets the default values.
-        /// </summary>
-        public UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstance()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -109,11 +100,11 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "classId", n => { ClassId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "encryptedSettings", n => { EncryptedSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceEncryptedSettings>(global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceEncryptedSettings.CreateFromDiscriminatorValue); } },
+                { "encryptedSettings", n => { EncryptedSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaEncryptedSettingsProperty>(global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaEncryptedSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "integrationId", n => { IntegrationId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceSettings>(global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceSettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaSettingsProperty>(global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaSettingsProperty.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -127,13 +118,12 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("classId", ClassId);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceEncryptedSettings>("encryptedSettings", EncryptedSettings);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaEncryptedSettingsProperty>("encryptedSettings", EncryptedSettings);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("integrationId", IntegrationId);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateInsertFunctionInstanceAlphaOutputInsertFunctionInstanceSettings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlphaSettingsProperty>("settings", Settings);
             writer.WriteStringValue("updatedAt", UpdatedAt);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

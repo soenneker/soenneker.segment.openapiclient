@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Object with extract phase details.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ReverseEtlSyncStatusExtractPhase : IAdditionalDataHolder, IParsable
+    public partial class ReverseEtlSyncStatusExtractPhase : IParsable
     {
         /// <summary>Counts the subset of records with status=new, which indicates records that were created/inserted/added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string AddedCount { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Counts the subset of records with status=deleted, which indicates records that were deleted/removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,13 +70,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string UpdatedCount { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSyncStatusExtractPhase"/> and sets the default values.
-        /// </summary>
-        public ReverseEtlSyncStatusExtractPhase()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSyncStatusExtractPhase"/></returns>
@@ -119,7 +110,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("finishedAt", FinishedAt);
             writer.WriteStringValue("startedAt", StartedAt);
             writer.WriteStringValue("updatedCount", UpdatedCount);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

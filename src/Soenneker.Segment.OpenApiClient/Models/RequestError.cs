@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Any extra data associated with this error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.RequestErrorData? Data { get; set; }
+        public UntypedNode? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.RequestErrorData Data { get; set; }
+        public UntypedNode Data { get; set; }
 #endif
         /// <summary>The name of an input field from the request that triggered this error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.RequestErrorData>(global::Soenneker.Segment.OpenApiClient.Models.RequestErrorData.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "field", n => { Field = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetDoubleValue(); } },
@@ -79,7 +79,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.RequestErrorData>("data", Data);
+            writer.WriteObjectValue<UntypedNode>("data", Data);
             writer.WriteStringValue("field", Field);
             writer.WriteStringValue("message", Message);
             writer.WriteDoubleValue("status", Status);

@@ -13,7 +13,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetActivationFromAudienceOutput : IParsable
     {
-        /// <summary>The activation property</summary>
+        /// <summary>A class that encapsulates the complete activation output with full details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Segment.OpenApiClient.Models.GetActivationFromAudienceOutputActivation? Activation { get; set; }

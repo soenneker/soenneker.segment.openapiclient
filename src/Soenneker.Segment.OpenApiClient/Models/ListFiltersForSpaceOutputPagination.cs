@@ -11,23 +11,14 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Pagination parameters.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListFiltersForSpaceOutputPagination : IAdditionalDataHolder, IParsable
+    public partial class ListFiltersForSpaceOutputPagination : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Current.</summary>
         public double? Current { get; set; }
         /// <summary>Next.</summary>
         public double? Next { get; set; }
         /// <summary>Total entries.</summary>
         public double? TotalEntries { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListFiltersForSpaceOutputPagination"/> and sets the default values.
-        /// </summary>
-        public ListFiltersForSpaceOutputPagination()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +52,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("current", Current);
             writer.WriteDoubleValue("next", Next);
             writer.WriteDoubleValue("totalEntries", TotalEntries);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

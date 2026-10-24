@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The created Transformation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateTransformationV1OutputTransformation : IAdditionalDataHolder, IParsable
+    public partial class CreateTransformationV1OutputTransformation : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional array for allowing properties from your events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,13 +106,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string SourceId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateTransformationV1OutputTransformation"/> and sets the default values.
-        /// </summary>
-        public CreateTransformationV1OutputTransformation()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateTransformationV1OutputTransformation"/></returns>
@@ -167,7 +158,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1>("propertyRenames", PropertyRenames);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1>("propertyValueTransformations", PropertyValueTransformations);
             writer.WriteStringValue("sourceId", SourceId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

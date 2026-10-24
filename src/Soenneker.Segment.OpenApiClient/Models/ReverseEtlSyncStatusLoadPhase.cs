@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Object with load phase details.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ReverseEtlSyncStatusLoadPhase : IAdditionalDataHolder, IParsable
+    public partial class ReverseEtlSyncStatusLoadPhase : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Counts the subset of records status that failed to be delivered by eitherreceiving a permanent error (for example, 400 Bad Request) or by exhaustingall retries for temporary errors (for example, 429 Too Many Requests).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,13 +54,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string StartedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSyncStatusLoadPhase"/> and sets the default values.
-        /// </summary>
-        public ReverseEtlSyncStatusLoadPhase()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSyncStatusLoadPhase"/></returns>
@@ -99,7 +90,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("errorCode", ErrorCode);
             writer.WriteStringValue("finishedAt", FinishedAt);
             writer.WriteStringValue("startedAt", StartedAt);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

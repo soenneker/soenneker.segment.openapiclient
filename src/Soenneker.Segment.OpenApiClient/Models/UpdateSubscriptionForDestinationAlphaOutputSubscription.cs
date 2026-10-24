@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The Destination subscription.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateSubscriptionForDestinationAlphaOutputSubscription : IAdditionalDataHolder, IParsable
+    public partial class UpdateSubscriptionForDestinationAlphaOutputSubscription : IParsable
     {
         /// <summary>The unique identifier for the Destination action to trigger.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,8 +29,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string ActionSlug { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The associated Destination instance id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,13 +88,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string Trigger { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateSubscriptionForDestinationAlphaOutputSubscription"/> and sets the default values.
-        /// </summary>
-        public UpdateSubscriptionForDestinationAlphaOutputSubscription()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateSubscriptionForDestinationAlphaOutputSubscription"/></returns>
@@ -143,7 +134,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionReverseEtlSchedule>("reverseETLSchedule", ReverseETLSchedule);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionSettings>("settings", Settings);
             writer.WriteStringValue("trigger", Trigger);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

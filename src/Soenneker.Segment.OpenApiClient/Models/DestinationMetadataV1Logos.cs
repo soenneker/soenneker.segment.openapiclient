@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The Destination&apos;s logos.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DestinationMetadataV1Logos : IAdditionalDataHolder, IParsable
+    public partial class DestinationMetadataV1Logos : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The alternative text for this logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +37,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string Mark { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos"/> and sets the default values.
-        /// </summary>
-        public DestinationMetadataV1Logos()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,7 +70,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("alt", Alt);
             writer.WriteStringValue("default", Default);
             writer.WriteStringValue("mark", Mark);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

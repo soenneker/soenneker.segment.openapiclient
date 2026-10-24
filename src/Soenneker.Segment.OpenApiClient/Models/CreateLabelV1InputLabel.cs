@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The new label to create in the Workspace.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateLabelV1InputLabel : IAdditionalDataHolder, IParsable
+    public partial class CreateLabelV1InputLabel : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An optional description of the purpose of this label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +37,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateLabelV1InputLabel"/> and sets the default values.
-        /// </summary>
-        public CreateLabelV1InputLabel()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,7 +70,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

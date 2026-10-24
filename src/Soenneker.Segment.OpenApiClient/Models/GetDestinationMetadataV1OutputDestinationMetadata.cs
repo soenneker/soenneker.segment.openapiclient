@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The catalog item matched by id.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetDestinationMetadataV1OutputDestinationMetadata : IAdditionalDataHolder, IParsable
+    public partial class GetDestinationMetadataV1OutputDestinationMetadata : IParsable
     {
         /// <summary>Actions available for the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1> Actions { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of categories with which the Destination is associated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -172,13 +170,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string Website { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetDestinationMetadataV1OutputDestinationMetadata"/> and sets the default values.
-        /// </summary>
-        public GetDestinationMetadataV1OutputDestinationMetadata()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetDestinationMetadataV1OutputDestinationMetadata"/></returns>
@@ -247,7 +238,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms>("supportedPlatforms", SupportedPlatforms);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedRegions", SupportedRegions);
             writer.WriteStringValue("website", Website);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

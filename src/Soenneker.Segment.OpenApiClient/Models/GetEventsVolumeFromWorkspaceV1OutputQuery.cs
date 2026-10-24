@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Input query returned.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetEventsVolumeFromWorkspaceV1OutputQuery : IAdditionalDataHolder, IParsable
+    public partial class GetEventsVolumeFromWorkspaceV1OutputQuery : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>AppVersion is a list of strings which allow you to restrict the result to justthe given application versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,13 +82,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string WorkspaceId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery"/> and sets the default values.
-        /// </summary>
-        public GetEventsVolumeFromWorkspaceV1OutputQuery()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery"/></returns>
@@ -137,7 +128,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("sourceId", SourceId);
             writer.WriteStringValue("startTime", StartTime);
             writer.WriteStringValue("workspaceId", WorkspaceId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -41,10 +41,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Query language definition and type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition? Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition? Definition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition Definition { get; set; }
 #endif
         /// <summary>Description of the audience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -158,7 +158,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "computeCadence", n => { ComputeCadence = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence>(global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition>(global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition.CreateFromDiscriminatorValue); } },
+                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition>(global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -184,7 +184,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence>("computeCadence", ComputeCadence);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("createdBy", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition>("definition", Definition);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition>("definition", Definition);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);

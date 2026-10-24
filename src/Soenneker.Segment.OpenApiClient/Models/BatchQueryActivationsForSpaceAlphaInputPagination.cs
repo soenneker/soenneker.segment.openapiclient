@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Optional pagination.When `audienceIds` is provided, this paginates the combined activation result setacross those audiences (`count` = activations per page).When `audienceIds` is omitted, this paginates the space&apos;s *audiences* instead, fullyexpanding each page&apos;s activations (`count` = audiences per page, not activations perpage) - so response size per page is not directly bounded by `count` in that mode.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BatchQueryActivationsForSpaceAlphaInputPagination : IAdditionalDataHolder, IParsable
+    public partial class BatchQueryActivationsForSpaceAlphaInputPagination : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of items to retrieve in a page, between 1 and 1000.</summary>
         public int? Count { get; set; }
         /// <summary>The page to request.Acceptable values to use here are in PaginationOutput objects, in the `current`, `next`, and `previous` keys.Consumers of the API must treat this value as opaque.</summary>
@@ -25,13 +23,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string Cursor { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaInputPagination"/> and sets the default values.
-        /// </summary>
-        public BatchQueryActivationsForSpaceAlphaInputPagination()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,7 +54,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
             writer.WriteStringValue("cursor", Cursor);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

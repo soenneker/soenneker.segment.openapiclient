@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The newly created Destination filter.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateFilterForDestinationV1OutputFilter : IAdditionalDataHolder, IParsable
+    public partial class CreateFilterForDestinationV1OutputFilter : IParsable
     {
         /// <summary>A list of actions this filter performs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1> Actions { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The timestamp of this filter&apos;s creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,13 +88,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateFilterForDestinationV1OutputFilter"/> and sets the default values.
-        /// </summary>
-        public CreateFilterForDestinationV1OutputFilter()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateFilterForDestinationV1OutputFilter"/></returns>
@@ -143,7 +134,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("sourceId", SourceId);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("updatedAt", UpdatedAt);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

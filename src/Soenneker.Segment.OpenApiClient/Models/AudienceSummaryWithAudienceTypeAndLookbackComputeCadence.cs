@@ -11,19 +11,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Details the cadence on which the audience&apos;s membership is computed.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudienceSummaryWithAudienceTypeAndLookbackComputeCadence : IAdditionalDataHolder, IParsable
+    public partial class AudienceSummaryWithAudienceTypeAndLookbackComputeCadence : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cadence type on which the audience&apos;s membership is computed.If &apos;BATCH&apos;, the audience is computed on a periodic basis.If &apos;REALTIME&apos;, the audience is continously computed.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudienceComputeCadenceType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence"/> and sets the default values.
-        /// </summary>
-        public AudienceSummaryWithAudienceTypeAndLookbackComputeCadence()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,7 +44,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceComputeCadenceType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

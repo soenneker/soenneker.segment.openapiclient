@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Options which should be applied when segmenting audiences.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudienceSummaryWithAudienceTypeAndLookbackOptions : IAdditionalDataHolder, IParsable
+    public partial class AudienceSummaryWithAudienceTypeAndLookbackOptions : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If specified, the value of this field indicates the number of days (specified from the date the audience was created) that event data will be included from when determining audience membership.If not specified, the default is set to the maximum event window size, or 7 days if no window condition is defined.Note that this is applied on a best-effort basis and may not always be applicable. In such cases, the response will not return a backfillEventDataDays value, and all available data will be taken into account.Note that includeHistoricalData must be set to true.</summary>
         public double? BackfillEventDataDays { get; set; }
         /// <summary>The set of profile external identifiers being used to determine audience membership.Profiles will only be considered for audience membership if the profile has at least one external id whose key matches a value in this set.</summary>
@@ -27,13 +25,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>Determines whether data prior to the audience being created is included when determining audience membership.Note that including historical data may be needed in order to properly handle the definition specified.In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true.</summary>
         public bool? IncludeHistoricalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackOptions"/> and sets the default values.
-        /// </summary>
-        public AudienceSummaryWithAudienceTypeAndLookbackOptions()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +58,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("backfillEventDataDays", BackfillEventDataDays);
             writer.WriteCollectionOfPrimitiveValues<string>("filterByExternalIds", FilterByExternalIds);
             writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

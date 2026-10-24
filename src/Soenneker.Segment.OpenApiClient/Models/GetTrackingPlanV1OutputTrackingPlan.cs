@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The requested Tracking Plan.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetTrackingPlanV1OutputTrackingPlan : IAdditionalDataHolder, IParsable
+    public partial class GetTrackingPlanV1OutputTrackingPlan : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The timestamp of this Tracking Plan&apos;s creation.Config API note: equal to `createTime`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,13 +64,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetTrackingPlanV1OutputTrackingPlan"/> and sets the default values.
-        /// </summary>
-        public GetTrackingPlanV1OutputTrackingPlan()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetTrackingPlanV1OutputTrackingPlan"/></returns>
@@ -113,7 +104,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("slug", Slug);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TrackingPlanV1Type>("type", Type);
             writer.WriteStringValue("updatedAt", UpdatedAt);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

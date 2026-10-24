@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceReferences
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\audience-references
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\audience-references
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudienceReferencesRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudienceReferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/audience-references{?pagination*,search*,sort*}", pathParameters)
+        public AudienceReferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/audience-references{?pagination*,search*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceRef
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudienceReferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/audience-references{?pagination*,search*,sort*}", rawUrl)
+        public AudienceReferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/audience-references{?pagination*,search*,sort*}", rawUrl)
         {
         }
         /// <summary>

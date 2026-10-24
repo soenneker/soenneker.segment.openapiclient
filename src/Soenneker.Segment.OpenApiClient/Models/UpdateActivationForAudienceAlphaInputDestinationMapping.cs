@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Defines the specific action and data mapping for the Destination. Only applicable for Action Destinations.Action id: Specifies which action to perform on the Destination (for example: add contact, update list).Settings/Mapping: Defines how event data (including personalization traits) populates specific fields in the Destination.Use the List Supported Destinations from Audience endpoint to find available action ids and the specific Destination fields you can map.On update, settings are applied one field at a time. A field that is not supplied keeps its stored value, and a field that is supplied has its value replaced outright.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateActivationForAudienceAlphaInputDestinationMapping : IAdditionalDataHolder, IParsable
+    public partial class UpdateActivationForAudienceAlphaInputDestinationMapping : IParsable
     {
         /// <summary>The id for the action that Segment should perform on the Destination.The action cannot be changed once the Activation exists. When updating, this field is still required, but supplying a different value has no effect.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string ActionId { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The action/mapping settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,13 +29,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionConfigurationSettings Settings { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateActivationForAudienceAlphaInputDestinationMapping"/> and sets the default values.
-        /// </summary>
-        public UpdateActivationForAudienceAlphaInputDestinationMapping()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actionId", ActionId);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionConfigurationSettings>("settings", Settings);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

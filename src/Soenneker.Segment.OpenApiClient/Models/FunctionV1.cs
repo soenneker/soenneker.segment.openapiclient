@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Models
 {
     /// <summary>
-    /// A Function object.
+    /// Represents a Function.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetFunctionV1OutputFunction : IAdditionalDataHolder, IParsable
+    public partial class FunctionV1 : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The max count of the batch for this Function.</summary>
         public double? BatchMaxCount { get; set; }
         /// <summary>The catalog id of this Function.</summary>
@@ -110,21 +108,14 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public List<global::Soenneker.Segment.OpenApiClient.Models.FunctionSettingV1> Settings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction"/> and sets the default values.
-        /// </summary>
-        public GetFunctionV1OutputFunction()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.FunctionV1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Segment.OpenApiClient.Models.FunctionV1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction();
+            return new global::Soenneker.Segment.OpenApiClient.Models.FunctionV1();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -171,7 +162,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("previewWebhookUrl", PreviewWebhookUrl);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.FunctionV1ResourceType>("resourceType", ResourceType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.FunctionSettingV1>("settings", Settings);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

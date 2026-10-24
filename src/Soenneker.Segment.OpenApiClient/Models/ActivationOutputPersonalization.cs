@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The data points used to enrich the event. Defines which profile traits and/or entity properties are included in the event sent to the Destination.For Action Destinations, any traits or properties specified here must also be included in the destinationMapping to define which Destination fields should be populated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ActivationOutputPersonalization : IAdditionalDataHolder, IParsable
+    public partial class ActivationOutputPersonalization : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The entities, and the properties of each entity, included in the event sent to the Destination.Only applicable to Linked Audiences.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,13 +31,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>Sync entity property changes to the Destination.Only applicable if activationType is &quot;Audience Membership Changed&quot;.</summary>
         public bool? SyncEntityPropertyChanges { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization"/> and sets the default values.
-        /// </summary>
-        public ActivationOutputPersonalization()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -73,7 +64,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity>("entities", Entities);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile>("profile", Profile);
             writer.WriteBoolValue("syncEntityPropertyChanges", SyncEntityPropertyChanges);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

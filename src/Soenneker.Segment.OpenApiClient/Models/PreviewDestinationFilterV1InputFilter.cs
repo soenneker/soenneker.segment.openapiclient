@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The filter to preview.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PreviewDestinationFilterV1InputFilter : IAdditionalDataHolder, IParsable
+    public partial class PreviewDestinationFilterV1InputFilter : IParsable
     {
         /// <summary>The filtering action to take on events that match the &quot;if&quot; statement.Action types must be one of: &quot;drop&quot;, &quot;allow_properties&quot;, &quot;drop_properties&quot; or &quot;sample&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1> Actions { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A FQL statement which determines if the provided filter&apos;s actions will apply to the provided JSON payload.The literal string &quot;all&quot; will result in this filter to all events.For guidance on using FQL, see the Segment documentation site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,13 +29,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string If { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1InputFilter"/> and sets the default values.
-        /// </summary>
-        public PreviewDestinationFilterV1InputFilter()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1>("actions", Actions);
             writer.WriteStringValue("if", If);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The newly created Warehouse.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateWarehouseV1OutputWarehouse : IAdditionalDataHolder, IParsable
+    public partial class CreateWarehouseV1OutputWarehouse : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When set to true, this Warehouse receives data.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The id of the Warehouse.</summary>
@@ -49,13 +47,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string WorkspaceId { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateWarehouseV1OutputWarehouse"/> and sets the default values.
-        /// </summary>
-        public CreateWarehouseV1OutputWarehouse()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -93,7 +84,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1Metadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1Settings>("settings", Settings);
             writer.WriteStringValue("workspaceId", WorkspaceId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

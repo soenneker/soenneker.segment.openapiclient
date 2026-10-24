@@ -11,23 +11,14 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Result membership size for the audience preview. Only has a value if status is &apos;COMPLETED&apos;.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudiencePreviewSize : IAdditionalDataHolder, IParsable
+    public partial class AudiencePreviewSize : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total audience membership count. Refer to the type field to determine the unit for this field (profiles, accounts, etc).</summary>
         public double? Count { get; set; }
         /// <summary>The unit type for the count(s) being returned.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudienceSizeType? Type { get; set; }
         /// <summary>The unique audience membership count.</summary>
         public double? UniqueCount { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewSize"/> and sets the default values.
-        /// </summary>
-        public AudiencePreviewSize()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +52,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("count", Count);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSizeType>("type", Type);
             writer.WriteDoubleValue("uniqueCount", UniqueCount);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

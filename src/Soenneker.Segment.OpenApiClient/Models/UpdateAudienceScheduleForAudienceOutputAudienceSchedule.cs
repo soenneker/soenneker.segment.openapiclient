@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The updated audience schedule.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateAudienceScheduleForAudienceOutputAudienceSchedule : IAdditionalDataHolder, IParsable
+    public partial class UpdateAudienceScheduleForAudienceOutputAudienceSchedule : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration for PERIODIC or SPECIFIC_DAYS strategies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +39,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>Strategy of the audience schedule (periodic or specific days).</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudienceScheduleStrategy? Strategy { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateAudienceScheduleForAudienceOutputAudienceSchedule"/> and sets the default values.
-        /// </summary>
-        public UpdateAudienceScheduleForAudienceOutputAudienceSchedule()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,7 +74,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("nextExecution", NextExecution);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceScheduleStrategy>("strategy", Strategy);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

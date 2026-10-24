@@ -45,13 +45,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public List<string> Samples { get; set; }
 #endif
         /// <summary>Property type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType Type { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -74,7 +68,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "lastSeenAt", n => { LastSeenAt = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "samples", n => { Samples = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType>(global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType>(); } },
             };
         }
         /// <summary>
@@ -88,7 +82,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("lastSeenAt", LastSeenAt);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("samples", Samples);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.EventPropertyAlphaType>("type", Type);
         }
     }
 }

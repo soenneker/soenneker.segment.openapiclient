@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.Activations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\destination-connections\{connection-id}\activations
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\destination-connections\{connectionId}\activations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActivationsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Destination
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/destination-connections/{connection%2Did}/activations", pathParameters)
+        public ActivationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/destination-connections/{connectionId}/activations", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Destination
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/destination-connections/{connection%2Did}/activations", rawUrl)
+        public ActivationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/destination-connections/{connectionId}/activations", rawUrl)
         {
         }
         /// <summary>

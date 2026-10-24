@@ -15,10 +15,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform. These settings are Destination-specific.Use the List Supported Destinations from Audience endpoint to find the required connection settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.SimpleDestinationConnectionSettings? ConnectionSettings { get; set; }
+        public UntypedNode? ConnectionSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.SimpleDestinationConnectionSettings ConnectionSettings { get; set; }
+        public UntypedNode ConnectionSettings { get; set; }
 #endif
         /// <summary>When the Integration connection was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,7 +112,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SimpleDestinationConnectionSettings>(global::Soenneker.Segment.OpenApiClient.Models.SimpleDestinationConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "destinationId", n => { DestinationId = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
@@ -132,7 +132,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SimpleDestinationConnectionSettings>("connectionSettings", ConnectionSettings);
+            writer.WriteObjectValue<UntypedNode>("connectionSettings", ConnectionSettings);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("destinationId", DestinationId);
             writer.WriteBoolValue("enabled", Enabled);

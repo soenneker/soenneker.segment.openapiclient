@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The newly created user group.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateUserGroupV1OutputUserGroup : IAdditionalDataHolder, IParsable
+    public partial class CreateUserGroupV1OutputUserGroup : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of the user group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +39,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<global::Soenneker.Segment.OpenApiClient.Models.PermissionV1> Permissions { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateUserGroupV1OutputUserGroup"/> and sets the default values.
-        /// </summary>
-        public CreateUserGroupV1OutputUserGroup()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,7 +74,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("memberCount", MemberCount);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PermissionV1>("permissions", Permissions);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

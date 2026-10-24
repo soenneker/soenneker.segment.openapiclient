@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The latest version of Live Plugin bundle.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetLatestFromLivePluginsAlphaOutputLivePlugin : IAdditionalDataHolder, IParsable
+    public partial class GetLatestFromLivePluginsAlphaOutputLivePlugin : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code of the Live Plugin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,13 +64,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Revision number associated with the latest Live Plugin.</summary>
         public double? Version { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetLatestFromLivePluginsAlphaOutputLivePlugin"/> and sets the default values.
-        /// </summary>
-        public GetLatestFromLivePluginsAlphaOutputLivePlugin()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetLatestFromLivePluginsAlphaOutputLivePlugin"/></returns>
@@ -113,7 +104,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("sourceId", SourceId);
             writer.WriteDoubleValue("version", Version);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

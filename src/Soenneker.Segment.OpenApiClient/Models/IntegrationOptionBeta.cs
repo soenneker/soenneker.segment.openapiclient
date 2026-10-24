@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>An optional default value for the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBetaDefaultValue? DefaultValue { get; set; }
+        public UntypedNode? DefaultValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBetaDefaultValue DefaultValue { get; set; }
+        public UntypedNode DefaultValue { get; set; }
 #endif
         /// <summary>An optional short text description of the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultValue", n => { DefaultValue = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBetaDefaultValue>(global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBetaDefaultValue.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBetaDefaultValue>("defaultValue", DefaultValue);
+            writer.WriteObjectValue<UntypedNode>("defaultValue", DefaultValue);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("name", Name);

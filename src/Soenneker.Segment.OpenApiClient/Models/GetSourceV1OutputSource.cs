@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The returned Source object.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetSourceV1OutputSource : IAdditionalDataHolder, IParsable
+    public partial class GetSourceV1OutputSource : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable to receive data from the Source.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The id of the Source.Config API note: analogous to `name`.</summary>
@@ -82,13 +80,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public List<string> WriteKeys { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource"/> and sets the default values.
-        /// </summary>
-        public GetSourceV1OutputSource()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource"/></returns>
@@ -133,7 +124,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("workspaceId", WorkspaceId);
             writer.WriteCollectionOfPrimitiveValues<string>("writeKeys", WriteKeys);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

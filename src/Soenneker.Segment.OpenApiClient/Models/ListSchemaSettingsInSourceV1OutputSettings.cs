@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The Source settings.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListSchemaSettingsInSourceV1OutputSettings : IAdditionalDataHolder, IParsable
+    public partial class ListSchemaSettingsInSourceV1OutputSettings : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>SourceId to forward blocked events to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,13 +54,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track Track { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListSchemaSettingsInSourceV1OutputSettings"/> and sets the default values.
-        /// </summary>
-        public ListSchemaSettingsInSourceV1OutputSettings()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListSchemaSettingsInSourceV1OutputSettings"/></returns>
@@ -99,7 +90,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group>("group", Group);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify>("identify", Identify);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track>("track", Track);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

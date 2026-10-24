@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Platforms from which the Destination receives events.Config API note: equal to `platforms`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DestinationMetadataV1SupportedPlatforms : IAdditionalDataHolder, IParsable
+    public partial class DestinationMetadataV1SupportedPlatforms : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this Destination supports browser events.</summary>
         public bool? Browser { get; set; }
         /// <summary>Whether this Destination supports cloud app object events.</summary>
@@ -27,13 +25,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public bool? Server { get; set; }
         /// <summary>Whether this Destination supports Warehouse events.</summary>
         public bool? Warehouse { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms"/> and sets the default values.
-        /// </summary>
-        public DestinationMetadataV1SupportedPlatforms()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -73,7 +64,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("mobile", Mobile);
             writer.WriteBoolValue("server", Server);
             writer.WriteBoolValue("warehouse", Warehouse);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

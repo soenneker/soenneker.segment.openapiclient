@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The audience summary output.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetAudienceOutputAudience : IAdditionalDataHolder, IParsable
+    public partial class GetAudienceOutputAudience : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Denotes the type of audience product.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackAudienceType? AudienceType { get; set; }
         /// <summary>Details the cadence on which the audience&apos;s membership is computed.</summary>
@@ -44,10 +42,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Query language definition and type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition? Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition? Definition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition Definition { get; set; }
 #endif
         /// <summary>Description of the audience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,13 +138,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string UpdatedBy { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetAudienceOutputAudience"/> and sets the default values.
-        /// </summary>
-        public GetAudienceOutputAudience()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetAudienceOutputAudience"/></returns>
@@ -168,7 +159,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "computeCadence", n => { ComputeCadence = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence>(global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence.CreateFromDiscriminatorValue); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition>(global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition.CreateFromDiscriminatorValue); } },
+                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition>(global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -194,7 +185,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackComputeCadence>("computeCadence", ComputeCadence);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("createdBy", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackDefinition>("definition", Definition);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudienceDefinition>("definition", Definition);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
@@ -207,7 +198,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("updatedBy", UpdatedBy);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -11,23 +11,14 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Options which should be applied when segmenting traits.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ComputedTraitSummaryOptions : IAdditionalDataHolder, IParsable
+    public partial class ComputedTraitSummaryOptions : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.If unspecified, defer to the value of `includeHistoricalData` to determine whether historical data is either entirely included or entirely excluded when determining audience membership.</summary>
         public double? BackfillDurationDays { get; set; }
         /// <summary>Determines whether anonymous users should be included when determining the computed trait value.</summary>
         public bool? IncludeAnonymousUsers { get; set; }
         /// <summary>Determines whether data prior to the computed trait being created is included when determining the computed trait value.Note that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true.</summary>
         public bool? IncludeHistoricalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryOptions"/> and sets the default values.
-        /// </summary>
-        public ComputedTraitSummaryOptions()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +52,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("backfillDurationDays", BackfillDurationDays);
             writer.WriteBoolValue("includeAnonymousUsers", IncludeAnonymousUsers);
             writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

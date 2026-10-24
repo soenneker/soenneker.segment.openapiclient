@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Schedules.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\schedules\{scheduleId}
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\schedules\{scheduleId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithScheduleItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Schedules.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/schedules/{scheduleId}", pathParameters)
+        public WithScheduleItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/schedules/{scheduleId}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Schedules.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/schedules/{scheduleId}", rawUrl)
+        public WithScheduleItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/schedules/{scheduleId}", rawUrl)
         {
         }
         /// <summary>

@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The updated Function object.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateFunctionV1OutputFunction : IAdditionalDataHolder, IParsable
+    public partial class UpdateFunctionV1OutputFunction : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The max count of the batch for this Function.</summary>
         public double? BatchMaxCount { get; set; }
         /// <summary>The catalog id of this Function.</summary>
@@ -110,13 +108,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public List<global::Soenneker.Segment.OpenApiClient.Models.FunctionSettingV1> Settings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateFunctionV1OutputFunction"/> and sets the default values.
-        /// </summary>
-        public UpdateFunctionV1OutputFunction()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateFunctionV1OutputFunction"/></returns>
@@ -171,7 +162,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("previewWebhookUrl", PreviewWebhookUrl);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.FunctionV1ResourceType>("resourceType", ResourceType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.FunctionSettingV1>("settings", Settings);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The computed trait summary output.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateComputedTraitForSpaceAlphaOutputComputedTrait : IAdditionalDataHolder, IParsable
+    public partial class UpdateComputedTraitForSpaceAlphaOutputComputedTrait : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The timestamp of the computed trait&apos;s creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,10 +32,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Query language definition and type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition? Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition? Definition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition Definition { get; set; }
 #endif
         /// <summary>Description of the computed trait.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,13 +112,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string UpdatedBy { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateComputedTraitForSpaceAlphaOutputComputedTrait"/> and sets the default values.
-        /// </summary>
-        public UpdateComputedTraitForSpaceAlphaOutputComputedTrait()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateComputedTraitForSpaceAlphaOutputComputedTrait"/></returns>
@@ -140,7 +131,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition>(global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition.CreateFromDiscriminatorValue); } },
+                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition>(global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -162,7 +153,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("createdBy", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition>("definition", Definition);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition>("definition", Definition);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
@@ -173,7 +164,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("updatedBy", UpdatedBy);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

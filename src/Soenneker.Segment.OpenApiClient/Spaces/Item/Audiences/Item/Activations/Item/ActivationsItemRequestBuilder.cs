@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Activations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\activations\{id}
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\activations\{id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActivationsItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Activations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivationsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/activations/{id}", pathParameters)
+        public ActivationsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/activations/{id}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Activations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActivationsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/activations/{id}", rawUrl)
+        public ActivationsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/activations/{id}", rawUrl)
         {
         }
         /// <summary>

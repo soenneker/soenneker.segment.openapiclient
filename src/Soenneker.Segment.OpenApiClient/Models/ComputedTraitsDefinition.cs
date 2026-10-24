@@ -8,29 +8,30 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Models
 {
     /// <summary>
-    /// JSON Schema of this rule.
+    /// Defines an computed trait definition.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RuleV1JsonSchema : IAdditionalDataHolder, IParsable
+    public partial class ComputedTraitsDefinition : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema"/> and sets the default values.
-        /// </summary>
-        public RuleV1JsonSchema()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The query language string defining the computed trait aggregation criteria.For guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Query { get; set; }
+#nullable restore
+#else
+        public string Query { get; set; }
+#endif
+        /// <summary>The underlying data type being aggregated for this computed trait.Possible values: users, accounts.</summary>
+        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinitionType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema();
+            return new global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +41,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "query", n => { Query = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinitionType>(); } },
             };
         }
         /// <summary>
@@ -49,7 +52,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteStringValue("query", Query);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinitionType>("type", Type);
         }
     }
 }

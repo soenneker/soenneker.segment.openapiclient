@@ -32,10 +32,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Query language definition and type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition? Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition? Definition { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition Definition { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition Definition { get; set; }
 #endif
         /// <summary>Description of the computed trait.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,7 +131,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
-                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition>(global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition.CreateFromDiscriminatorValue); } },
+                { "definition", n => { Definition = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition>(global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -153,7 +153,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("createdBy", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitSummaryDefinition>("definition", Definition);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ComputedTraitsDefinition>("definition", Definition);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);

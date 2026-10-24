@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Options that were used to calculate the audience preview.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudiencePreviewOptions : IAdditionalDataHolder, IParsable
+    public partial class AudiencePreviewOptions : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If specified, the value of this field indicates the number of days (specified from the date the audience preview was created) that event data will be included from when determining audience preview membership.If unspecified, defer to the value of `includeHistoricalData` to determine whether historical data is either entirely included or entirely excluded when determining audience preview membership.</summary>
         public double? BackfillEventDataDays { get; set; }
         /// <summary>The set of profile external identifiers being used to determine audience preview membership.Profiles will only be considered for audience preview membership if the profile has at least one external id whose key matches a value in this set.</summary>
@@ -27,13 +25,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>Determines whether data prior to the audience preview being created is included when determining audience preview membership.Note that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true.</summary>
         public bool? IncludeHistoricalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewOptions"/> and sets the default values.
-        /// </summary>
-        public AudiencePreviewOptions()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +58,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteDoubleValue("backfillEventDataDays", BackfillEventDataDays);
             writer.WriteCollectionOfPrimitiveValues<string>("filterByExternalIds", FilterByExternalIds);
             writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Space matching the given id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetSpaceAlphaOutputSpace? Space { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.Space? Space { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetSpaceAlphaOutputSpace Space { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.Space Space { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "space", n => { Space = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetSpaceAlphaOutputSpace>(global::Soenneker.Segment.OpenApiClient.Models.GetSpaceAlphaOutputSpace.CreateFromDiscriminatorValue); } },
+                { "space", n => { Space = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.Space>(global::Soenneker.Segment.OpenApiClient.Models.Space.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetSpaceAlphaOutputSpace>("space", Space);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.Space>("space", Space);
         }
     }
 }

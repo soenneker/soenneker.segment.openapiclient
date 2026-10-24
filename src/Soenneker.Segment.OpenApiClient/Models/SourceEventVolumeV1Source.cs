@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The Source where the events originated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SourceEventVolumeV1Source : IAdditionalDataHolder, IParsable
+    public partial class SourceEventVolumeV1Source : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id of the Source where the events came from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +37,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string Slug { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1Source"/> and sets the default values.
-        /// </summary>
-        public SourceEventVolumeV1Source()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,7 +70,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

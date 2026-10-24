@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The updated Credential.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateCredentialV1OutputCredential : IAdditionalDataHolder, IParsable
+    public partial class UpdateCredentialV1OutputCredential : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The time this Credential was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,13 +62,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string WorkspaceId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateCredentialV1OutputCredential"/> and sets the default values.
-        /// </summary>
-        public UpdateCredentialV1OutputCredential()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateCredentialV1OutputCredential"/></returns>
@@ -109,7 +100,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.CredentialV1Settings>("settings", Settings);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("workspaceId", WorkspaceId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

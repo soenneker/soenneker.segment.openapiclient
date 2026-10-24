@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Optional pagination params. Present when output is paginated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListReverseEtlSyncStatusesFromModelAndSubscriptionIdOutputPagination : IAdditionalDataHolder, IParsable
+    public partial class ListReverseEtlSyncStatusesFromModelAndSubscriptionIdOutputPagination : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current cursor within a collection.Consumers of the API must treat this value as opaque.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +39,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>The total number of entries available in the collection.If calculating it impacts performance, the response may omit this field.</summary>
         public double? TotalEntries { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListReverseEtlSyncStatusesFromModelAndSubscriptionIdOutputPagination"/> and sets the default values.
-        /// </summary>
-        public ListReverseEtlSyncStatusesFromModelAndSubscriptionIdOutputPagination()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,7 +74,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("next", Next);
             writer.WriteStringValue("previous", Previous);
             writer.WriteDoubleValue("totalEntries", TotalEntries);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

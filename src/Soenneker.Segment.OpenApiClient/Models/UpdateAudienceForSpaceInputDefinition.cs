@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Represents the Compute Query Language definition of the computation and type of computation.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateAudienceForSpaceInputDefinition : IAdditionalDataHolder, IParsable
+    public partial class UpdateAudienceForSpaceInputDefinition : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The query language string defining the audience segmentation criteria.For guidance on using the query language, see the [Segment documentation site](https://segment.com/docs/api/public-api/query-language).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,13 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string Query { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateAudienceForSpaceInputDefinition"/> and sets the default values.
-        /// </summary>
-        public UpdateAudienceForSpaceInputDefinition()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,7 +50,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("query", Query);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -37,13 +37,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string Trait { get; set; }
 #endif
         /// <summary>Trait type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType Type { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,7 +59,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "lastSeenAt", n => { LastSeenAt = n.GetStringValue(); } },
                 { "samples", n => { Samples = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "trait", n => { Trait = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType>(global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType>(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("lastSeenAt", LastSeenAt);
             writer.WriteCollectionOfPrimitiveValues<string>("samples", Samples);
             writer.WriteStringValue("trait", Trait);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TraitAlphaType>("type", Type);
         }
     }
 }

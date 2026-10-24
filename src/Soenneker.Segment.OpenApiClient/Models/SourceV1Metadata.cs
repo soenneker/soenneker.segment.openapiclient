@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The metadata for the Source.Config API note: includes `catalogName` and `catalogId`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SourceV1Metadata : IAdditionalDataHolder, IParsable
+    public partial class SourceV1Metadata : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of categories this Source belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,13 +76,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Support status of the Source.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.SourceMetadataV1Status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.SourceV1Metadata"/> and sets the default values.
-        /// </summary>
-        public SourceV1Metadata()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.SourceV1Metadata"/></returns>
@@ -131,7 +122,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("partnerOwned", PartnerOwned);
             writer.WriteStringValue("slug", Slug);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.SourceMetadataV1Status>("status", Status);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

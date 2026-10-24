@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>A Function object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction? Function { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.FunctionV1? Function { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction Function { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.FunctionV1 Function { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction>(global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction.CreateFromDiscriminatorValue); } },
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.FunctionV1>(global::Soenneker.Segment.OpenApiClient.Models.FunctionV1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetFunctionV1OutputFunction>("function", Function);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.FunctionV1>("function", Function);
         }
     }
 }

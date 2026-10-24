@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The status of the reverse ETL connection job.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetReverseEtlSyncStatusOutputReverseEtlSyncStatus : IAdditionalDataHolder, IParsable
+    public partial class GetReverseEtlSyncStatusOutputReverseEtlSyncStatus : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The duration of the sync.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,13 +102,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string SyncStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus"/> and sets the default values.
-        /// </summary>
-        public GetReverseEtlSyncStatusOutputReverseEtlSyncStatus()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus"/></returns>
@@ -159,7 +150,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("startedAt", StartedAt);
             writer.WriteStringValue("syncId", SyncId);
             writer.WriteStringValue("syncStatus", SyncStatus);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

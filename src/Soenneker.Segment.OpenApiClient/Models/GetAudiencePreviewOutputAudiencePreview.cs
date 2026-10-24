@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The audience preview.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetAudiencePreviewOutputAudiencePreview : IAdditionalDataHolder, IParsable
+    public partial class GetAudiencePreviewOutputAudiencePreview : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The audience type of the preview.Possible values: USERS, ACCOUNTS, LINKED.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewAudienceType? AudienceType { get; set; }
         /// <summary>Definition that was used to calculate the audience preview.</summary>
@@ -68,13 +66,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>Status for the audience preview.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetAudiencePreviewOutputAudiencePreview"/> and sets the default values.
-        /// </summary>
-        public GetAudiencePreviewOutputAudiencePreview()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetAudiencePreviewOutputAudiencePreview"/></returns>
@@ -117,7 +108,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewResult>("results", Results);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewSize>("size", Size);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewStatus>("status", Status);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

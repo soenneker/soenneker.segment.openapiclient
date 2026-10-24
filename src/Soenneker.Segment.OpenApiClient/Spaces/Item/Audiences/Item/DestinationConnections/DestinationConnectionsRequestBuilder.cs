@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}\destination-connections
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}\destination-connections
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DestinationConnectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Segment.OpenApiClient.spaces.item.audiences.item.destinationConnections.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.ConnectionItemRequestBuilder"/></returns>
-        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.ConnectionItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.WithConnectionItemRequestBuilder"/></returns>
+        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.WithConnectionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("connection%2Did", position);
-                return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.ConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("connectionId", position);
+                return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.DestinationConnections.Item.WithConnectionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Destination
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DestinationConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/destination-connections{?pagination*}", pathParameters)
+        public DestinationConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/destination-connections{?pagination*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Destination
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DestinationConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}/destination-connections{?pagination*}", rawUrl)
+        public DestinationConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}/destination-connections{?pagination*}", rawUrl)
         {
         }
         /// <summary>

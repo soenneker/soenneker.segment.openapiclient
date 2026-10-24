@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Track settings.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SourceSettingsOutputV1Track : IAdditionalDataHolder, IParsable
+    public partial class SourceSettingsOutputV1Track : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Allow track event on violations.Config API note: equal to `allowTrackEventOnViolations`.</summary>
         public bool? AllowEventOnViolations { get; set; }
         /// <summary>Enable to allow track properties on violations.Config API note: equal to `allowTrackEventPropertiesOnViolations`.</summary>
@@ -25,13 +23,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public bool? AllowUnplannedEvents { get; set; }
         /// <summary>The common track event on violations.Config API note: equal to `commonTrackEventOnViolations`.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track"/> and sets the default values.
-        /// </summary>
-        public SourceSettingsOutputV1Track()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("allowUnplannedEventProperties", AllowUnplannedEventProperties);
             writer.WriteBoolValue("allowUnplannedEvents", AllowUnplannedEvents);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Optional object for hashing properties within an event.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateTransformationV1InputHashPropertiesConfiguration : IAdditionalDataHolder, IParsable
+    public partial class CreateTransformationV1InputHashPropertiesConfiguration : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Which algorithm to use to hash to properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +39,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public List<string> Paths { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateTransformationV1InputHashPropertiesConfiguration"/> and sets the default values.
-        /// </summary>
-        public CreateTransformationV1InputHashPropertiesConfiguration()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -83,7 +74,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.HashPropertiesConfigurationEncoding>("encoding", Encoding);
             writer.WriteStringValue("key", Key);
             writer.WriteCollectionOfPrimitiveValues<string>("paths", Paths);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

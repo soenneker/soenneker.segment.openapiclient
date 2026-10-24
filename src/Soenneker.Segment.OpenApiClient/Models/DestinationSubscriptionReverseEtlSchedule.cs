@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The schedule for the Reverse ETL subscription.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DestinationSubscriptionReverseEtlSchedule : IAdditionalDataHolder, IParsable
+    public partial class DestinationSubscriptionReverseEtlSchedule : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Config contains interval duration in case of periodic or day and hours in case of specific_days. Empty if strategy is MANUAL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,13 +23,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #endif
         /// <summary>Strategy supports: Periodic, Specific Days, Manual, CRON and DBT_CLOUD.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlScheduleDefinitionStrategy? Strategy { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionReverseEtlSchedule"/> and sets the default values.
-        /// </summary>
-        public DestinationSubscriptionReverseEtlSchedule()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,7 +54,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlScheduleDefinitionConfig>("config", Config);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlScheduleDefinitionStrategy>("strategy", Strategy);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

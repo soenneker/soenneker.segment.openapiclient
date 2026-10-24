@@ -18,18 +18,18 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>A list of machine-readable value/label pairs to populate a static dropdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1Choices? Choices { get; set; }
+        public UntypedNode? Choices { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1Choices Choices { get; set; }
+        public UntypedNode Choices { get; set; }
 #endif
         /// <summary>A default value that is saved the first time an action is created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1DefaultValue? DefaultValue { get; set; }
+        public UntypedNode? DefaultValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1DefaultValue DefaultValue { get; set; }
+        public UntypedNode DefaultValue { get; set; }
 #endif
         /// <summary>A human-readable description of this value. You can use Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,8 +102,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "allowNull", n => { AllowNull = n.GetBoolValue(); } },
-                { "choices", n => { Choices = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1Choices>(global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1Choices.CreateFromDiscriminatorValue); } },
-                { "defaultValue", n => { DefaultValue = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1DefaultValue>(global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1DefaultValue.CreateFromDiscriminatorValue); } },
+                { "choices", n => { Choices = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "dynamic", n => { Dynamic = n.GetBoolValue(); } },
                 { "fieldKey", n => { FieldKey = n.GetStringValue(); } },
@@ -125,8 +125,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allowNull", AllowNull);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1Choices>("choices", Choices);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionFieldV1DefaultValue>("defaultValue", DefaultValue);
+            writer.WriteObjectValue<UntypedNode>("choices", Choices);
+            writer.WriteObjectValue<UntypedNode>("defaultValue", DefaultValue);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("dynamic", Dynamic);
             writer.WriteStringValue("fieldKey", FieldKey);

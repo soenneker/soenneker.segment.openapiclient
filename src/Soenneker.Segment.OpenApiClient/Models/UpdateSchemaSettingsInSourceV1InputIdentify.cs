@@ -11,23 +11,14 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Identify settings.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class UpdateSchemaSettingsInSourceV1InputIdentify : IAdditionalDataHolder, IParsable
+    public partial class UpdateSchemaSettingsInSourceV1InputIdentify : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable to allow identify traits on violations.Config API note: equal to `allowIdentifyTraitsOnViolations`.</summary>
         public bool? AllowTraitsOnViolations { get; set; }
         /// <summary>Enable to allow unplanned identify traits.Config API note: equal to `allowUnplannedIdentifyTraits`.</summary>
         public bool? AllowUnplannedTraits { get; set; }
         /// <summary>The common identify event on violations.Config API note: equal to `commonIdentifyEventOnViolations`.</summary>
         public global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.UpdateSchemaSettingsInSourceV1InputIdentify"/> and sets the default values.
-        /// </summary>
-        public UpdateSchemaSettingsInSourceV1InputIdentify()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +52,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("allowTraitsOnViolations", AllowTraitsOnViolations);
             writer.WriteBoolValue("allowUnplannedTraits", AllowUnplannedTraits);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

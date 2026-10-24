@@ -32,10 +32,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>JSON Schema of this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema? JsonSchema { get; set; }
+        public UntypedNode? JsonSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema JsonSchema { get; set; }
+        public UntypedNode JsonSchema { get; set; }
 #endif
         /// <summary>Key to this rule (free-form string like &apos;Button clicked&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,7 +77,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "deprecatedAt", n => { DeprecatedAt = n.GetStringValue(); } },
-                { "jsonSchema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema>(global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema.CreateFromDiscriminatorValue); } },
+                { "jsonSchema", n => { JsonSchema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Segment.OpenApiClient.Models.RuleV1Type>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("deprecatedAt", DeprecatedAt);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.RuleV1JsonSchema>("jsonSchema", JsonSchema);
+            writer.WriteObjectValue<UntypedNode>("jsonSchema", JsonSchema);
             writer.WriteStringValue("key", Key);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.RuleV1Type>("type", Type);
             writer.WriteStringValue("updatedAt", UpdatedAt);

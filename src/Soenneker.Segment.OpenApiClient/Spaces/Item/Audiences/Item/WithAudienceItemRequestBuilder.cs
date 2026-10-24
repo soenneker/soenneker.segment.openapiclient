@@ -17,10 +17,10 @@ using System;
 namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audience-id}
+    /// Builds and executes requests for operations under \spaces\{spaceId}\audiences\{audienceId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AudienceItemRequestBuilder : BaseRequestBuilder
+    public partial class WithAudienceItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The activations property</summary>
         public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Activations.ActivationsRequestBuilder Activations
@@ -48,19 +48,19 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item
             get => new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.Schedules.SchedulesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudienceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}{?include*}", pathParameters)
+        public WithAudienceItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}{?include*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudienceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audience%2Did}{?include*}", rawUrl)
+        public WithAudienceItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/spaces/{spaceId}/audiences/{audienceId}{?include*}", rawUrl)
         {
         }
         /// <summary>
@@ -101,11 +101,11 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.GetAudience200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder.AudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.GetAudience200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder.WithAudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.GetAudience200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder.AudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.GetAudience200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder.WithAudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -172,11 +172,11 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder.AudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder.WithAudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder.AudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder.WithAudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -209,17 +209,17 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns the Audience by id and spaceId. Supports including audience schedules using `?include=schedules`.• In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.The rate limit for this endpoint is 100 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AudienceItemRequestBuilderGetQueryParameters 
+        public partial class WithAudienceItemRequestBuilderGetQueryParameters 
         {
             /// <summary>Additional resource to include, support schedules only.This parameter exists in alpha.</summary>
             [QueryParameter("include")]

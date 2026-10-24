@@ -23,10 +23,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform. These settings are Destination-specific.Use the List Supported Destinations from Audience endpoint to find the required connection settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnectionSettings? ConnectionSettings { get; set; }
+        public UntypedNode? ConnectionSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnectionSettings ConnectionSettings { get; set; }
+        public UntypedNode ConnectionSettings { get; set; }
 #endif
         /// <summary>Identifier sync configuration. Defines which external ids to sync and their selection strategies. Maximum 5 items allowed.If omitted, the default will be last email and last user_id, or all email and all user_id depending on the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection>(global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection.CreateFromDiscriminatorValue); } },
-                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnectionSettings>(global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "idSyncConfiguration", n => { IdSyncConfiguration = n.GetCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>(global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection>("connection", Connection);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnectionSettings>("connectionSettings", ConnectionSettings);
+            writer.WriteObjectValue<UntypedNode>("connectionSettings", ConnectionSettings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>("idSyncConfiguration", IdSyncConfiguration);
         }
     }

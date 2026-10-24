@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The Destination looked up.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetDestinationV1OutputDestination : IAdditionalDataHolder, IParsable
+    public partial class GetDestinationV1OutputDestination : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this instance of a Destination receives data.</summary>
         public bool? Enabled { get; set; }
         /// <summary>The unique identifier of this instance of a Destination.Config API note: analogous to `name`.</summary>
@@ -44,10 +42,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The collection of settings associated with a Destination.Config API note: equal to `config`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestinationSettings? Settings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationV1SettingsProperty? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestinationSettings Settings { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationV1SettingsProperty Settings { get; set; }
 #endif
         /// <summary>The id of a Source connected to this instance of a Destination.Config API note: analogous to `parent`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,13 +55,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string SourceId { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestination"/> and sets the default values.
-        /// </summary>
-        public GetDestinationV1OutputDestination()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -86,7 +77,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationV1Metadata>(global::Soenneker.Segment.OpenApiClient.Models.DestinationV1Metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestinationSettings>(global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestinationSettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationV1SettingsProperty>(global::Soenneker.Segment.OpenApiClient.Models.DestinationV1SettingsProperty.CreateFromDiscriminatorValue); } },
                 { "sourceId", n => { SourceId = n.GetStringValue(); } },
             };
         }
@@ -101,9 +92,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationV1Metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetDestinationV1OutputDestinationSettings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationV1SettingsProperty>("settings", Settings);
             writer.WriteStringValue("sourceId", SourceId);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -11,10 +11,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Features that this Destination supports.Config API note: holds `browserUnbundling` fields.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DestinationMetadataV1SupportedFeatures : IAdditionalDataHolder, IParsable
+    public partial class DestinationMetadataV1SupportedFeatures : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this Destination supports browser unbundling.</summary>
         public bool? BrowserUnbundling { get; set; }
         /// <summary>Whether this Destination supports public browser unbundling.</summary>
@@ -25,13 +23,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances? DeviceModeInstances { get; set; }
         /// <summary>Whether this Destination supports replays.</summary>
         public bool? Replay { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures"/> and sets the default values.
-        /// </summary>
-        public DestinationMetadataV1SupportedFeatures()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1CloudModeInstances>("cloudModeInstances", CloudModeInstances);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances>("deviceModeInstances", DeviceModeInstances);
             writer.WriteBoolValue("replay", Replay);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

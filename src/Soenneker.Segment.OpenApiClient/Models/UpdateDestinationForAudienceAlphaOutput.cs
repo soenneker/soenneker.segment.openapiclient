@@ -16,10 +16,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputConnectionSettings? ConnectionSettings { get; set; }
+        public UntypedNode? ConnectionSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputConnectionSettings ConnectionSettings { get; set; }
+        public UntypedNode ConnectionSettings { get; set; }
 #endif
         /// <summary>The Destination that was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputConnectionSettings>(global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "destination", n => { Destination = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputDestination>(global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputDestination.CreateFromDiscriminatorValue); } },
                 { "idSyncConfiguration", n => { IdSyncConfiguration = n.GetCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>(global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -67,7 +67,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputConnectionSettings>("connectionSettings", ConnectionSettings);
+            writer.WriteObjectValue<UntypedNode>("connectionSettings", ConnectionSettings);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.UpdateDestinationForAudienceAlphaOutputDestination>("destination", Destination);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>("idSyncConfiguration", IdSyncConfiguration);
         }

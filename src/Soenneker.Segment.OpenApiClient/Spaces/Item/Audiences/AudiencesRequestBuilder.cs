@@ -26,14 +26,14 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences
         }
         /// <summary>Gets an item from the Soenneker.Segment.OpenApiClient.spaces.item.audiences.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder"/></returns>
-        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder"/></returns>
+        public global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("audience%2Did", position);
-                return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.AudienceItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("audienceId", position);
+                return new global::Soenneker.Segment.OpenApiClient.Spaces.Item.Audiences.Item.WithAudienceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// The action and data mapping configured for the Destination. Only present for Action Destinations.Action id: The action performed on the Destination.Settings/Mapping: How event data populates specific fields in the Destination.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ActivationOutputDestinationMapping : IAdditionalDataHolder, IParsable
+    public partial class ActivationOutputDestinationMapping : IParsable
     {
         /// <summary>The id for the action that Segment should perform on the Destination.The action cannot be changed once the Activation exists. When updating, this field is still required, but supplying a different value has no effect.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -21,8 +21,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string ActionId { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The action/mapping settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,13 +29,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionConfigurationSettings Settings { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping"/> and sets the default values.
-        /// </summary>
-        public ActivationOutputDestinationMapping()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,7 +60,6 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actionId", ActionId);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationSubscriptionConfigurationSettings>("settings", Settings);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }
