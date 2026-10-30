@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("computedTrait") is { } nullNodeComputedTrait && nullNodeComputedTrait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputedTrait = null;
+            if (parseNode.GetChildNode("computedTrait") is null) { _explicitNullValueComputedTrait = default!; _explicitNullProperties?.Remove("computedTrait"); }
+            else if (parseNode.GetChildNode("computedTrait") is { } nullNodeComputedTrait && nullNodeComputedTrait.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputedTrait = null;
         }
 
         /// <summary>The computed trait summary output.</summary>

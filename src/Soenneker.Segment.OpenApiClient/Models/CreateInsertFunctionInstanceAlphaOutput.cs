@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("insertFunctionInstance") is { } nullNodeInsertFunctionInstance && nullNodeInsertFunctionInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsertFunctionInstance = null;
+            if (parseNode.GetChildNode("insertFunctionInstance") is null) { _explicitNullValueInsertFunctionInstance = default!; _explicitNullProperties?.Remove("insertFunctionInstance"); }
+            else if (parseNode.GetChildNode("insertFunctionInstance") is { } nullNodeInsertFunctionInstance && nullNodeInsertFunctionInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsertFunctionInstance = null;
         }
 
         /// <summary>The created instance.</summary>

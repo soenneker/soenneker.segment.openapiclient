@@ -11,7 +11,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// Composed type wrapper for classes <see cref="global::Soenneker.Segment.OpenApiClient.Models.PeriodicConfig"/>, <see cref="global::Soenneker.Segment.OpenApiClient.Models.SpecificDaysConfig"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AddAudienceScheduleToAudienceInputConfig : IComposedTypeWrapper, IParsable
+    public partial class AddAudienceScheduleToAudienceAlphaInputConfig : IComposedTypeWrapper, IParsable
     , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
         // Preserve ambiguous union payloads without inventing a discriminator.
         /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
@@ -37,20 +37,24 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceInputConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceAlphaInputConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceInputConfig CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceAlphaInputConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceInputConfig();
+            var result = new global::Soenneker.Segment.OpenApiClient.Models.AddAudienceScheduleToAudienceAlphaInputConfig();
             
             
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("interval") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("days") != null && parseNode.GetChildNode("hours") != null && parseNode.GetChildNode("timezone") != null))();
-            if (result.PeriodicConfig == null && result.SpecificDaysConfig == null && matchesUnionBranch0 && !matchesUnionBranch1) result.PeriodicConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.PeriodicConfig(), parseNode);
-            if (result.PeriodicConfig == null && result.SpecificDaysConfig == null && matchesUnionBranch1 && !matchesUnionBranch0) result.SpecificDaysConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.SpecificDaysConfig(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("interval") && (!shapeMembers1.ContainsKey("interval") || (((shapeMembers1["interval"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "interval"))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("days") && shapeMembers1.ContainsKey("hours") && shapeMembers1.ContainsKey("timezone") && (!shapeMembers1.ContainsKey("days") || (((shapeMembers1["days"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("hours") || (((shapeMembers1["hours"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)))) && (!shapeMembers1.ContainsKey("timezone") || (((shapeMembers1["timezone"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "days" || key == "hours" || key == "timezone"))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.PeriodicConfig == null && result.SpecificDaysConfig == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.PeriodicConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.PeriodicConfig(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.SpecificDaysConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.SpecificDaysConfig(), parseNode);
             if (result.PeriodicConfig == null && result.SpecificDaysConfig == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -60,6 +64,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(PeriodicConfig != null || SpecificDaysConfig != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PeriodicConfig, SpecificDaysConfig);
@@ -74,8 +80,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (PeriodicConfig == null && SpecificDaysConfig == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (PeriodicConfig != null && SpecificDaysConfig == null) { if (PeriodicConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PeriodicConfig); return; }
-            if (SpecificDaysConfig != null && PeriodicConfig == null) { if (SpecificDaysConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SpecificDaysConfig); return; }
+            int selectedUnionBranches = 0;
+            if (PeriodicConfig != null) selectedUnionBranches++;
+            if (SpecificDaysConfig != null) selectedUnionBranches++;
+            if (PeriodicConfig != null && selectedUnionBranches == 1) { if (PeriodicConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PeriodicConfig); return; }
+            if (SpecificDaysConfig != null && selectedUnionBranches == 1) { if (SpecificDaysConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SpecificDaysConfig); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.PeriodicConfig>(null, PeriodicConfig, SpecificDaysConfig);

@@ -120,7 +120,7 @@ namespace Soenneker.Segment.OpenApiClient.InsertFunctionInstances
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.InsertFunctionInstances.InsertFunctionInstancesRequestBuilder.InsertFunctionInstancesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/insert-function-instances?functionId={functionId}{&pagination*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/insert-function-instances?functionId={functionId}{&pagination*}", RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/insert-function-instances", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.Segment.OpenApiClient.InsertFunctionInstances
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/insert-function-instances", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1alpha+json", body);

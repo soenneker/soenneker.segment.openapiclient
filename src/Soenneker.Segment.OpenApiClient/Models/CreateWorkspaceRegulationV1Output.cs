@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("regulateId") is { } nullNodeRegulateId && nullNodeRegulateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulateId = null;
+            if (parseNode.GetChildNode("regulateId") is null) { _explicitNullValueRegulateId = default!; _explicitNullProperties?.Remove("regulateId"); }
+            else if (parseNode.GetChildNode("regulateId") is { } nullNodeRegulateId && nullNodeRegulateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulateId = null;
         }
 
         /// <summary>The id of the created regulation.</summary>

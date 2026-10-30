@@ -18,9 +18,12 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("regulationType") is { } nullNodeRegulationType && nullNodeRegulationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulationType = null;
-            if (parseNode.GetChildNode("subjectIds") is { } nullNodeSubjectIds && nullNodeSubjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectIds = null;
-            if (parseNode.GetChildNode("subjectType") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+            if (parseNode.GetChildNode("regulationType") is null) { _explicitNullValueRegulationType = default!; _explicitNullProperties?.Remove("regulationType"); }
+            else if (parseNode.GetChildNode("regulationType") is { } nullNodeRegulationType && nullNodeRegulationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulationType = null;
+            if (parseNode.GetChildNode("subjectIds") is null) { _explicitNullValueSubjectIds = default!; _explicitNullProperties?.Remove("subjectIds"); }
+            else if (parseNode.GetChildNode("subjectIds") is { } nullNodeSubjectIds && nullNodeSubjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectIds = null;
+            if (parseNode.GetChildNode("subjectType") is null) { _explicitNullValueSubjectType = default!; _explicitNullProperties?.Remove("subjectType"); }
+            else if (parseNode.GetChildNode("subjectType") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
         }
 
         /// <summary>The regulation type to create.Please note that `DELETE_ARCHIVE_ONLY` is only supported for limited Workspaces for Source-scoped regulations.</summary>

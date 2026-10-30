@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connectionState") is { } nullNodeConnectionState && nullNodeConnectionState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionState = null;
+            if (parseNode.GetChildNode("connectionState") is null) { _explicitNullValueConnectionState = default!; _explicitNullProperties?.Remove("connectionState"); }
+            else if (parseNode.GetChildNode("connectionState") is { } nullNodeConnectionState && nullNodeConnectionState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionState = null;
         }
 
         /// <summary>Represents the status for the current connection settings.</summary>

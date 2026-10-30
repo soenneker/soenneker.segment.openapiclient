@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("regulations") is { } nullNodeRegulations && nullNodeRegulations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Regulations = null;
+            if (parseNode.GetChildNode("regulations") is null) { _explicitNullValueRegulations = default!; _explicitNullProperties?.Remove("regulations"); }
+            else if (parseNode.GetChildNode("regulations") is { } nullNodeRegulations && nullNodeRegulations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Regulations = null;
         }
 
         /// <summary>List of Workspace-scoped regulations with statuses.</summary>

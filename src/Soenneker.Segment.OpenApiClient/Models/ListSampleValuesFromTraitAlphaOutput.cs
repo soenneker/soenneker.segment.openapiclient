@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sampleValues") is { } nullNodeSampleValues && nullNodeSampleValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampleValues = null;
+            if (parseNode.GetChildNode("sampleValues") is null) { _explicitNullValueSampleValues = default!; _explicitNullProperties?.Remove("sampleValues"); }
+            else if (parseNode.GetChildNode("sampleValues") is { } nullNodeSampleValues && nullNodeSampleValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SampleValues = null;
         }
 
         /// <summary>Top values for the trait (up to 1000).</summary>

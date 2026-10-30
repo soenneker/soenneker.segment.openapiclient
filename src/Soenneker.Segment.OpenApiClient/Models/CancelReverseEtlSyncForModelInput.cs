@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reasonForCanceling") is { } nullNodeReasonForCanceling && nullNodeReasonForCanceling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasonForCanceling = null;
+            if (parseNode.GetChildNode("reasonForCanceling") is null) { _explicitNullValueReasonForCanceling = default!; _explicitNullProperties?.Remove("reasonForCanceling"); }
+            else if (parseNode.GetChildNode("reasonForCanceling") is { } nullNodeReasonForCanceling && nullNodeReasonForCanceling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReasonForCanceling = null;
         }
 
         /// <summary>The reason for canceling the sync.- IncorrectModel = 0- IncorrectDest = 1- IncorrectKeys = 2- IncorrectMapping = 3- Other = 4</summary>

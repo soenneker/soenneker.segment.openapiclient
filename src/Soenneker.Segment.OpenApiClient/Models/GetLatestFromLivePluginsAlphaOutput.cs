@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("livePlugin") is { } nullNodeLivePlugin && nullNodeLivePlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LivePlugin = null;
+            if (parseNode.GetChildNode("livePlugin") is null) { _explicitNullValueLivePlugin = default!; _explicitNullProperties?.Remove("livePlugin"); }
+            else if (parseNode.GetChildNode("livePlugin") is { } nullNodeLivePlugin && nullNodeLivePlugin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LivePlugin = null;
         }
 
         /// <summary>The latest version of Live Plugin bundle.</summary>

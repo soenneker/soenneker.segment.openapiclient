@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("deliveryMetricsSummary") is { } nullNodeDeliveryMetricsSummary && nullNodeDeliveryMetricsSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMetricsSummary = null;
+            if (parseNode.GetChildNode("deliveryMetricsSummary") is null) { _explicitNullValueDeliveryMetricsSummary = default!; _explicitNullProperties?.Remove("deliveryMetricsSummary"); }
+            else if (parseNode.GetChildNode("deliveryMetricsSummary") is { } nullNodeDeliveryMetricsSummary && nullNodeDeliveryMetricsSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeliveryMetricsSummary = null;
         }
 
         /// <summary>The delivery metrics summary returned.</summary>

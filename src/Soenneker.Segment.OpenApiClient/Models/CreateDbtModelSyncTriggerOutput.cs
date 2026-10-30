@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dbtModelSyncTrigger") is { } nullNodeDbtModelSyncTrigger && nullNodeDbtModelSyncTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtModelSyncTrigger = null;
+            if (parseNode.GetChildNode("dbtModelSyncTrigger") is null) { _explicitNullValueDbtModelSyncTrigger = default!; _explicitNullProperties?.Remove("dbtModelSyncTrigger"); }
+            else if (parseNode.GetChildNode("dbtModelSyncTrigger") is { } nullNodeDbtModelSyncTrigger && nullNodeDbtModelSyncTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtModelSyncTrigger = null;
         }
 
         /// <summary>The dbt model sync trigger.</summary>

@@ -18,8 +18,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connectionSettings") is { } nullNodeConnectionSettings && nullNodeConnectionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettings = null;
-            if (parseNode.GetChildNode("idSyncConfiguration") is { } nullNodeIdSyncConfiguration && nullNodeIdSyncConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdSyncConfiguration = null;
+            if (parseNode.GetChildNode("connectionSettings") is null) { _explicitNullValueConnectionSettings = default!; _explicitNullProperties?.Remove("connectionSettings"); }
+            else if (parseNode.GetChildNode("connectionSettings") is { } nullNodeConnectionSettings && nullNodeConnectionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettings = null;
+            if (parseNode.GetChildNode("idSyncConfiguration") is null) { _explicitNullValueIdSyncConfiguration = default!; _explicitNullProperties?.Remove("idSyncConfiguration"); }
+            else if (parseNode.GetChildNode("idSyncConfiguration") is { } nullNodeIdSyncConfiguration && nullNodeIdSyncConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdSyncConfiguration = null;
         }
 
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform.The supplied object replaces the stored settings outright, so include every setting that should remain. Settings that are omitted are removed.An empty object is treated the same as omitting the field and leaves the stored settings unchanged.</summary>

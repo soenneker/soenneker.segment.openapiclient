@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("profilesWarehouse") is { } nullNodeProfilesWarehouse && nullNodeProfilesWarehouse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfilesWarehouse = null;
+            if (parseNode.GetChildNode("profilesWarehouse") is null) { _explicitNullValueProfilesWarehouse = default!; _explicitNullProperties?.Remove("profilesWarehouse"); }
+            else if (parseNode.GetChildNode("profilesWarehouse") is { } nullNodeProfilesWarehouse && nullNodeProfilesWarehouse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfilesWarehouse = null;
         }
 
         /// <summary>The newly created Warehouse.</summary>

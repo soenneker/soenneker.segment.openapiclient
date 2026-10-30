@@ -49676,7 +49676,7 @@
             "$ref": "#/components/schemas/UpdateAudienceScheduleForAudienceAlphaInputStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/UpdateAudienceScheduleForAudienceAlphaInputConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           }
         },
         "additionalProperties": false,
@@ -50242,7 +50242,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -51097,7 +51097,7 @@
             "$ref": "#/components/schemas/AddAudienceScheduleToAudienceInputStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceInputConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           }
         },
         "additionalProperties": false,
@@ -51149,7 +51149,7 @@
             "$ref": "#/components/schemas/UpdateAudienceScheduleForAudienceInputStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/UpdateAudienceScheduleForAudienceInputConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           }
         },
         "additionalProperties": false,
@@ -63170,7 +63170,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -63212,7 +63212,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -63361,7 +63361,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -64660,7 +64660,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -64702,7 +64702,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",
@@ -64744,7 +64744,7 @@
             "$ref": "#/components/schemas/AudienceScheduleStrategy"
           },
           "config": {
-            "$ref": "#/components/schemas/AudienceScheduleConfig"
+            "$ref": "#/components/schemas/AddAudienceScheduleToAudienceAlphaInputConfig"
           },
           "nextExecution": {
             "title": "nextExecution",

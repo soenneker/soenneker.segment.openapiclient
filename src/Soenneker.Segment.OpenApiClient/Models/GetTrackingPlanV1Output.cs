@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("trackingPlan") is { } nullNodeTrackingPlan && nullNodeTrackingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingPlan = null;
+            if (parseNode.GetChildNode("trackingPlan") is null) { _explicitNullValueTrackingPlan = default!; _explicitNullProperties?.Remove("trackingPlan"); }
+            else if (parseNode.GetChildNode("trackingPlan") is { } nullNodeTrackingPlan && nullNodeTrackingPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingPlan = null;
         }
 
         /// <summary>The requested Tracking Plan.</summary>

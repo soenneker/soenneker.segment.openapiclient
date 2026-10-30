@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("syncOverrides") is { } nullNodeSyncOverrides && nullNodeSyncOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncOverrides = null;
+            if (parseNode.GetChildNode("syncOverrides") is null) { _explicitNullValueSyncOverrides = default!; _explicitNullProperties?.Remove("syncOverrides"); }
+            else if (parseNode.GetChildNode("syncOverrides") is { } nullNodeSyncOverrides && nullNodeSyncOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncOverrides = null;
         }
 
         /// <summary>A list of sync schema overrides to apply to this Warehouse.</summary>

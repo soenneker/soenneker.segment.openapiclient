@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("transformation") is { } nullNodeTransformation && nullNodeTransformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transformation = null;
+            if (parseNode.GetChildNode("transformation") is null) { _explicitNullValueTransformation = default!; _explicitNullProperties?.Remove("transformation"); }
+            else if (parseNode.GetChildNode("transformation") is { } nullNodeTransformation && nullNodeTransformation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transformation = null;
         }
 
         /// <summary>The created Transformation.</summary>

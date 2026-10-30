@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reverseETLManualSync") is { } nullNodeReverseETLManualSync && nullNodeReverseETLManualSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReverseETLManualSync = null;
+            if (parseNode.GetChildNode("reverseETLManualSync") is null) { _explicitNullValueReverseETLManualSync = default!; _explicitNullProperties?.Remove("reverseETLManualSync"); }
+            else if (parseNode.GetChildNode("reverseETLManualSync") is { } nullNodeReverseETLManualSync && nullNodeReverseETLManualSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReverseETLManualSync = null;
         }
 
         /// <summary>The reverse ETL connection job that was manually started.</summary>

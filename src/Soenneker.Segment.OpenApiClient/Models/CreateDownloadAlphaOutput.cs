@@ -17,7 +17,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("download") is { } nullNodeDownload && nullNodeDownload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Download = null;
+            if (parseNode.GetChildNode("download") is null) { _explicitNullValueDownload = default!; _explicitNullProperties?.Remove("download"); }
+            else if (parseNode.GetChildNode("download") is { } nullNodeDownload && nullNodeDownload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Download = null;
         }
 
         /// <summary>An object containing the downloaded data.</summary>

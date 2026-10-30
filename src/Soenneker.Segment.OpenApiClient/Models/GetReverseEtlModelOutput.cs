@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("reverseEtlModel") is { } nullNodeReverseEtlModel && nullNodeReverseEtlModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReverseEtlModel = null;
+            if (parseNode.GetChildNode("reverseEtlModel") is null) { _explicitNullValueReverseEtlModel = default!; _explicitNullProperties?.Remove("reverseEtlModel"); }
+            else if (parseNode.GetChildNode("reverseEtlModel") is { } nullNodeReverseEtlModel && nullNodeReverseEtlModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReverseEtlModel = null;
         }
 
         /// <summary>The requested Model.</summary>

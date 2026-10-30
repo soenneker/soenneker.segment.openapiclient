@@ -17,8 +17,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("propertyPaths") is { } nullNodePropertyPaths && nullNodePropertyPaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyPaths = null;
-            if (parseNode.GetChildNode("propertyValue") is { } nullNodePropertyValue && nullNodePropertyValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyValue = null;
+            if (parseNode.GetChildNode("propertyPaths") is null) { _explicitNullValuePropertyPaths = default!; _explicitNullProperties?.Remove("propertyPaths"); }
+            else if (parseNode.GetChildNode("propertyPaths") is { } nullNodePropertyPaths && nullNodePropertyPaths.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyPaths = null;
+            if (parseNode.GetChildNode("propertyValue") is null) { _explicitNullValuePropertyValue = default!; _explicitNullProperties?.Remove("propertyValue"); }
+            else if (parseNode.GetChildNode("propertyValue") is { } nullNodePropertyValue && nullNodePropertyValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyValue = null;
         }
 
         /// <summary>The property paths. The maximum number of paths is 10.</summary>

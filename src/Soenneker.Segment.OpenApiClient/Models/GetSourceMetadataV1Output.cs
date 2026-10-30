@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sourceMetadata") is { } nullNodeSourceMetadata && nullNodeSourceMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceMetadata = null;
+            if (parseNode.GetChildNode("sourceMetadata") is null) { _explicitNullValueSourceMetadata = default!; _explicitNullProperties?.Remove("sourceMetadata"); }
+            else if (parseNode.GetChildNode("sourceMetadata") is { } nullNodeSourceMetadata && nullNodeSourceMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceMetadata = null;
         }
 
         /// <summary>The catalog item matched by id.</summary>

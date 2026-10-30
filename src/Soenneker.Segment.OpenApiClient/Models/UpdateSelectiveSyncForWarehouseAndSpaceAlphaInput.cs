@@ -18,8 +18,10 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enableEventTables") is { } nullNodeEnableEventTables && nullNodeEnableEventTables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEventTables = null;
-            if (parseNode.GetChildNode("syncOverrides") is { } nullNodeSyncOverrides && nullNodeSyncOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncOverrides = null;
+            if (parseNode.GetChildNode("enableEventTables") is null) { _explicitNullValueEnableEventTables = default!; _explicitNullProperties?.Remove("enableEventTables"); }
+            else if (parseNode.GetChildNode("enableEventTables") is { } nullNodeEnableEventTables && nullNodeEnableEventTables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEventTables = null;
+            if (parseNode.GetChildNode("syncOverrides") is null) { _explicitNullValueSyncOverrides = default!; _explicitNullProperties?.Remove("syncOverrides"); }
+            else if (parseNode.GetChildNode("syncOverrides") is { } nullNodeSyncOverrides && nullNodeSyncOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncOverrides = null;
         }
 
         /// <summary>A flag to enable or disable all event Tables. This field is optional.</summary>

@@ -201,6 +201,9 @@ namespace Soenneker.Segment.OpenApiClient
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public SegmentOpenApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
+            // Preserve declared operation service roots.
+            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) RequestAdapter.BaseUrl = "https://api.segmentapis.com";
+            PathParameters["baseurl"] = RequestAdapter.BaseUrl;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();

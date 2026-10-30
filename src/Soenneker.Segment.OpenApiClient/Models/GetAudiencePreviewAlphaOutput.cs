@@ -18,7 +18,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("audiencePreview") is { } nullNodeAudiencePreview && nullNodeAudiencePreview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudiencePreview = null;
+            if (parseNode.GetChildNode("audiencePreview") is null) { _explicitNullValueAudiencePreview = default!; _explicitNullProperties?.Remove("audiencePreview"); }
+            else if (parseNode.GetChildNode("audiencePreview") is { } nullNodeAudiencePreview && nullNodeAudiencePreview.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudiencePreview = null;
         }
 
         /// <summary>The audience preview.</summary>
