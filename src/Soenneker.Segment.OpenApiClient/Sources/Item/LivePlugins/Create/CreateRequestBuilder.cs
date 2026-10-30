@@ -59,6 +59,8 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.LivePlugins.Create
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.CreateLivePlugin200SegmentV1AlphaJsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.CreateLivePlugin200SegmentV1AlphaJsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

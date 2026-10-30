@@ -12,25 +12,40 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActivationOutputPersonalization : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("entities") is { } nullNodeEntities && nullNodeEntities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Entities = null;
+            if (parseNode.GetChildNode("profile") is { } nullNodeProfile && nullNodeProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profile = null;
+            if (parseNode.GetChildNode("syncEntityPropertyChanges") is { } nullNodeSyncEntityPropertyChanges && nullNodeSyncEntityPropertyChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncEntityPropertyChanges = null;
+        }
+
         /// <summary>The entities, and the properties of each entity, included in the event sent to the Destination.Only applicable to Linked Audiences.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity>? Entities { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity>? Entities { get => _explicitNullValueEntities; set { _explicitNullValueEntities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entities"); else _explicitNullProperties?.Remove("entities"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity>? _explicitNullValueEntities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity> Entities { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity> Entities { get => _explicitNullValueEntities; set { _explicitNullValueEntities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entities"); else _explicitNullProperties?.Remove("entities"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity> _explicitNullValueEntities = default!;
 #endif
         /// <summary>The profile traits included in the event sent to the Destination.Applies to both Classic and Linked Audiences. For a Classic audience this is the only form of personalization available, whereas a Linked Audience can also personalize on entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile? Profile { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile? Profile { get => _explicitNullValueProfile; set { _explicitNullValueProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile"); else _explicitNullProperties?.Remove("profile"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile? _explicitNullValueProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile Profile { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile Profile { get => _explicitNullValueProfile; set { _explicitNullValueProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile"); else _explicitNullProperties?.Remove("profile"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile _explicitNullValueProfile = default!;
 #endif
         /// <summary>Sync entity property changes to the Destination.Only applicable if activationType is &quot;Audience Membership Changed&quot;.</summary>
-        public bool? SyncEntityPropertyChanges { get; set; }
+        public bool? SyncEntityPropertyChanges { get => _explicitNullValueSyncEntityPropertyChanges; set { _explicitNullValueSyncEntityPropertyChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syncEntityPropertyChanges"); else _explicitNullProperties?.Remove("syncEntityPropertyChanges"); } }
+        private bool? _explicitNullValueSyncEntityPropertyChanges = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +54,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +78,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationInputEntity>("entities", Entities);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.PersonalizationOutputProfile>("profile", Profile);
-            writer.WriteBoolValue("syncEntityPropertyChanges", SyncEntityPropertyChanges);
+            writer.WriteBoolValue("syncEntityPropertyChanges", SyncEntityPropertyChanges);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

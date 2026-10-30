@@ -12,25 +12,40 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetDeliveryOverviewMetricsBetaOutput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dataset") is { } nullNodeDataset && nullNodeDataset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dataset = null;
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+        }
+
         /// <summary>Represents the list of series broken down by the dimensions andtime frame requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset>? Dataset { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset>? Dataset { get => _explicitNullValueDataset; set { _explicitNullValueDataset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset"); else _explicitNullProperties?.Remove("dataset"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset>? _explicitNullValueDataset = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset> Dataset { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset> Dataset { get => _explicitNullValueDataset; set { _explicitNullValueDataset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataset"); else _explicitNullProperties?.Remove("dataset"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset> _explicitNullValueDataset = default!;
 #endif
         /// <summary>The result object used to specify the page cursor and count.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination? Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>The total number of events for the returned dataset.</summary>
-        public double? Total { get; set; }
+        public double? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private double? _explicitNullValueTotal = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,7 +54,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +78,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.DeliveryOverviewMetricsDataset>("dataset", Dataset);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetDeliveryOverviewMetricsBetaOutputPagination>("pagination", Pagination);
-            writer.WriteDoubleValue("total", Total);
+            writer.WriteDoubleValue("total", Total);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
         /// <summary>
         /// Returns a list of Tracking Plans.• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlans200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlansSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -57,11 +57,11 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlans200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.TrackingPlansRequestBuilder.TrackingPlansRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlansSuccessResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.TrackingPlansRequestBuilder.TrackingPlansRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlans200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.TrackingPlansRequestBuilder.TrackingPlansRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlansSuccessResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.TrackingPlansRequestBuilder.TrackingPlansRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -70,13 +70,15 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlans200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlans200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlansSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListTrackingPlansSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a Tracking Plan.• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlan200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanSuccessResponse"/></returns>
         /// <param name="body">Creates a Tracking Plan in the Workspace.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,11 +87,11 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlan200SegmentV1JsonResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanSuccessResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlan200SegmentV1JsonResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanSuccessResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -99,8 +101,10 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlan200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlan200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.CreateTrackingPlanSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of Tracking Plans.• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
@@ -118,7 +122,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
         }
         /// <summary>
@@ -139,7 +143,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }

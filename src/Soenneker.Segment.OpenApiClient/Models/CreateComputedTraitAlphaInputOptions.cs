@@ -12,13 +12,26 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateComputedTraitAlphaInputOptions : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backfillDurationDays") is { } nullNodeBackfillDurationDays && nullNodeBackfillDurationDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackfillDurationDays = null;
+            if (parseNode.GetChildNode("includeAnonymousUsers") is { } nullNodeIncludeAnonymousUsers && nullNodeIncludeAnonymousUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeAnonymousUsers = null;
+            if (parseNode.GetChildNode("includeHistoricalData") is { } nullNodeIncludeHistoricalData && nullNodeIncludeHistoricalData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeHistoricalData = null;
+        }
+
         /// <summary>If specified, the value of this field indicates the number of days, specified from the date the audience was created, that event data will be included from when determining audience membership.If unspecified, defer to the value of `includeHistoricalData` to determine whether historical data is either entirely included or entirely excluded when determining audience membership.</summary>
-        public double? BackfillDurationDays { get; set; }
+        public double? BackfillDurationDays { get => _explicitNullValueBackfillDurationDays; set { _explicitNullValueBackfillDurationDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backfillDurationDays"); else _explicitNullProperties?.Remove("backfillDurationDays"); } }
+        private double? _explicitNullValueBackfillDurationDays = default!;
         /// <summary>Determines whether anonymous users should be included when determining the computed trait value.</summary>
-        public bool? IncludeAnonymousUsers { get; set; }
+        public bool? IncludeAnonymousUsers { get => _explicitNullValueIncludeAnonymousUsers; set { _explicitNullValueIncludeAnonymousUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeAnonymousUsers"); else _explicitNullProperties?.Remove("includeAnonymousUsers"); } }
+        private bool? _explicitNullValueIncludeAnonymousUsers = default!;
         /// <summary>Determines whether data prior to the computed trait being created is included when determining the computed trait value.Note that including historical data may be needed in order to properly handle the definition specified. In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true.</summary>
-        public bool? IncludeHistoricalData { get; set; }
+        public bool? IncludeHistoricalData { get => _explicitNullValueIncludeHistoricalData; set { _explicitNullValueIncludeHistoricalData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeHistoricalData"); else _explicitNullProperties?.Remove("includeHistoricalData"); } }
+        private bool? _explicitNullValueIncludeHistoricalData = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -27,7 +40,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.CreateComputedTraitAlphaInputOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.CreateComputedTraitAlphaInputOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.CreateComputedTraitAlphaInputOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +64,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("backfillDurationDays", BackfillDurationDays);
             writer.WriteBoolValue("includeAnonymousUsers", IncludeAnonymousUsers);
-            writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);
+            writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

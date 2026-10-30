@@ -12,30 +12,46 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BatchQueryActivationsForSpaceAlphaOutput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activations") is { } nullNodeActivations && nullNodeActivations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Activations = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+        }
+
         /// <summary>Activation results across all valid requested audiences.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput>? Activations { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput>? Activations { get => _explicitNullValueActivations; set { _explicitNullValueActivations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activations"); else _explicitNullProperties?.Remove("activations"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput>? _explicitNullValueActivations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput> Activations { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput> Activations { get => _explicitNullValueActivations; set { _explicitNullValueActivations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activations"); else _explicitNullProperties?.Remove("activations"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput> _explicitNullValueActivations = default!;
 #endif
         /// <summary>Audience IDs from the request that could not be resolved, with why - for example not found,or wrong space. When `audienceIds` was omitted from the request (space-scan mode), this nevercontains a caller-supplied bad id - there isn&apos;t one to be wrong - but it can still containper-activation hydration failures, same as the `audienceIds`-provided path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem>? Errors { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem> Errors { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem> _explicitNullValueErrors = default!;
 #endif
         /// <summary>Present when pagination input is present in the `audienceIds`-provided path. Alwayspresent in the space-scan path (`audienceIds` omitted).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination? Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutput>("activations", Activations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputErrorsItem>("errors", Errors);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination>("pagination", Pagination);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.BatchQueryActivationsForSpaceAlphaOutputPagination>("pagination", Pagination);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

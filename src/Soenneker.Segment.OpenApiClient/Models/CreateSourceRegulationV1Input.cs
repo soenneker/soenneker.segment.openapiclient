@@ -12,19 +12,33 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateSourceRegulationV1Input : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("regulationType") is { } nullNodeRegulationType && nullNodeRegulationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulationType = null;
+            if (parseNode.GetChildNode("subjectIds") is { } nullNodeSubjectIds && nullNodeSubjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectIds = null;
+            if (parseNode.GetChildNode("subjectType") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+        }
+
         /// <summary>The regulation type to create.Please note that `DELETE_ARCHIVE_ONLY` is only supported for limited Workspaces for Source-scoped regulations.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputRegulationType? RegulationType { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputRegulationType? RegulationType { get => _explicitNullValueRegulationType; set { _explicitNullValueRegulationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulationType"); else _explicitNullProperties?.Remove("regulationType"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputRegulationType? _explicitNullValueRegulationType = default!;
         /// <summary>The list of `userId` or `objectId` or `anonymousId` values of the subjects to regulate.Config API note: equal to `parent` but allows an array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SubjectIds { get; set; }
+        public List<string>? SubjectIds { get => _explicitNullValueSubjectIds; set { _explicitNullValueSubjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectIds"); else _explicitNullProperties?.Remove("subjectIds"); } }
+        private List<string>? _explicitNullValueSubjectIds = default!;
 #nullable restore
 #else
-        public List<string> SubjectIds { get; set; }
+        public List<string> SubjectIds { get => _explicitNullValueSubjectIds; set { _explicitNullValueSubjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectIds"); else _explicitNullProperties?.Remove("subjectIds"); } }
+        private List<string> _explicitNullValueSubjectIds = default!;
 #endif
         /// <summary>The subject type.Note: `ANONYMOUS_ID` is only supported for limited Workspaces for Source-scoped regulations. `ANONYMOUS_ID` is only supported when regulationType is `DELETE_ARCHIVE_ONLY`.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputSubjectType? SubjectType { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputSubjectType? SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectType"); else _explicitNullProperties?.Remove("subjectType"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputSubjectType? _explicitNullValueSubjectType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +47,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1Input CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1Input();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1Input(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +71,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputRegulationType>("regulationType", RegulationType);
             writer.WriteCollectionOfPrimitiveValues<string>("subjectIds", SubjectIds);
-            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputSubjectType>("subjectType", SubjectType);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.CreateSourceRegulationV1InputSubjectType>("subjectType", SubjectType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

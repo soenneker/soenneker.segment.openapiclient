@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations
         /// <summary>
         /// Returns a list of Destinations connected to a Source.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSource200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSourceSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSource200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations.ConnectedDestinationsRequestBuilder.ConnectedDestinationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSourceSuccessResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations.ConnectedDestinationsRequestBuilder.ConnectedDestinationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSource200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations.ConnectedDestinationsRequestBuilder.ConnectedDestinationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSourceSuccessResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations.ConnectedDestinationsRequestBuilder.ConnectedDestinationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,8 +57,10 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSource200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSource200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSourceSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListConnectedDestinationsFromSourceSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of Destinations connected to a Source.
@@ -76,7 +78,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
         }
         /// <summary>

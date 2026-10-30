@@ -12,22 +12,35 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListInsertFunctionInstancesAlphaOutput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("instances") is { } nullNodeInstances && nullNodeInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instances = null;
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+        }
+
         /// <summary>All insert Function instances found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha>? Instances { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha>? Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha>? _explicitNullValueInstances = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha> Instances { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha> Instances { get => _explicitNullValueInstances; set { _explicitNullValueInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instances"); else _explicitNullProperties?.Remove("instances"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha> _explicitNullValueInstances = default!;
 #endif
         /// <summary>Information about the pagination of this response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination? Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.InsertFunctionInstanceAlpha>("instances", Instances);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination>("pagination", Pagination);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListInsertFunctionInstancesAlphaOutputPagination>("pagination", Pagination);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

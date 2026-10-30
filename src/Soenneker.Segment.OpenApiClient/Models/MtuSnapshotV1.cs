@@ -12,50 +12,76 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MtuSnapshotV1 : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("anonymous") is { } nullNodeAnonymous && nullNodeAnonymous.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anonymous = null;
+            if (parseNode.GetChildNode("anonymousIdentified") is { } nullNodeAnonymousIdentified && nullNodeAnonymousIdentified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnonymousIdentified = null;
+            if (parseNode.GetChildNode("identified") is { } nullNodeIdentified && nullNodeIdentified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identified = null;
+            if (parseNode.GetChildNode("neverIdentified") is { } nullNodeNeverIdentified && nullNodeNeverIdentified.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NeverIdentified = null;
+            if (parseNode.GetChildNode("periodEnd") is { } nullNodePeriodEnd && nullNodePeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodEnd = null;
+            if (parseNode.GetChildNode("periodStart") is { } nullNodePeriodStart && nullNodePeriodStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodStart = null;
+            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+        }
+
         /// <summary>A bigint of the number of anonymous users in this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Anonymous { get; set; }
+        public string? Anonymous { get => _explicitNullValueAnonymous; set { _explicitNullValueAnonymous = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonymous"); else _explicitNullProperties?.Remove("anonymous"); } }
+        private string? _explicitNullValueAnonymous = default!;
 #nullable restore
 #else
-        public string Anonymous { get; set; }
+        public string Anonymous { get => _explicitNullValueAnonymous; set { _explicitNullValueAnonymous = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonymous"); else _explicitNullProperties?.Remove("anonymous"); } }
+        private string _explicitNullValueAnonymous = default!;
 #endif
         /// <summary>A bigint of the number of anonymous identified users in this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnonymousIdentified { get; set; }
+        public string? AnonymousIdentified { get => _explicitNullValueAnonymousIdentified; set { _explicitNullValueAnonymousIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonymousIdentified"); else _explicitNullProperties?.Remove("anonymousIdentified"); } }
+        private string? _explicitNullValueAnonymousIdentified = default!;
 #nullable restore
 #else
-        public string AnonymousIdentified { get; set; }
+        public string AnonymousIdentified { get => _explicitNullValueAnonymousIdentified; set { _explicitNullValueAnonymousIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anonymousIdentified"); else _explicitNullProperties?.Remove("anonymousIdentified"); } }
+        private string _explicitNullValueAnonymousIdentified = default!;
 #endif
         /// <summary>A bigint of the number of identified users in this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Identified { get; set; }
+        public string? Identified { get => _explicitNullValueIdentified; set { _explicitNullValueIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identified"); else _explicitNullProperties?.Remove("identified"); } }
+        private string? _explicitNullValueIdentified = default!;
 #nullable restore
 #else
-        public string Identified { get; set; }
+        public string Identified { get => _explicitNullValueIdentified; set { _explicitNullValueIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identified"); else _explicitNullProperties?.Remove("identified"); } }
+        private string _explicitNullValueIdentified = default!;
 #endif
         /// <summary>A bigint of the number of never identified users in this snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NeverIdentified { get; set; }
+        public string? NeverIdentified { get => _explicitNullValueNeverIdentified; set { _explicitNullValueNeverIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neverIdentified"); else _explicitNullProperties?.Remove("neverIdentified"); } }
+        private string? _explicitNullValueNeverIdentified = default!;
 #nullable restore
 #else
-        public string NeverIdentified { get; set; }
+        public string NeverIdentified { get => _explicitNullValueNeverIdentified; set { _explicitNullValueNeverIdentified = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("neverIdentified"); else _explicitNullProperties?.Remove("neverIdentified"); } }
+        private string _explicitNullValueNeverIdentified = default!;
 #endif
         /// <summary>The end of the usage period, in unix time (seconds since epoch).</summary>
-        public double? PeriodEnd { get; set; }
+        public double? PeriodEnd { get => _explicitNullValuePeriodEnd; set { _explicitNullValuePeriodEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodEnd"); else _explicitNullProperties?.Remove("periodEnd"); } }
+        private double? _explicitNullValuePeriodEnd = default!;
         /// <summary>The start of the usage period, in unix time (seconds since epoch).</summary>
-        public double? PeriodStart { get; set; }
+        public double? PeriodStart { get => _explicitNullValuePeriodStart; set { _explicitNullValuePeriodStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("periodStart"); else _explicitNullProperties?.Remove("periodStart"); } }
+        private double? _explicitNullValuePeriodStart = default!;
         /// <summary>The timestamp of this snapshot within the billing cycle, in the ISO-8601 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Timestamp { get; set; }
+        public string? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private string? _explicitNullValueTimestamp = default!;
 #nullable restore
 #else
-        public string Timestamp { get; set; }
+        public string Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private string _explicitNullValueTimestamp = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -65,7 +91,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.MtuSnapshotV1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.MtuSnapshotV1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.MtuSnapshotV1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,7 +123,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("neverIdentified", NeverIdentified);
             writer.WriteDoubleValue("periodEnd", PeriodEnd);
             writer.WriteDoubleValue("periodStart", PeriodStart);
-            writer.WriteStringValue("timestamp", Timestamp);
+            writer.WriteStringValue("timestamp", Timestamp);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

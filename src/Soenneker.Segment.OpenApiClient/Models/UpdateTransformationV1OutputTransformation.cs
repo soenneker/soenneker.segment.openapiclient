@@ -12,98 +12,142 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateTransformationV1OutputTransformation : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowProperties") is { } nullNodeAllowProperties && nullNodeAllowProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowProperties = null;
+            if (parseNode.GetChildNode("destinationMetadataId") is { } nullNodeDestinationMetadataId && nullNodeDestinationMetadataId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationMetadataId = null;
+            if (parseNode.GetChildNode("drop") is { } nullNodeDrop && nullNodeDrop.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Drop = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("fqlDefinedProperties") is { } nullNodeFqlDefinedProperties && nullNodeFqlDefinedProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FqlDefinedProperties = null;
+            if (parseNode.GetChildNode("hashPropertiesConfiguration") is { } nullNodeHashPropertiesConfiguration && nullNodeHashPropertiesConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HashPropertiesConfiguration = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("if") is { } nullNodeIf && nullNodeIf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) If = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("newEventName") is { } nullNodeNewEventName && nullNodeNewEventName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewEventName = null;
+            if (parseNode.GetChildNode("propertyRenames") is { } nullNodePropertyRenames && nullNodePropertyRenames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyRenames = null;
+            if (parseNode.GetChildNode("propertyValueTransformations") is { } nullNodePropertyValueTransformations && nullNodePropertyValueTransformations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PropertyValueTransformations = null;
+            if (parseNode.GetChildNode("sourceId") is { } nullNodeSourceId && nullNodeSourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceId = null;
+        }
+
         /// <summary>Optional array for allowing properties from your events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AllowProperties { get; set; }
+        public List<string>? AllowProperties { get => _explicitNullValueAllowProperties; set { _explicitNullValueAllowProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowProperties"); else _explicitNullProperties?.Remove("allowProperties"); } }
+        private List<string>? _explicitNullValueAllowProperties = default!;
 #nullable restore
 #else
-        public List<string> AllowProperties { get; set; }
+        public List<string> AllowProperties { get => _explicitNullValueAllowProperties; set { _explicitNullValueAllowProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowProperties"); else _explicitNullProperties?.Remove("allowProperties"); } }
+        private List<string> _explicitNullValueAllowProperties = default!;
 #endif
         /// <summary>The optional Destination metadata associated with the Transformation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationMetadataId { get; set; }
+        public string? DestinationMetadataId { get => _explicitNullValueDestinationMetadataId; set { _explicitNullValueDestinationMetadataId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMetadataId"); else _explicitNullProperties?.Remove("destinationMetadataId"); } }
+        private string? _explicitNullValueDestinationMetadataId = default!;
 #nullable restore
 #else
-        public string DestinationMetadataId { get; set; }
+        public string DestinationMetadataId { get => _explicitNullValueDestinationMetadataId; set { _explicitNullValueDestinationMetadataId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMetadataId"); else _explicitNullProperties?.Remove("destinationMetadataId"); } }
+        private string _explicitNullValueDestinationMetadataId = default!;
 #endif
         /// <summary>Optional boolean value if the Transformation should drop the event entirely when the if statement matches, ignores all other transforms.</summary>
-        public bool? Drop { get; set; }
+        public bool? Drop { get => _explicitNullValueDrop; set { _explicitNullValueDrop = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drop"); else _explicitNullProperties?.Remove("drop"); } }
+        private bool? _explicitNullValueDrop = default!;
         /// <summary>If the Transformation is enabled.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Optional array for defining new properties in FQL. Limited to 1 property right now.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1>? FqlDefinedProperties { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1>? FqlDefinedProperties { get => _explicitNullValueFqlDefinedProperties; set { _explicitNullValueFqlDefinedProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fqlDefinedProperties"); else _explicitNullProperties?.Remove("fqlDefinedProperties"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1>? _explicitNullValueFqlDefinedProperties = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1> FqlDefinedProperties { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1> FqlDefinedProperties { get => _explicitNullValueFqlDefinedProperties; set { _explicitNullValueFqlDefinedProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fqlDefinedProperties"); else _explicitNullProperties?.Remove("fqlDefinedProperties"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.FqlDefinedPropertyV1> _explicitNullValueFqlDefinedProperties = default!;
 #endif
         /// <summary>Optional object for hashing properties within an event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration? HashPropertiesConfiguration { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration? HashPropertiesConfiguration { get => _explicitNullValueHashPropertiesConfiguration; set { _explicitNullValueHashPropertiesConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hashPropertiesConfiguration"); else _explicitNullProperties?.Remove("hashPropertiesConfiguration"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration? _explicitNullValueHashPropertiesConfiguration = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration HashPropertiesConfiguration { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration HashPropertiesConfiguration { get => _explicitNullValueHashPropertiesConfiguration; set { _explicitNullValueHashPropertiesConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hashPropertiesConfiguration"); else _explicitNullProperties?.Remove("hashPropertiesConfiguration"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.TransformationV1HashPropertiesConfiguration _explicitNullValueHashPropertiesConfiguration = default!;
 #endif
         /// <summary>The id of the Transformation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>If statement ([FQL](https://segment.com/docs/config-api/fql/)) to match events.For standard event matchers, use the following: Track -\&gt; &quot;event=&apos;\&lt;eventName\&gt;&apos;&quot; Identify -\&gt; &quot;type=&apos;identify&apos;&quot; Group -\&gt; &quot;type=&apos;group&apos;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? If { get; set; }
+        public string? If { get => _explicitNullValueIf; set { _explicitNullValueIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if"); else _explicitNullProperties?.Remove("if"); } }
+        private string? _explicitNullValueIf = default!;
 #nullable restore
 #else
-        public string If { get; set; }
+        public string If { get => _explicitNullValueIf; set { _explicitNullValueIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if"); else _explicitNullProperties?.Remove("if"); } }
+        private string _explicitNullValueIf = default!;
 #endif
         /// <summary>The name of the Transformation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Optional new event name for renaming events. Works only for &apos;track&apos; event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewEventName { get; set; }
+        public string? NewEventName { get => _explicitNullValueNewEventName; set { _explicitNullValueNewEventName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("newEventName"); else _explicitNullProperties?.Remove("newEventName"); } }
+        private string? _explicitNullValueNewEventName = default!;
 #nullable restore
 #else
-        public string NewEventName { get; set; }
+        public string NewEventName { get => _explicitNullValueNewEventName; set { _explicitNullValueNewEventName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("newEventName"); else _explicitNullProperties?.Remove("newEventName"); } }
+        private string _explicitNullValueNewEventName = default!;
 #endif
         /// <summary>Optional array for renaming properties collected by your events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1>? PropertyRenames { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1>? PropertyRenames { get => _explicitNullValuePropertyRenames; set { _explicitNullValuePropertyRenames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("propertyRenames"); else _explicitNullProperties?.Remove("propertyRenames"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1>? _explicitNullValuePropertyRenames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1> PropertyRenames { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1> PropertyRenames { get => _explicitNullValuePropertyRenames; set { _explicitNullValuePropertyRenames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("propertyRenames"); else _explicitNullProperties?.Remove("propertyRenames"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1> _explicitNullValuePropertyRenames = default!;
 #endif
         /// <summary>Optional array for transforming properties and values collected by your events. Limited to 10 properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1>? PropertyValueTransformations { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1>? PropertyValueTransformations { get => _explicitNullValuePropertyValueTransformations; set { _explicitNullValuePropertyValueTransformations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("propertyValueTransformations"); else _explicitNullProperties?.Remove("propertyValueTransformations"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1>? _explicitNullValuePropertyValueTransformations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1> PropertyValueTransformations { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1> PropertyValueTransformations { get => _explicitNullValuePropertyValueTransformations; set { _explicitNullValuePropertyValueTransformations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("propertyValueTransformations"); else _explicitNullProperties?.Remove("propertyValueTransformations"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1> _explicitNullValuePropertyValueTransformations = default!;
 #endif
         /// <summary>The Source associated with the Transformation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceId { get; set; }
+        public string? SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceId"); else _explicitNullProperties?.Remove("sourceId"); } }
+        private string? _explicitNullValueSourceId = default!;
 #nullable restore
 #else
-        public string SourceId { get; set; }
+        public string SourceId { get => _explicitNullValueSourceId; set { _explicitNullValueSourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceId"); else _explicitNullProperties?.Remove("sourceId"); } }
+        private string _explicitNullValueSourceId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -113,7 +157,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.UpdateTransformationV1OutputTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.UpdateTransformationV1OutputTransformation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.UpdateTransformationV1OutputTransformation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -157,7 +201,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("newEventName", NewEventName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PropertyRenameV1>("propertyRenames", PropertyRenames);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.PropertyValueTransformationV1>("propertyValueTransformations", PropertyValueTransformations);
-            writer.WriteStringValue("sourceId", SourceId);
+            writer.WriteStringValue("sourceId", SourceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics
         /// <summary>
         /// Get an event delivery metrics summary from a Destination.Based on the granularity chosen, there are restrictions on the time range you can query:**Minute**:- Max time range: 4 hours- Oldest possible start time: 48 hours in the past**Hour**:- Max Time range: 7 days- Oldest possible start time: 7 days in the past**Day**:- Max time range: 14 days- Oldest possible start time: 14 days in the past
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestination200SegmentV1BetaJsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestinationSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestination200SegmentV1BetaJsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics.DeliveryMetricsRequestBuilder.DeliveryMetricsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestinationSuccessResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics.DeliveryMetricsRequestBuilder.DeliveryMetricsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestination200SegmentV1BetaJsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics.DeliveryMetricsRequestBuilder.DeliveryMetricsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestinationSuccessResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics.DeliveryMetricsRequestBuilder.DeliveryMetricsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,8 +57,10 @@ namespace Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestination200SegmentV1BetaJsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestination200SegmentV1BetaJsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestinationSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListDeliveryMetricsSummaryFromDestinationSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get an event delivery metrics summary from a Destination.Based on the granularity chosen, there are restrictions on the time range you can query:**Minute**:- Max time range: 4 hours- Oldest possible start time: 48 hours in the past**Hour**:- Max Time range: 7 days- Oldest possible start time: 7 days in the past**Day**:- Max time range: 14 days- Oldest possible start time: 14 days in the past
@@ -76,7 +78,7 @@ namespace Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1beta+json");
+            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
         }
         /// <summary>

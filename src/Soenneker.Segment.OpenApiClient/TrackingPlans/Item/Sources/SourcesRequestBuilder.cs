@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
         /// <summary>
         /// Disconnects a Source from a Tracking Plan.• When called, this endpoint may generate the `Source Modified` event in the [audit trail](/tag/Audit-Trail).• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlan200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlanSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlan200SegmentV1JsonResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlanSuccessResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlan200SegmentV1JsonResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlanSuccessResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -57,13 +57,15 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlan200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlan200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlanSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.RemoveSourceFromTrackingPlanSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists Sources connected to a Tracking Plan.• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.This endpoint requires the user to have at least the following permission(s):  * Source Read-only * Tracking Plan Read-only
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlan200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlanSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 404 status code</exception>
@@ -71,11 +73,11 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlan200SegmentV1JsonResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlanSuccessResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlan200SegmentV1JsonResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlanSuccessResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources.SourcesRequestBuilder.SourcesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -84,13 +86,15 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlan200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlan200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlanSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListSourcesFromTrackingPlanSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Connects a Source to a Tracking Plan.• When called, this endpoint may generate the `Source Modified` event in the [audit trail](/tag/Audit-Trail).• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlan200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanSuccessResponse"/></returns>
         /// <param name="body">Connects a Source to a Tracking Plan.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,11 +103,11 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlan200SegmentV1JsonResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanSuccessResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlan200SegmentV1JsonResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanSuccessResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -113,8 +117,10 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlan200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlan200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddSourceToTrackingPlanSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Disconnects a Source from a Tracking Plan.• When called, this endpoint may generate the `Source Modified` event in the [audit trail](/tag/Audit-Trail).• In order to successfully call this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach out to your customer success manager for more information.
@@ -132,7 +138,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/tracking-plans/{trackingPlanId}/sources?sourceId={sourceId}", PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
         }
         /// <summary>
@@ -151,7 +157,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
         }
         /// <summary>
@@ -172,7 +178,7 @@ namespace Soenneker.Segment.OpenApiClient.TrackingPlans.Item.Sources
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }

@@ -12,17 +12,34 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DestinationMetadataV1SupportedFeatures : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("browserUnbundling") is { } nullNodeBrowserUnbundling && nullNodeBrowserUnbundling.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserUnbundling = null;
+            if (parseNode.GetChildNode("browserUnbundlingPublic") is { } nullNodeBrowserUnbundlingPublic && nullNodeBrowserUnbundlingPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserUnbundlingPublic = null;
+            if (parseNode.GetChildNode("cloudModeInstances") is { } nullNodeCloudModeInstances && nullNodeCloudModeInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudModeInstances = null;
+            if (parseNode.GetChildNode("deviceModeInstances") is { } nullNodeDeviceModeInstances && nullNodeDeviceModeInstances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceModeInstances = null;
+            if (parseNode.GetChildNode("replay") is { } nullNodeReplay && nullNodeReplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Replay = null;
+        }
+
         /// <summary>Whether this Destination supports browser unbundling.</summary>
-        public bool? BrowserUnbundling { get; set; }
+        public bool? BrowserUnbundling { get => _explicitNullValueBrowserUnbundling; set { _explicitNullValueBrowserUnbundling = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browserUnbundling"); else _explicitNullProperties?.Remove("browserUnbundling"); } }
+        private bool? _explicitNullValueBrowserUnbundling = default!;
         /// <summary>Whether this Destination supports public browser unbundling.</summary>
-        public bool? BrowserUnbundlingPublic { get; set; }
+        public bool? BrowserUnbundlingPublic { get => _explicitNullValueBrowserUnbundlingPublic; set { _explicitNullValueBrowserUnbundlingPublic = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browserUnbundlingPublic"); else _explicitNullProperties?.Remove("browserUnbundlingPublic"); } }
+        private bool? _explicitNullValueBrowserUnbundlingPublic = default!;
         /// <summary>This Destination&apos;s support level for cloud mode instances.The values &apos;0&apos; and &apos;NONE&apos;, and &apos;1&apos; and &apos;SINGLE&apos; are equivalent.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1CloudModeInstances? CloudModeInstances { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1CloudModeInstances? CloudModeInstances { get => _explicitNullValueCloudModeInstances; set { _explicitNullValueCloudModeInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloudModeInstances"); else _explicitNullProperties?.Remove("cloudModeInstances"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1CloudModeInstances? _explicitNullValueCloudModeInstances = default!;
         /// <summary>This Destination&apos;s support level for device mode instances.Support for multiple device mode instances is currently not planned.The values &apos;0&apos; and &apos;NONE&apos;, and &apos;1&apos; and &apos;SINGLE&apos; are equivalent.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances? DeviceModeInstances { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances? DeviceModeInstances { get => _explicitNullValueDeviceModeInstances; set { _explicitNullValueDeviceModeInstances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deviceModeInstances"); else _explicitNullProperties?.Remove("deviceModeInstances"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances? _explicitNullValueDeviceModeInstances = default!;
         /// <summary>Whether this Destination supports replays.</summary>
-        public bool? Replay { get; set; }
+        public bool? Replay { get => _explicitNullValueReplay; set { _explicitNullValueReplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replay"); else _explicitNullProperties?.Remove("replay"); } }
+        private bool? _explicitNullValueReplay = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +48,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +76,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("browserUnbundlingPublic", BrowserUnbundlingPublic);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1CloudModeInstances>("cloudModeInstances", CloudModeInstances);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataFeaturesV1DeviceModeInstances>("deviceModeInstances", DeviceModeInstances);
-            writer.WriteBoolValue("replay", Replay);
+            writer.WriteBoolValue("replay", Replay);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

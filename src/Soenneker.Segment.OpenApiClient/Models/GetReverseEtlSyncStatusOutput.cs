@@ -12,14 +12,24 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetReverseEtlSyncStatusOutput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("reverseETLSyncStatus") is { } nullNodeReverseETLSyncStatus && nullNodeReverseETLSyncStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReverseETLSyncStatus = null;
+        }
+
         /// <summary>The status of the reverse ETL connection job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus? ReverseETLSyncStatus { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus? ReverseETLSyncStatus { get => _explicitNullValueReverseETLSyncStatus; set { _explicitNullValueReverseETLSyncStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reverseETLSyncStatus"); else _explicitNullProperties?.Remove("reverseETLSyncStatus"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus? _explicitNullValueReverseETLSyncStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus ReverseETLSyncStatus { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus ReverseETLSyncStatus { get => _explicitNullValueReverseETLSyncStatus; set { _explicitNullValueReverseETLSyncStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reverseETLSyncStatus"); else _explicitNullProperties?.Remove("reverseETLSyncStatus"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus _explicitNullValueReverseETLSyncStatus = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -29,7 +39,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +59,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus>("reverseETLSyncStatus", ReverseETLSyncStatus);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetReverseEtlSyncStatusOutputReverseEtlSyncStatus>("reverseETLSyncStatus", ReverseETLSyncStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

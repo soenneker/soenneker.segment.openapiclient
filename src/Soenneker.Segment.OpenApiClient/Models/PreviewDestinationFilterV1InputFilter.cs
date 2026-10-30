@@ -12,22 +12,35 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PreviewDestinationFilterV1InputFilter : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actions") is { } nullNodeActions && nullNodeActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actions = null;
+            if (parseNode.GetChildNode("if") is { } nullNodeIf && nullNodeIf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) If = null;
+        }
+
         /// <summary>The filtering action to take on events that match the &quot;if&quot; statement.Action types must be one of: &quot;drop&quot;, &quot;allow_properties&quot;, &quot;drop_properties&quot; or &quot;sample&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1>? Actions { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1>? Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1>? _explicitNullValueActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1> Actions { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1> Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1> _explicitNullValueActions = default!;
 #endif
         /// <summary>A FQL statement which determines if the provided filter&apos;s actions will apply to the provided JSON payload.The literal string &quot;all&quot; will result in this filter to all events.For guidance on using FQL, see the Segment documentation site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? If { get; set; }
+        public string? If { get => _explicitNullValueIf; set { _explicitNullValueIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if"); else _explicitNullProperties?.Remove("if"); } }
+        private string? _explicitNullValueIf = default!;
 #nullable restore
 #else
-        public string If { get; set; }
+        public string If { get => _explicitNullValueIf; set { _explicitNullValueIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("if"); else _explicitNullProperties?.Remove("if"); } }
+        private string _explicitNullValueIf = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1InputFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1InputFilter();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1InputFilter(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.DestinationFilterActionV1>("actions", Actions);
-            writer.WriteStringValue("if", If);
+            writer.WriteStringValue("if", If);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

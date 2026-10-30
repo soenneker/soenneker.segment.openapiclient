@@ -12,19 +12,38 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DestinationMetadataV1SupportedPlatforms : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("browser") is { } nullNodeBrowser && nullNodeBrowser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Browser = null;
+            if (parseNode.GetChildNode("cloudAppObject") is { } nullNodeCloudAppObject && nullNodeCloudAppObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloudAppObject = null;
+            if (parseNode.GetChildNode("linkedAudiences") is { } nullNodeLinkedAudiences && nullNodeLinkedAudiences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LinkedAudiences = null;
+            if (parseNode.GetChildNode("mobile") is { } nullNodeMobile && nullNodeMobile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mobile = null;
+            if (parseNode.GetChildNode("server") is { } nullNodeServer && nullNodeServer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Server = null;
+            if (parseNode.GetChildNode("warehouse") is { } nullNodeWarehouse && nullNodeWarehouse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warehouse = null;
+        }
+
         /// <summary>Whether this Destination supports browser events.</summary>
-        public bool? Browser { get; set; }
+        public bool? Browser { get => _explicitNullValueBrowser; set { _explicitNullValueBrowser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser"); else _explicitNullProperties?.Remove("browser"); } }
+        private bool? _explicitNullValueBrowser = default!;
         /// <summary>Whether this Destination supports cloud app object events.</summary>
-        public bool? CloudAppObject { get; set; }
+        public bool? CloudAppObject { get => _explicitNullValueCloudAppObject; set { _explicitNullValueCloudAppObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cloudAppObject"); else _explicitNullProperties?.Remove("cloudAppObject"); } }
+        private bool? _explicitNullValueCloudAppObject = default!;
         /// <summary>Whether this Destination supports linked audiences.</summary>
-        public bool? LinkedAudiences { get; set; }
+        public bool? LinkedAudiences { get => _explicitNullValueLinkedAudiences; set { _explicitNullValueLinkedAudiences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("linkedAudiences"); else _explicitNullProperties?.Remove("linkedAudiences"); } }
+        private bool? _explicitNullValueLinkedAudiences = default!;
         /// <summary>Whether this Destination supports mobile events.</summary>
-        public bool? Mobile { get; set; }
+        public bool? Mobile { get => _explicitNullValueMobile; set { _explicitNullValueMobile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile"); else _explicitNullProperties?.Remove("mobile"); } }
+        private bool? _explicitNullValueMobile = default!;
         /// <summary>Whether this Destination supports server events.</summary>
-        public bool? Server { get; set; }
+        public bool? Server { get => _explicitNullValueServer; set { _explicitNullValueServer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server"); else _explicitNullProperties?.Remove("server"); } }
+        private bool? _explicitNullValueServer = default!;
         /// <summary>Whether this Destination supports Warehouse events.</summary>
-        public bool? Warehouse { get; set; }
+        public bool? Warehouse { get => _explicitNullValueWarehouse; set { _explicitNullValueWarehouse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warehouse"); else _explicitNullProperties?.Remove("warehouse"); } }
+        private bool? _explicitNullValueWarehouse = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +52,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +82,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("linkedAudiences", LinkedAudiences);
             writer.WriteBoolValue("mobile", Mobile);
             writer.WriteBoolValue("server", Server);
-            writer.WriteBoolValue("warehouse", Warehouse);
+            writer.WriteBoolValue("warehouse", Warehouse);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

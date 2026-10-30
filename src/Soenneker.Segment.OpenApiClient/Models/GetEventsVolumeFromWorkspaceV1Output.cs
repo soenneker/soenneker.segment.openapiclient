@@ -12,38 +12,57 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetEventsVolumeFromWorkspaceV1Output : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+        }
+
         /// <summary>Information about the pagination of this response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination? Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination Pagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>Observability event volume path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>Input query returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery? Query { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery Query { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery _explicitNullValueQuery = default!;
 #endif
         /// <summary>The resultant list of series broken down by thedimensions requested over the time frame requested and ordered by the total count of events in all series.Note: The limit of entries returned is 5000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1>? Result { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1>? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1>? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1> Result { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1> Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1> _explicitNullValueResult = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +72,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1Output CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1Output();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1Output(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,7 +98,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputPagination>("pagination", Pagination);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetEventsVolumeFromWorkspaceV1OutputQuery>("query", Query);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.SourceEventVolumeV1>("result", Result);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

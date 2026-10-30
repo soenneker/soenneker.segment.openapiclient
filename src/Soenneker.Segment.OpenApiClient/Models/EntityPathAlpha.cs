@@ -11,62 +11,90 @@ namespace Soenneker.Segment.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EntityPathAlpha : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("childRelationshipSlugs") is { } nullNodeChildRelationshipSlugs && nullNodeChildRelationshipSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildRelationshipSlugs = null;
+            if (parseNode.GetChildNode("entityName") is { } nullNodeEntityName && nullNodeEntityName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityName = null;
+            if (parseNode.GetChildNode("entitySlug") is { } nullNodeEntitySlug && nullNodeEntitySlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntitySlug = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("parentRelationshipSlugPath") is { } nullNodeParentRelationshipSlugPath && nullNodeParentRelationshipSlugPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentRelationshipSlugPath = null;
+            if (parseNode.GetChildNode("pathName") is { } nullNodePathName && nullNodePathName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathName = null;
+            if (parseNode.GetChildNode("relationshipSlugs") is { } nullNodeRelationshipSlugs && nullNodeRelationshipSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipSlugs = null;
+        }
+
         /// <summary>Slugs of child relationships from this node.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ChildRelationshipSlugs { get; set; }
+        public List<string>? ChildRelationshipSlugs { get => _explicitNullValueChildRelationshipSlugs; set { _explicitNullValueChildRelationshipSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("childRelationshipSlugs"); else _explicitNullProperties?.Remove("childRelationshipSlugs"); } }
+        private List<string>? _explicitNullValueChildRelationshipSlugs = default!;
 #nullable restore
 #else
-        public List<string> ChildRelationshipSlugs { get; set; }
+        public List<string> ChildRelationshipSlugs { get => _explicitNullValueChildRelationshipSlugs; set { _explicitNullValueChildRelationshipSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("childRelationshipSlugs"); else _explicitNullProperties?.Remove("childRelationshipSlugs"); } }
+        private List<string> _explicitNullValueChildRelationshipSlugs = default!;
 #endif
         /// <summary>The display name of the entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntityName { get; set; }
+        public string? EntityName { get => _explicitNullValueEntityName; set { _explicitNullValueEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entityName"); else _explicitNullProperties?.Remove("entityName"); } }
+        private string? _explicitNullValueEntityName = default!;
 #nullable restore
 #else
-        public string EntityName { get; set; }
+        public string EntityName { get => _explicitNullValueEntityName; set { _explicitNullValueEntityName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entityName"); else _explicitNullProperties?.Remove("entityName"); } }
+        private string _explicitNullValueEntityName = default!;
 #endif
         /// <summary>The slug of the entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntitySlug { get; set; }
+        public string? EntitySlug { get => _explicitNullValueEntitySlug; set { _explicitNullValueEntitySlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entitySlug"); else _explicitNullProperties?.Remove("entitySlug"); } }
+        private string? _explicitNullValueEntitySlug = default!;
 #nullable restore
 #else
-        public string EntitySlug { get; set; }
+        public string EntitySlug { get => _explicitNullValueEntitySlug; set { _explicitNullValueEntitySlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entitySlug"); else _explicitNullProperties?.Remove("entitySlug"); } }
+        private string _explicitNullValueEntitySlug = default!;
 #endif
         /// <summary>The id of the entity path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Full slug path from root to this node, colon-delimited (for example &quot;rel-a:rel-b&quot;). Empty string for root nodes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentRelationshipSlugPath { get; set; }
+        public string? ParentRelationshipSlugPath { get => _explicitNullValueParentRelationshipSlugPath; set { _explicitNullValueParentRelationshipSlugPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parentRelationshipSlugPath"); else _explicitNullProperties?.Remove("parentRelationshipSlugPath"); } }
+        private string? _explicitNullValueParentRelationshipSlugPath = default!;
 #nullable restore
 #else
-        public string ParentRelationshipSlugPath { get; set; }
+        public string ParentRelationshipSlugPath { get => _explicitNullValueParentRelationshipSlugPath; set { _explicitNullValueParentRelationshipSlugPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parentRelationshipSlugPath"); else _explicitNullProperties?.Remove("parentRelationshipSlugPath"); } }
+        private string _explicitNullValueParentRelationshipSlugPath = default!;
 #endif
         /// <summary>The display name of the path (root → node).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PathName { get; set; }
+        public string? PathName { get => _explicitNullValuePathName; set { _explicitNullValuePathName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathName"); else _explicitNullProperties?.Remove("pathName"); } }
+        private string? _explicitNullValuePathName = default!;
 #nullable restore
 #else
-        public string PathName { get; set; }
+        public string PathName { get => _explicitNullValuePathName; set { _explicitNullValuePathName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pathName"); else _explicitNullProperties?.Remove("pathName"); } }
+        private string _explicitNullValuePathName = default!;
 #endif
         /// <summary>Ordered slugs for all relationships from root to this node.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RelationshipSlugs { get; set; }
+        public List<string>? RelationshipSlugs { get => _explicitNullValueRelationshipSlugs; set { _explicitNullValueRelationshipSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipSlugs"); else _explicitNullProperties?.Remove("relationshipSlugs"); } }
+        private List<string>? _explicitNullValueRelationshipSlugs = default!;
 #nullable restore
 #else
-        public List<string> RelationshipSlugs { get; set; }
+        public List<string> RelationshipSlugs { get => _explicitNullValueRelationshipSlugs; set { _explicitNullValueRelationshipSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipSlugs"); else _explicitNullProperties?.Remove("relationshipSlugs"); } }
+        private List<string> _explicitNullValueRelationshipSlugs = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -76,7 +104,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.EntityPathAlpha CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.EntityPathAlpha();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.EntityPathAlpha(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,7 +136,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("parentRelationshipSlugPath", ParentRelationshipSlugPath);
             writer.WriteStringValue("pathName", PathName);
-            writer.WriteCollectionOfPrimitiveValues<string>("relationshipSlugs", RelationshipSlugs);
+            writer.WriteCollectionOfPrimitiveValues<string>("relationshipSlugs", RelationshipSlugs);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

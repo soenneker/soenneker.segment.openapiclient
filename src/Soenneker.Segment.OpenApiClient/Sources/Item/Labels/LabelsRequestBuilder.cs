@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
         /// <summary>
         /// Adds an existing label to a Source.• When called, this endpoint may generate the `Source Modified` event in the [audit trail](/tag/Audit-Trail).      
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSource200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceSuccessResponse"/></returns>
         /// <param name="body">Applies an existing label to an existing Source.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSource200SegmentV1JsonResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceSuccessResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSource200SegmentV1JsonResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceSuccessResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,13 +59,15 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSource200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSource200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddLabelsToSourceSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Replaces all labels in a Source.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSource200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceSuccessResponse"/></returns>
         /// <param name="body">Replaces all labels in a Source with a list of new labels.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -74,11 +76,11 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSource200SegmentV1JsonResponse?> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceSuccessResponse?> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSource200SegmentV1JsonResponse> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceSuccessResponse> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -88,8 +90,10 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSource200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSource200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ReplaceLabelsInSourceSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds an existing label to a Source.• When called, this endpoint may generate the `Source Modified` event in the [audit trail](/tag/Audit-Trail).      
@@ -109,7 +113,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }
@@ -131,7 +135,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.Labels
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }

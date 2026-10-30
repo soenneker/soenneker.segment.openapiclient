@@ -12,22 +12,35 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetSourceV1Output : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("trackingPlanId") is { } nullNodeTrackingPlanId && nullNodeTrackingPlanId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TrackingPlanId = null;
+        }
+
         /// <summary>The returned Source object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource? Source { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource Source { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource _explicitNullValueSource = default!;
 #endif
         /// <summary>The id of the Tracking Plan connected to the Source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TrackingPlanId { get; set; }
+        public string? TrackingPlanId { get => _explicitNullValueTrackingPlanId; set { _explicitNullValueTrackingPlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trackingPlanId"); else _explicitNullProperties?.Remove("trackingPlanId"); } }
+        private string? _explicitNullValueTrackingPlanId = default!;
 #nullable restore
 #else
-        public string TrackingPlanId { get; set; }
+        public string TrackingPlanId { get => _explicitNullValueTrackingPlanId; set { _explicitNullValueTrackingPlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trackingPlanId"); else _explicitNullProperties?.Remove("trackingPlanId"); } }
+        private string _explicitNullValueTrackingPlanId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1Output CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1Output();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1Output(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.GetSourceV1OutputSource>("source", Source);
-            writer.WriteStringValue("trackingPlanId", TrackingPlanId);
+            writer.WriteStringValue("trackingPlanId", TrackingPlanId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

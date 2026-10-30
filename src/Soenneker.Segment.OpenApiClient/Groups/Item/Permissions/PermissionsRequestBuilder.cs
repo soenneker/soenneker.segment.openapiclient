@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
         /// <summary>
         /// Adds a list of access permissions to a user group.• When called, this endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:* Policy Created* User Group Policy Updated      The rate limit for this endpoint is 60 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroup200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupSuccessResponse"/></returns>
         /// <param name="body">Adds a list of permissions to a user group.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroup200SegmentV1JsonResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupSuccessResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroup200SegmentV1JsonResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupSuccessResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,13 +59,15 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroup200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroup200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.AddPermissionsToUserGroupSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates the list of access permissions for a user group.• When called, this endpoint may generate the `Policy Deleted` event in the [audit trail](/tag/Audit-Trail).      The rate limit for this endpoint is 60 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroup200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupSuccessResponse"/></returns>
         /// <param name="body">Updates the list of permissions for a user group.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -74,11 +76,11 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroup200SegmentV1JsonResponse?> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupSuccessResponse?> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroup200SegmentV1JsonResponse> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupSuccessResponse> PutAsync(global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -88,8 +90,10 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroup200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroup200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ReplacePermissionsForUserGroupSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a list of access permissions to a user group.• When called, this endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:* Policy Created* User Group Policy Updated      The rate limit for this endpoint is 60 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -109,7 +113,7 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }
@@ -131,7 +135,7 @@ namespace Soenneker.Segment.OpenApiClient.Groups.Item.Permissions
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }

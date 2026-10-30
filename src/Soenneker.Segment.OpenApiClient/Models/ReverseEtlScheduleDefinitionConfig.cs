@@ -12,7 +12,12 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReverseEtlScheduleDefinitionConfig : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlCronScheduleConfig"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,11 +59,22 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlScheduleDefinitionConfig();
-            result.ReverseEtlCronScheduleConfig = new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlCronScheduleConfig();
-            result.ReverseEtlDbtCloudScheduleConfig = new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlDbtCloudScheduleConfig();
-            result.ReverseEtlPeriodicScheduleConfig = new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlPeriodicScheduleConfig();
-            result.ReverseEtlSpecificTimeScheduleConfig = new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSpecificTimeScheduleConfig();
-            return result;
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("interval") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("days") != null && parseNode.GetChildNode("hours") != null && parseNode.GetChildNode("timezone") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("spec") != null && parseNode.GetChildNode("timezone") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("accountId") != null && parseNode.GetChildNode("jobId") != null))();
+            if (result.ReverseEtlCronScheduleConfig == null && result.ReverseEtlDbtCloudScheduleConfig == null && result.ReverseEtlPeriodicScheduleConfig == null && result.ReverseEtlSpecificTimeScheduleConfig == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.ReverseEtlPeriodicScheduleConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlPeriodicScheduleConfig(), parseNode);
+            if (result.ReverseEtlCronScheduleConfig == null && result.ReverseEtlDbtCloudScheduleConfig == null && result.ReverseEtlPeriodicScheduleConfig == null && result.ReverseEtlSpecificTimeScheduleConfig == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.ReverseEtlSpecificTimeScheduleConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlSpecificTimeScheduleConfig(), parseNode);
+            if (result.ReverseEtlCronScheduleConfig == null && result.ReverseEtlDbtCloudScheduleConfig == null && result.ReverseEtlPeriodicScheduleConfig == null && result.ReverseEtlSpecificTimeScheduleConfig == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.ReverseEtlCronScheduleConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlCronScheduleConfig(), parseNode);
+            if (result.ReverseEtlCronScheduleConfig == null && result.ReverseEtlDbtCloudScheduleConfig == null && result.ReverseEtlPeriodicScheduleConfig == null && result.ReverseEtlSpecificTimeScheduleConfig == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ReverseEtlDbtCloudScheduleConfig = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlDbtCloudScheduleConfig(), parseNode);
+            if (result.ReverseEtlCronScheduleConfig == null && result.ReverseEtlDbtCloudScheduleConfig == null && result.ReverseEtlPeriodicScheduleConfig == null && result.ReverseEtlSpecificTimeScheduleConfig == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,13 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ReverseEtlCronScheduleConfig == null && ReverseEtlDbtCloudScheduleConfig == null && ReverseEtlPeriodicScheduleConfig == null && ReverseEtlSpecificTimeScheduleConfig == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ReverseEtlCronScheduleConfig != null && ReverseEtlDbtCloudScheduleConfig == null && ReverseEtlPeriodicScheduleConfig == null && ReverseEtlSpecificTimeScheduleConfig == null) { if (ReverseEtlCronScheduleConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReverseEtlCronScheduleConfig); return; }
+            if (ReverseEtlDbtCloudScheduleConfig != null && ReverseEtlCronScheduleConfig == null && ReverseEtlPeriodicScheduleConfig == null && ReverseEtlSpecificTimeScheduleConfig == null) { if (ReverseEtlDbtCloudScheduleConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReverseEtlDbtCloudScheduleConfig); return; }
+            if (ReverseEtlPeriodicScheduleConfig != null && ReverseEtlCronScheduleConfig == null && ReverseEtlDbtCloudScheduleConfig == null && ReverseEtlSpecificTimeScheduleConfig == null) { if (ReverseEtlPeriodicScheduleConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReverseEtlPeriodicScheduleConfig); return; }
+            if (ReverseEtlSpecificTimeScheduleConfig != null && ReverseEtlCronScheduleConfig == null && ReverseEtlDbtCloudScheduleConfig == null && ReverseEtlPeriodicScheduleConfig == null) { if (ReverseEtlSpecificTimeScheduleConfig is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReverseEtlSpecificTimeScheduleConfig); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ReverseEtlCronScheduleConfig>(null, ReverseEtlCronScheduleConfig, ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig);
         }

@@ -12,17 +12,34 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SourceSettingsOutputV1Track : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowEventOnViolations") is { } nullNodeAllowEventOnViolations && nullNodeAllowEventOnViolations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowEventOnViolations = null;
+            if (parseNode.GetChildNode("allowPropertiesOnViolations") is { } nullNodeAllowPropertiesOnViolations && nullNodeAllowPropertiesOnViolations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowPropertiesOnViolations = null;
+            if (parseNode.GetChildNode("allowUnplannedEventProperties") is { } nullNodeAllowUnplannedEventProperties && nullNodeAllowUnplannedEventProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowUnplannedEventProperties = null;
+            if (parseNode.GetChildNode("allowUnplannedEvents") is { } nullNodeAllowUnplannedEvents && nullNodeAllowUnplannedEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowUnplannedEvents = null;
+            if (parseNode.GetChildNode("commonEventOnViolations") is { } nullNodeCommonEventOnViolations && nullNodeCommonEventOnViolations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommonEventOnViolations = null;
+        }
+
         /// <summary>Allow track event on violations.Config API note: equal to `allowTrackEventOnViolations`.</summary>
-        public bool? AllowEventOnViolations { get; set; }
+        public bool? AllowEventOnViolations { get => _explicitNullValueAllowEventOnViolations; set { _explicitNullValueAllowEventOnViolations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowEventOnViolations"); else _explicitNullProperties?.Remove("allowEventOnViolations"); } }
+        private bool? _explicitNullValueAllowEventOnViolations = default!;
         /// <summary>Enable to allow track properties on violations.Config API note: equal to `allowTrackEventPropertiesOnViolations`.</summary>
-        public bool? AllowPropertiesOnViolations { get; set; }
+        public bool? AllowPropertiesOnViolations { get => _explicitNullValueAllowPropertiesOnViolations; set { _explicitNullValueAllowPropertiesOnViolations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowPropertiesOnViolations"); else _explicitNullProperties?.Remove("allowPropertiesOnViolations"); } }
+        private bool? _explicitNullValueAllowPropertiesOnViolations = default!;
         /// <summary>Enable to allow unplanned track event properties.Config API note: equal to `allowUnplannedTrackEventProperties`.</summary>
-        public bool? AllowUnplannedEventProperties { get; set; }
+        public bool? AllowUnplannedEventProperties { get => _explicitNullValueAllowUnplannedEventProperties; set { _explicitNullValueAllowUnplannedEventProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowUnplannedEventProperties"); else _explicitNullProperties?.Remove("allowUnplannedEventProperties"); } }
+        private bool? _explicitNullValueAllowUnplannedEventProperties = default!;
         /// <summary>Enable to allow unplanned track events.Config API note: equal to `allowUnplannedTrackEvents`.</summary>
-        public bool? AllowUnplannedEvents { get; set; }
+        public bool? AllowUnplannedEvents { get => _explicitNullValueAllowUnplannedEvents; set { _explicitNullValueAllowUnplannedEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowUnplannedEvents"); else _explicitNullProperties?.Remove("allowUnplannedEvents"); } }
+        private bool? _explicitNullValueAllowUnplannedEvents = default!;
         /// <summary>The common track event on violations.Config API note: equal to `commonTrackEventOnViolations`.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get => _explicitNullValueCommonEventOnViolations; set { _explicitNullValueCommonEventOnViolations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commonEventOnViolations"); else _explicitNullProperties?.Remove("commonEventOnViolations"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations? _explicitNullValueCommonEventOnViolations = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +48,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +76,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("allowPropertiesOnViolations", AllowPropertiesOnViolations);
             writer.WriteBoolValue("allowUnplannedEventProperties", AllowUnplannedEventProperties);
             writer.WriteBoolValue("allowUnplannedEvents", AllowUnplannedEvents);
-            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.TrackSourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

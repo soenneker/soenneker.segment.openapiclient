@@ -12,19 +12,33 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudienceSummaryWithAudienceTypeAndLookbackOptions : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("backfillEventDataDays") is { } nullNodeBackfillEventDataDays && nullNodeBackfillEventDataDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackfillEventDataDays = null;
+            if (parseNode.GetChildNode("filterByExternalIds") is { } nullNodeFilterByExternalIds && nullNodeFilterByExternalIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FilterByExternalIds = null;
+            if (parseNode.GetChildNode("includeHistoricalData") is { } nullNodeIncludeHistoricalData && nullNodeIncludeHistoricalData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeHistoricalData = null;
+        }
+
         /// <summary>If specified, the value of this field indicates the number of days (specified from the date the audience was created) that event data will be included from when determining audience membership.If not specified, the default is set to the maximum event window size, or 7 days if no window condition is defined.Note that this is applied on a best-effort basis and may not always be applicable. In such cases, the response will not return a backfillEventDataDays value, and all available data will be taken into account.Note that includeHistoricalData must be set to true.</summary>
-        public double? BackfillEventDataDays { get; set; }
+        public double? BackfillEventDataDays { get => _explicitNullValueBackfillEventDataDays; set { _explicitNullValueBackfillEventDataDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backfillEventDataDays"); else _explicitNullProperties?.Remove("backfillEventDataDays"); } }
+        private double? _explicitNullValueBackfillEventDataDays = default!;
         /// <summary>The set of profile external identifiers being used to determine audience membership.Profiles will only be considered for audience membership if the profile has at least one external id whose key matches a value in this set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FilterByExternalIds { get; set; }
+        public List<string>? FilterByExternalIds { get => _explicitNullValueFilterByExternalIds; set { _explicitNullValueFilterByExternalIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filterByExternalIds"); else _explicitNullProperties?.Remove("filterByExternalIds"); } }
+        private List<string>? _explicitNullValueFilterByExternalIds = default!;
 #nullable restore
 #else
-        public List<string> FilterByExternalIds { get; set; }
+        public List<string> FilterByExternalIds { get => _explicitNullValueFilterByExternalIds; set { _explicitNullValueFilterByExternalIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filterByExternalIds"); else _explicitNullProperties?.Remove("filterByExternalIds"); } }
+        private List<string> _explicitNullValueFilterByExternalIds = default!;
 #endif
         /// <summary>Determines whether data prior to the audience being created is included when determining audience membership.Note that including historical data may be needed in order to properly handle the definition specified.In these cases, Segment will automatically handle including historical data and the response will return the includeHistoricalData parameter as true.</summary>
-        public bool? IncludeHistoricalData { get; set; }
+        public bool? IncludeHistoricalData { get => _explicitNullValueIncludeHistoricalData; set { _explicitNullValueIncludeHistoricalData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeHistoricalData"); else _explicitNullProperties?.Remove("includeHistoricalData"); } }
+        private bool? _explicitNullValueIncludeHistoricalData = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +47,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.AudienceSummaryWithAudienceTypeAndLookbackOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +71,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("backfillEventDataDays", BackfillEventDataDays);
             writer.WriteCollectionOfPrimitiveValues<string>("filterByExternalIds", FilterByExternalIds);
-            writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);
+            writer.WriteBoolValue("includeHistoricalData", IncludeHistoricalData);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

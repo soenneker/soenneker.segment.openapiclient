@@ -12,16 +12,28 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enableEventTables") is { } nullNodeEnableEventTables && nullNodeEnableEventTables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableEventTables = null;
+            if (parseNode.GetChildNode("syncOverrides") is { } nullNodeSyncOverrides && nullNodeSyncOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncOverrides = null;
+        }
+
         /// <summary>A flag to enable or disable all event Tables. This field is optional.</summary>
-        public bool? EnableEventTables { get; set; }
+        public bool? EnableEventTables { get => _explicitNullValueEnableEventTables; set { _explicitNullValueEnableEventTables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enableEventTables"); else _explicitNullProperties?.Remove("enableEventTables"); } }
+        private bool? _explicitNullValueEnableEventTables = default!;
         /// <summary>A list of sync Schema overrides to apply to this Space Warehouse.Note: Selective Sync is not supported if the enableEventTables flag is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride>? SyncOverrides { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride>? SyncOverrides { get => _explicitNullValueSyncOverrides; set { _explicitNullValueSyncOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syncOverrides"); else _explicitNullProperties?.Remove("syncOverrides"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride>? _explicitNullValueSyncOverrides = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride> SyncOverrides { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride> SyncOverrides { get => _explicitNullValueSyncOverrides; set { _explicitNullValueSyncOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("syncOverrides"); else _explicitNullProperties?.Remove("syncOverrides"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride> _explicitNullValueSyncOverrides = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -31,7 +43,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +65,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enableEventTables", EnableEventTables);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride>("syncOverrides", SyncOverrides);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.SpaceWarehouseSchemaOverride>("syncOverrides", SyncOverrides);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

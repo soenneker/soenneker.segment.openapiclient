@@ -36,7 +36,7 @@ namespace Soenneker.Segment.OpenApiClient.Destination.Filters.Preview
         /// <summary>
         /// Simulates the application of a Destination filter to a provided JSON payload.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilter200SegmentV1JsonResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterSuccessResponse"/></returns>
         /// <param name="body">Input of the Destination filter to preview.For guidance on using FQL, see the Segment documentation site.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Segment.OpenApiClient.Destination.Filters.Preview
         /// <exception cref="global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilter200SegmentV1JsonResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterSuccessResponse?> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1Input body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilter200SegmentV1JsonResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterSuccessResponse> PostAsync(global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterV1Input body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,8 +59,10 @@ namespace Soenneker.Segment.OpenApiClient.Destination.Filters.Preview
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilter200SegmentV1JsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilter200SegmentV1JsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterSuccessResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.PreviewDestinationFilterSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Simulates the application of a Destination filter to a provided JSON payload.
@@ -80,7 +82,7 @@ namespace Soenneker.Segment.OpenApiClient.Destination.Filters.Preview
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1+json");
+            requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);
             return requestInfo;
         }

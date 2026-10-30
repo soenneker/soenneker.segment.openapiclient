@@ -12,90 +12,131 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateActivationForAudienceOutputActivation : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activationName") is { } nullNodeActivationName && nullNodeActivationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationName = null;
+            if (parseNode.GetChildNode("activationType") is { } nullNodeActivationType && nullNodeActivationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationType = null;
+            if (parseNode.GetChildNode("audienceId") is { } nullNodeAudienceId && nullNodeAudienceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudienceId = null;
+            if (parseNode.GetChildNode("connectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("destinationMapping") is { } nullNodeDestinationMapping && nullNodeDestinationMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationMapping = null;
+            if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("performResync") is { } nullNodePerformResync && nullNodePerformResync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformResync = null;
+            if (parseNode.GetChildNode("personalization") is { } nullNodePersonalization && nullNodePersonalization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Personalization = null;
+            if (parseNode.GetChildNode("spaceId") is { } nullNodeSpaceId && nullNodeSpaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpaceId = null;
+            if (parseNode.GetChildNode("workspaceId") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
+        }
+
         /// <summary>Activation name. For Warehouse Destinations, this is the table name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActivationName { get; set; }
+        public string? ActivationName { get => _explicitNullValueActivationName; set { _explicitNullValueActivationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationName"); else _explicitNullProperties?.Remove("activationName"); } }
+        private string? _explicitNullValueActivationName = default!;
 #nullable restore
 #else
-        public string ActivationName { get; set; }
+        public string ActivationName { get => _explicitNullValueActivationName; set { _explicitNullValueActivationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationName"); else _explicitNullProperties?.Remove("activationName"); } }
+        private string _explicitNullValueActivationName = default!;
 #endif
         /// <summary>Determines when an event is sent to the Destination.Possible values:- **Audience Entered**: Sends an event when a profile or entity enters the audience.- **Audience Exited**: Sends an event when a profile or entity exits the audience.- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.- **Entity Added**: Sends an event when an entity is added to the audience.- **Entity Removed**: Sends an event when an entity is removed from the audience.- **Entity Values Changed**: Sends an event when an entity&apos;s property values change. Restricted to freshness-enabled Destinations.- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).Note that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActivationType { get; set; }
+        public string? ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationType"); else _explicitNullProperties?.Remove("activationType"); } }
+        private string? _explicitNullValueActivationType = default!;
 #nullable restore
 #else
-        public string ActivationType { get; set; }
+        public string ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationType"); else _explicitNullProperties?.Remove("activationType"); } }
+        private string _explicitNullValueActivationType = default!;
 #endif
         /// <summary>The audience id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AudienceId { get; set; }
+        public string? AudienceId { get => _explicitNullValueAudienceId; set { _explicitNullValueAudienceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audienceId"); else _explicitNullProperties?.Remove("audienceId"); } }
+        private string? _explicitNullValueAudienceId = default!;
 #nullable restore
 #else
-        public string AudienceId { get; set; }
+        public string AudienceId { get => _explicitNullValueAudienceId; set { _explicitNullValueAudienceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audienceId"); else _explicitNullProperties?.Remove("audienceId"); } }
+        private string _explicitNullValueAudienceId = default!;
 #endif
         /// <summary>The connection id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionId { get; set; }
+        public string? ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
+        private string? _explicitNullValueConnectionId = default!;
 #nullable restore
 #else
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
+        private string _explicitNullValueConnectionId = default!;
 #endif
         /// <summary>The action and data mapping configured for the Destination. Only present for Action Destinations.Action id: The action performed on the Destination.Settings/Mapping: How event data populates specific fields in the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping? DestinationMapping { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping? DestinationMapping { get => _explicitNullValueDestinationMapping; set { _explicitNullValueDestinationMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMapping"); else _explicitNullProperties?.Remove("destinationMapping"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping? _explicitNullValueDestinationMapping = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping DestinationMapping { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping DestinationMapping { get => _explicitNullValueDestinationMapping; set { _explicitNullValueDestinationMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMapping"); else _explicitNullProperties?.Remove("destinationMapping"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping _explicitNullValueDestinationMapping = default!;
 #endif
         /// <summary>Human-readable label for the activation. Only present for Warehouse Destinations that have a display name configured. When null, the activationName serves as the label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Activation Enabled Status.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>The activation id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Indicates if a full resync is currently pending or in progress.</summary>
-        public bool? PerformResync { get; set; }
+        public bool? PerformResync { get => _explicitNullValuePerformResync; set { _explicitNullValuePerformResync = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performResync"); else _explicitNullProperties?.Remove("performResync"); } }
+        private bool? _explicitNullValuePerformResync = default!;
         /// <summary>The data points used to enrich the event. Defines which profile traits and/or entity properties are included in the event sent to the Destination.For Action Destinations, any traits or properties specified here must also be included in the destinationMapping to define which Destination fields should be populated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization? Personalization { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization? Personalization { get => _explicitNullValuePersonalization; set { _explicitNullValuePersonalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalization"); else _explicitNullProperties?.Remove("personalization"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization? _explicitNullValuePersonalization = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization Personalization { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization Personalization { get => _explicitNullValuePersonalization; set { _explicitNullValuePersonalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalization"); else _explicitNullProperties?.Remove("personalization"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization _explicitNullValuePersonalization = default!;
 #endif
         /// <summary>The space id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpaceId { get; set; }
+        public string? SpaceId { get => _explicitNullValueSpaceId; set { _explicitNullValueSpaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaceId"); else _explicitNullProperties?.Remove("spaceId"); } }
+        private string? _explicitNullValueSpaceId = default!;
 #nullable restore
 #else
-        public string SpaceId { get; set; }
+        public string SpaceId { get => _explicitNullValueSpaceId; set { _explicitNullValueSpaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaceId"); else _explicitNullProperties?.Remove("spaceId"); } }
+        private string _explicitNullValueSpaceId = default!;
 #endif
         /// <summary>The WORKSPACE id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceId { get; set; }
+        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaceId"); else _explicitNullProperties?.Remove("workspaceId"); } }
+        private string? _explicitNullValueWorkspaceId = default!;
 #nullable restore
 #else
-        public string WorkspaceId { get; set; }
+        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaceId"); else _explicitNullProperties?.Remove("workspaceId"); } }
+        private string _explicitNullValueWorkspaceId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -105,7 +146,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.UpdateActivationForAudienceOutputActivation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.UpdateActivationForAudienceOutputActivation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.UpdateActivationForAudienceOutputActivation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,7 +188,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("performResync", PerformResync);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization>("personalization", Personalization);
             writer.WriteStringValue("spaceId", SpaceId);
-            writer.WriteStringValue("workspaceId", WorkspaceId);
+            writer.WriteStringValue("workspaceId", WorkspaceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

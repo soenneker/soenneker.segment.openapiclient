@@ -12,46 +12,68 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListSchemaSettingsInSourceV1OutputSettings : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("forwardingBlockedEventsTo") is { } nullNodeForwardingBlockedEventsTo && nullNodeForwardingBlockedEventsTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingBlockedEventsTo = null;
+            if (parseNode.GetChildNode("forwardingViolationsTo") is { } nullNodeForwardingViolationsTo && nullNodeForwardingViolationsTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForwardingViolationsTo = null;
+            if (parseNode.GetChildNode("group") is { } nullNodeGroup && nullNodeGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Group = null;
+            if (parseNode.GetChildNode("identify") is { } nullNodeIdentify && nullNodeIdentify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identify = null;
+            if (parseNode.GetChildNode("track") is { } nullNodeTrack && nullNodeTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Track = null;
+        }
+
         /// <summary>SourceId to forward blocked events to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForwardingBlockedEventsTo { get; set; }
+        public string? ForwardingBlockedEventsTo { get => _explicitNullValueForwardingBlockedEventsTo; set { _explicitNullValueForwardingBlockedEventsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwardingBlockedEventsTo"); else _explicitNullProperties?.Remove("forwardingBlockedEventsTo"); } }
+        private string? _explicitNullValueForwardingBlockedEventsTo = default!;
 #nullable restore
 #else
-        public string ForwardingBlockedEventsTo { get; set; }
+        public string ForwardingBlockedEventsTo { get => _explicitNullValueForwardingBlockedEventsTo; set { _explicitNullValueForwardingBlockedEventsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwardingBlockedEventsTo"); else _explicitNullProperties?.Remove("forwardingBlockedEventsTo"); } }
+        private string _explicitNullValueForwardingBlockedEventsTo = default!;
 #endif
         /// <summary>SourceId to forward violations to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForwardingViolationsTo { get; set; }
+        public string? ForwardingViolationsTo { get => _explicitNullValueForwardingViolationsTo; set { _explicitNullValueForwardingViolationsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwardingViolationsTo"); else _explicitNullProperties?.Remove("forwardingViolationsTo"); } }
+        private string? _explicitNullValueForwardingViolationsTo = default!;
 #nullable restore
 #else
-        public string ForwardingViolationsTo { get; set; }
+        public string ForwardingViolationsTo { get => _explicitNullValueForwardingViolationsTo; set { _explicitNullValueForwardingViolationsTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forwardingViolationsTo"); else _explicitNullProperties?.Remove("forwardingViolationsTo"); } }
+        private string _explicitNullValueForwardingViolationsTo = default!;
 #endif
         /// <summary>Group settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group? Group { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group? Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group? _explicitNullValueGroup = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group Group { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group Group { get => _explicitNullValueGroup; set { _explicitNullValueGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group"); else _explicitNullProperties?.Remove("group"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group _explicitNullValueGroup = default!;
 #endif
         /// <summary>Identify settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify? Identify { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify? Identify { get => _explicitNullValueIdentify; set { _explicitNullValueIdentify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identify"); else _explicitNullProperties?.Remove("identify"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify? _explicitNullValueIdentify = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify Identify { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify Identify { get => _explicitNullValueIdentify; set { _explicitNullValueIdentify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identify"); else _explicitNullProperties?.Remove("identify"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify _explicitNullValueIdentify = default!;
 #endif
         /// <summary>Track settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track? Track { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track? Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track? _explicitNullValueTrack = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track Track { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track Track { get => _explicitNullValueTrack; set { _explicitNullValueTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("track"); else _explicitNullProperties?.Remove("track"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track _explicitNullValueTrack = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,7 +83,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.ListSchemaSettingsInSourceV1OutputSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ListSchemaSettingsInSourceV1OutputSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ListSchemaSettingsInSourceV1OutputSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,7 +111,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("forwardingViolationsTo", ForwardingViolationsTo);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Group>("group", Group);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Identify>("identify", Identify);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track>("track", Track);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.SourceSettingsOutputV1Track>("track", Track);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

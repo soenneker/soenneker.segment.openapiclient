@@ -11,30 +11,46 @@ namespace Soenneker.Segment.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AddDestinationToAudienceAlphaOutput : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connection") is { } nullNodeConnection && nullNodeConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connection = null;
+            if (parseNode.GetChildNode("connectionSettings") is { } nullNodeConnectionSettings && nullNodeConnectionSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettings = null;
+            if (parseNode.GetChildNode("idSyncConfiguration") is { } nullNodeIdSyncConfiguration && nullNodeIdSyncConfiguration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdSyncConfiguration = null;
+        }
+
         /// <summary>The connection that was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection? Connection { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection? Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection? _explicitNullValueConnection = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection Connection { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection _explicitNullValueConnection = default!;
 #endif
         /// <summary>The settings that a Destination requires to create audiences on a third-party platform. These settings are Destination-specific.Use the List Supported Destinations from Audience endpoint to find the required connection settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ConnectionSettings { get; set; }
+        public UntypedNode? ConnectionSettings { get => _explicitNullValueConnectionSettings; set { _explicitNullValueConnectionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionSettings"); else _explicitNullProperties?.Remove("connectionSettings"); } }
+        private UntypedNode? _explicitNullValueConnectionSettings = default!;
 #nullable restore
 #else
-        public UntypedNode ConnectionSettings { get; set; }
+        public UntypedNode ConnectionSettings { get => _explicitNullValueConnectionSettings; set { _explicitNullValueConnectionSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionSettings"); else _explicitNullProperties?.Remove("connectionSettings"); } }
+        private UntypedNode _explicitNullValueConnectionSettings = default!;
 #endif
         /// <summary>Identifier sync configuration. Defines which external ids to sync and their selection strategies. Maximum 5 items allowed.If omitted, the default will be last email and last user_id, or all email and all user_id depending on the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>? IdSyncConfiguration { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>? IdSyncConfiguration { get => _explicitNullValueIdSyncConfiguration; set { _explicitNullValueIdSyncConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idSyncConfiguration"); else _explicitNullProperties?.Remove("idSyncConfiguration"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>? _explicitNullValueIdSyncConfiguration = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput> IdSyncConfiguration { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput> IdSyncConfiguration { get => _explicitNullValueIdSyncConfiguration; set { _explicitNullValueIdSyncConfiguration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idSyncConfiguration"); else _explicitNullProperties?.Remove("idSyncConfiguration"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput> _explicitNullValueIdSyncConfiguration = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddDestinationToAudienceAlphaOutputConnection>("connection", Connection);
             writer.WriteObjectValue<UntypedNode>("connectionSettings", ConnectionSettings);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>("idSyncConfiguration", IdSyncConfiguration);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.IdSyncConfigurationInput>("idSyncConfiguration", IdSyncConfiguration);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

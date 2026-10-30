@@ -12,38 +12,57 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListCredentialConsumersV1Output : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("sources") is { } nullNodeSources && nullNodeSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sources = null;
+            if (parseNode.GetChildNode("sourcesPagination") is { } nullNodeSourcesPagination && nullNodeSourcesPagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourcesPagination = null;
+            if (parseNode.GetChildNode("warehouses") is { } nullNodeWarehouses && nullNodeWarehouses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warehouses = null;
+            if (parseNode.GetChildNode("warehousesPagination") is { } nullNodeWarehousesPagination && nullNodeWarehousesPagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WarehousesPagination = null;
+        }
+
         /// <summary>The Sources that use this Credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1>? Sources { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1>? Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1>? _explicitNullValueSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1> Sources { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1> Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.SourceV1> _explicitNullValueSources = default!;
 #endif
         /// <summary>Information about the pagination of the Sources list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination? SourcesPagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination? SourcesPagination { get => _explicitNullValueSourcesPagination; set { _explicitNullValueSourcesPagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourcesPagination"); else _explicitNullProperties?.Remove("sourcesPagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination? _explicitNullValueSourcesPagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination SourcesPagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination SourcesPagination { get => _explicitNullValueSourcesPagination; set { _explicitNullValueSourcesPagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourcesPagination"); else _explicitNullProperties?.Remove("sourcesPagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination _explicitNullValueSourcesPagination = default!;
 #endif
         /// <summary>The Warehouses that use this Credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1>? Warehouses { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1>? Warehouses { get => _explicitNullValueWarehouses; set { _explicitNullValueWarehouses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warehouses"); else _explicitNullProperties?.Remove("warehouses"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1>? _explicitNullValueWarehouses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1> Warehouses { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1> Warehouses { get => _explicitNullValueWarehouses; set { _explicitNullValueWarehouses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warehouses"); else _explicitNullProperties?.Remove("warehouses"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1> _explicitNullValueWarehouses = default!;
 #endif
         /// <summary>Information about the pagination of the Warehouses list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination? WarehousesPagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination? WarehousesPagination { get => _explicitNullValueWarehousesPagination; set { _explicitNullValueWarehousesPagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warehousesPagination"); else _explicitNullProperties?.Remove("warehousesPagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination? _explicitNullValueWarehousesPagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination WarehousesPagination { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination WarehousesPagination { get => _explicitNullValueWarehousesPagination; set { _explicitNullValueWarehousesPagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warehousesPagination"); else _explicitNullProperties?.Remove("warehousesPagination"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination _explicitNullValueWarehousesPagination = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +72,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1Output CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1Output();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1Output(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,7 +98,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.SourceV1>("sources", Sources);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputSourcesPagination>("sourcesPagination", SourcesPagination);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.WarehouseV1>("warehouses", Warehouses);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination>("warehousesPagination", WarehousesPagination);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ListCredentialConsumersV1OutputWarehousesPagination>("warehousesPagination", WarehousesPagination);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

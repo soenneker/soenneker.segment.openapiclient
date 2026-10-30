@@ -12,13 +12,26 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateSchemaSettingsInSourceV1InputIdentify : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowTraitsOnViolations") is { } nullNodeAllowTraitsOnViolations && nullNodeAllowTraitsOnViolations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowTraitsOnViolations = null;
+            if (parseNode.GetChildNode("allowUnplannedTraits") is { } nullNodeAllowUnplannedTraits && nullNodeAllowUnplannedTraits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowUnplannedTraits = null;
+            if (parseNode.GetChildNode("commonEventOnViolations") is { } nullNodeCommonEventOnViolations && nullNodeCommonEventOnViolations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommonEventOnViolations = null;
+        }
+
         /// <summary>Enable to allow identify traits on violations.Config API note: equal to `allowIdentifyTraitsOnViolations`.</summary>
-        public bool? AllowTraitsOnViolations { get; set; }
+        public bool? AllowTraitsOnViolations { get => _explicitNullValueAllowTraitsOnViolations; set { _explicitNullValueAllowTraitsOnViolations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowTraitsOnViolations"); else _explicitNullProperties?.Remove("allowTraitsOnViolations"); } }
+        private bool? _explicitNullValueAllowTraitsOnViolations = default!;
         /// <summary>Enable to allow unplanned identify traits.Config API note: equal to `allowUnplannedIdentifyTraits`.</summary>
-        public bool? AllowUnplannedTraits { get; set; }
+        public bool? AllowUnplannedTraits { get => _explicitNullValueAllowUnplannedTraits; set { _explicitNullValueAllowUnplannedTraits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowUnplannedTraits"); else _explicitNullProperties?.Remove("allowUnplannedTraits"); } }
+        private bool? _explicitNullValueAllowUnplannedTraits = default!;
         /// <summary>The common identify event on violations.Config API note: equal to `commonIdentifyEventOnViolations`.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations? CommonEventOnViolations { get => _explicitNullValueCommonEventOnViolations; set { _explicitNullValueCommonEventOnViolations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commonEventOnViolations"); else _explicitNullProperties?.Remove("commonEventOnViolations"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations? _explicitNullValueCommonEventOnViolations = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -27,7 +40,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.UpdateSchemaSettingsInSourceV1InputIdentify CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.UpdateSchemaSettingsInSourceV1InputIdentify();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.UpdateSchemaSettingsInSourceV1InputIdentify(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +64,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allowTraitsOnViolations", AllowTraitsOnViolations);
             writer.WriteBoolValue("allowUnplannedTraits", AllowUnplannedTraits);
-            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.IdentifySourceSettingsV1CommonEventOnViolations>("commonEventOnViolations", CommonEventOnViolations);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

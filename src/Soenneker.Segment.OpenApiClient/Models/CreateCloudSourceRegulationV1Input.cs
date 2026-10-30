@@ -12,27 +12,44 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCloudSourceRegulationV1Input : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("collection") is { } nullNodeCollection && nullNodeCollection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collection = null;
+            if (parseNode.GetChildNode("regulationType") is { } nullNodeRegulationType && nullNodeRegulationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegulationType = null;
+            if (parseNode.GetChildNode("subjectIds") is { } nullNodeSubjectIds && nullNodeSubjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectIds = null;
+            if (parseNode.GetChildNode("subjectType") is { } nullNodeSubjectType && nullNodeSubjectType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectType = null;
+        }
+
         /// <summary>The Cloud Source collection to regulate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Collection { get; set; }
+        public string? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private string? _explicitNullValueCollection = default!;
 #nullable restore
 #else
-        public string Collection { get; set; }
+        public string Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private string _explicitNullValueCollection = default!;
 #endif
         /// <summary>The regulation type to create.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1InputRegulationType? RegulationType { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1InputRegulationType? RegulationType { get => _explicitNullValueRegulationType; set { _explicitNullValueRegulationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regulationType"); else _explicitNullProperties?.Remove("regulationType"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1InputRegulationType? _explicitNullValueRegulationType = default!;
         /// <summary>The list of `userId` or `objectId` values of the subjects to regulate.Config API note: equal to `parent` but allows an array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SubjectIds { get; set; }
+        public List<string>? SubjectIds { get => _explicitNullValueSubjectIds; set { _explicitNullValueSubjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectIds"); else _explicitNullProperties?.Remove("subjectIds"); } }
+        private List<string>? _explicitNullValueSubjectIds = default!;
 #nullable restore
 #else
-        public List<string> SubjectIds { get; set; }
+        public List<string> SubjectIds { get => _explicitNullValueSubjectIds; set { _explicitNullValueSubjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectIds"); else _explicitNullProperties?.Remove("subjectIds"); } }
+        private List<string> _explicitNullValueSubjectIds = default!;
 #endif
         /// <summary>The subject type. Must be `objectId` for Cloud Sources.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.ObjectIdSubjectType? SubjectType { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.ObjectIdSubjectType? SubjectType { get => _explicitNullValueSubjectType; set { _explicitNullValueSubjectType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subjectType"); else _explicitNullProperties?.Remove("subjectType"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.ObjectIdSubjectType? _explicitNullValueSubjectType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +58,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1Input CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1Input();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1Input(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +84,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("collection", Collection);
             writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.CreateCloudSourceRegulationV1InputRegulationType>("regulationType", RegulationType);
             writer.WriteCollectionOfPrimitiveValues<string>("subjectIds", SubjectIds);
-            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.ObjectIdSubjectType>("subjectType", SubjectType);
+            writer.WriteEnumValue<global::Soenneker.Segment.OpenApiClient.Models.ObjectIdSubjectType>("subjectType", SubjectType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

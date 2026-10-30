@@ -59,6 +59,8 @@ namespace Soenneker.Segment.OpenApiClient.DbtModelSyncs.Trigger
                 { "404", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Segment.OpenApiClient.Models.RequestErrorEnvelope.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.CreateDbtModelSyncTrigger200SegmentV1BetaJsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.CreateDbtModelSyncTrigger200SegmentV1BetaJsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

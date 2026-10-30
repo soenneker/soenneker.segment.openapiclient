@@ -12,56 +12,83 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudiencePreviewEntitiesResult : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("entities") is { } nullNodeEntities && nullNodeEntities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Entities = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("idProperty") is { } nullNodeIdProperty && nullNodeIdProperty.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdProperty = null;
+            if (parseNode.GetChildNode("profiles") is { } nullNodeProfiles && nullNodeProfiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profiles = null;
+            if (parseNode.GetChildNode("profilesTruncated") is { } nullNodeProfilesTruncated && nullNodeProfilesTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProfilesTruncated = null;
+            if (parseNode.GetChildNode("properties") is { } nullNodeProperties && nullNodeProperties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Properties = null;
+            if (parseNode.GetChildNode("relationshipSlug") is { } nullNodeRelationshipSlug && nullNodeRelationshipSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipSlug = null;
+        }
+
         /// <summary>Related entities that are one level deeper will only be returned if those entities are referenced in the audience definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty? Entities { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty? Entities { get => _explicitNullValueEntities; set { _explicitNullValueEntities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entities"); else _explicitNullProperties?.Remove("entities"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty? _explicitNullValueEntities = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty Entities { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty Entities { get => _explicitNullValueEntities; set { _explicitNullValueEntities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entities"); else _explicitNullProperties?.Remove("entities"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultEntitiesProperty _explicitNullValueEntities = default!;
 #endif
         /// <summary>Entity id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The entity primary key column name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdProperty { get; set; }
+        public string? IdProperty { get => _explicitNullValueIdProperty; set { _explicitNullValueIdProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idProperty"); else _explicitNullProperties?.Remove("idProperty"); } }
+        private string? _explicitNullValueIdProperty = default!;
 #nullable restore
 #else
-        public string IdProperty { get; set; }
+        public string IdProperty { get => _explicitNullValueIdProperty; set { _explicitNullValueIdProperty = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("idProperty"); else _explicitNullProperties?.Remove("idProperty"); } }
+        private string _explicitNullValueIdProperty = default!;
 #endif
         /// <summary>Related list of profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.Profile>? Profiles { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.Profile>? Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.Profile>? _explicitNullValueProfiles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.Profile> Profiles { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.Profile> Profiles { get => _explicitNullValueProfiles; set { _explicitNullValueProfiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profiles"); else _explicitNullProperties?.Remove("profiles"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.Profile> _explicitNullValueProfiles = default!;
 #endif
         /// <summary>Indicates if only a subset of the profiles associated with the entity were returned.</summary>
-        public bool? ProfilesTruncated { get; set; }
+        public bool? ProfilesTruncated { get => _explicitNullValueProfilesTruncated; set { _explicitNullValueProfilesTruncated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profilesTruncated"); else _explicitNullProperties?.Remove("profilesTruncated"); } }
+        private bool? _explicitNullValueProfilesTruncated = default!;
         /// <summary>The entity properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties? Properties { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties? Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties? _explicitNullValueProperties = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties Properties { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties Properties { get => _explicitNullValueProperties; set { _explicitNullValueProperties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("properties"); else _explicitNullProperties?.Remove("properties"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties _explicitNullValueProperties = default!;
 #endif
         /// <summary>The entity relationship slug.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelationshipSlug { get; set; }
+        public string? RelationshipSlug { get => _explicitNullValueRelationshipSlug; set { _explicitNullValueRelationshipSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipSlug"); else _explicitNullProperties?.Remove("relationshipSlug"); } }
+        private string? _explicitNullValueRelationshipSlug = default!;
 #nullable restore
 #else
-        public string RelationshipSlug { get; set; }
+        public string RelationshipSlug { get => _explicitNullValueRelationshipSlug; set { _explicitNullValueRelationshipSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationshipSlug"); else _explicitNullProperties?.Remove("relationshipSlug"); } }
+        private string _explicitNullValueRelationshipSlug = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -71,7 +98,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResult();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResult(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,7 +130,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.Profile>("profiles", Profiles);
             writer.WriteBoolValue("profilesTruncated", ProfilesTruncated);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AudiencePreviewEntitiesResultProperties>("properties", Properties);
-            writer.WriteStringValue("relationshipSlug", RelationshipSlug);
+            writer.WriteStringValue("relationshipSlug", RelationshipSlug);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

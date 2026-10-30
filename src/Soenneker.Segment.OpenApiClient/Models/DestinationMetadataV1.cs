@@ -12,162 +12,230 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DestinationMetadataV1 : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actions") is { } nullNodeActions && nullNodeActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actions = null;
+            if (parseNode.GetChildNode("categories") is { } nullNodeCategories && nullNodeCategories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Categories = null;
+            if (parseNode.GetChildNode("components") is { } nullNodeComponents && nullNodeComponents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Components = null;
+            if (parseNode.GetChildNode("contacts") is { } nullNodeContacts && nullNodeContacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contacts = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("logos") is { } nullNodeLogos && nullNodeLogos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logos = null;
+            if (parseNode.GetChildNode("multiInstanceSupportedVersion") is { } nullNodeMultiInstanceSupportedVersion && nullNodeMultiInstanceSupportedVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MultiInstanceSupportedVersion = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+            if (parseNode.GetChildNode("partnerOwned") is { } nullNodePartnerOwned && nullNodePartnerOwned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnerOwned = null;
+            if (parseNode.GetChildNode("presets") is { } nullNodePresets && nullNodePresets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Presets = null;
+            if (parseNode.GetChildNode("previousNames") is { } nullNodePreviousNames && nullNodePreviousNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousNames = null;
+            if (parseNode.GetChildNode("regionEndpoints") is { } nullNodeRegionEndpoints && nullNodeRegionEndpoints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionEndpoints = null;
+            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("supportedFeatures") is { } nullNodeSupportedFeatures && nullNodeSupportedFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedFeatures = null;
+            if (parseNode.GetChildNode("supportedMethods") is { } nullNodeSupportedMethods && nullNodeSupportedMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedMethods = null;
+            if (parseNode.GetChildNode("supportedPlatforms") is { } nullNodeSupportedPlatforms && nullNodeSupportedPlatforms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedPlatforms = null;
+            if (parseNode.GetChildNode("supportedRegions") is { } nullNodeSupportedRegions && nullNodeSupportedRegions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedRegions = null;
+            if (parseNode.GetChildNode("website") is { } nullNodeWebsite && nullNodeWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Website = null;
+        }
+
         /// <summary>Actions available for the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1>? Actions { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1>? Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1>? _explicitNullValueActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1> Actions { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1> Actions { get => _explicitNullValueActions; set { _explicitNullValueActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actions"); else _explicitNullProperties?.Remove("actions"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1> _explicitNullValueActions = default!;
 #endif
         /// <summary>A list of categories with which the Destination is associated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Categories { get; set; }
+        public List<string>? Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        private List<string>? _explicitNullValueCategories = default!;
 #nullable restore
 #else
-        public List<string> Categories { get; set; }
+        public List<string> Categories { get => _explicitNullValueCategories; set { _explicitNullValueCategories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("categories"); else _explicitNullProperties?.Remove("categories"); } }
+        private List<string> _explicitNullValueCategories = default!;
 #endif
         /// <summary>A list of components this Destination provides.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1>? Components { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1>? Components { get => _explicitNullValueComponents; set { _explicitNullValueComponents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("components"); else _explicitNullProperties?.Remove("components"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1>? _explicitNullValueComponents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1> Components { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1> Components { get => _explicitNullValueComponents; set { _explicitNullValueComponents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("components"); else _explicitNullProperties?.Remove("components"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataComponentV1> _explicitNullValueComponents = default!;
 #endif
         /// <summary>Contact info for Integration Owners.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.Contact>? Contacts { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.Contact>? Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.Contact>? _explicitNullValueContacts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.Contact> Contacts { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.Contact> Contacts { get => _explicitNullValueContacts; set { _explicitNullValueContacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts"); else _explicitNullProperties?.Remove("contacts"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.Contact> _explicitNullValueContacts = default!;
 #endif
         /// <summary>The description of the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The id of the Destination metadata.Config API note: analogous to `name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The Destination&apos;s logos.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos? Logos { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos? Logos { get => _explicitNullValueLogos; set { _explicitNullValueLogos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logos"); else _explicitNullProperties?.Remove("logos"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos? _explicitNullValueLogos = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos Logos { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos Logos { get => _explicitNullValueLogos; set { _explicitNullValueLogos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logos"); else _explicitNullProperties?.Remove("logos"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Logos _explicitNullValueLogos = default!;
 #endif
         /// <summary>This Destination&apos;s support for multiple instance types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MultiInstanceSupportedVersion { get; set; }
+        public string? MultiInstanceSupportedVersion { get => _explicitNullValueMultiInstanceSupportedVersion; set { _explicitNullValueMultiInstanceSupportedVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multiInstanceSupportedVersion"); else _explicitNullProperties?.Remove("multiInstanceSupportedVersion"); } }
+        private string? _explicitNullValueMultiInstanceSupportedVersion = default!;
 #nullable restore
 #else
-        public string MultiInstanceSupportedVersion { get; set; }
+        public string MultiInstanceSupportedVersion { get => _explicitNullValueMultiInstanceSupportedVersion; set { _explicitNullValueMultiInstanceSupportedVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("multiInstanceSupportedVersion"); else _explicitNullProperties?.Remove("multiInstanceSupportedVersion"); } }
+        private string _explicitNullValueMultiInstanceSupportedVersion = default!;
 #endif
         /// <summary>The user-friendly name of the Destination.Config API note: equal to `displayName`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Options configured for the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta>? Options { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta> Options { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.IntegrationOptionBeta> _explicitNullValueOptions = default!;
 #endif
         /// <summary>Partner Owned flag.</summary>
-        public bool? PartnerOwned { get; set; }
+        public bool? PartnerOwned { get => _explicitNullValuePartnerOwned; set { _explicitNullValuePartnerOwned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnerOwned"); else _explicitNullProperties?.Remove("partnerOwned"); } }
+        private bool? _explicitNullValuePartnerOwned = default!;
         /// <summary>Predefined Destination subscriptions that can optionally be applied when connecting a new instance of the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1>? Presets { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1>? Presets { get => _explicitNullValuePresets; set { _explicitNullValuePresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("presets"); else _explicitNullProperties?.Remove("presets"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1>? _explicitNullValuePresets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1> Presets { get; set; }
+        public List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1> Presets { get => _explicitNullValuePresets; set { _explicitNullValuePresets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("presets"); else _explicitNullProperties?.Remove("presets"); } }
+        private List<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataSubscriptionPresetV1> _explicitNullValuePresets = default!;
 #endif
         /// <summary>A list of names previously used by the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PreviousNames { get; set; }
+        public List<string>? PreviousNames { get => _explicitNullValuePreviousNames; set { _explicitNullValuePreviousNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previousNames"); else _explicitNullProperties?.Remove("previousNames"); } }
+        private List<string>? _explicitNullValuePreviousNames = default!;
 #nullable restore
 #else
-        public List<string> PreviousNames { get; set; }
+        public List<string> PreviousNames { get => _explicitNullValuePreviousNames; set { _explicitNullValuePreviousNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previousNames"); else _explicitNullProperties?.Remove("previousNames"); } }
+        private List<string> _explicitNullValuePreviousNames = default!;
 #endif
         /// <summary>The list of regional endpoints for this Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RegionEndpoints { get; set; }
+        public List<string>? RegionEndpoints { get => _explicitNullValueRegionEndpoints; set { _explicitNullValueRegionEndpoints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regionEndpoints"); else _explicitNullProperties?.Remove("regionEndpoints"); } }
+        private List<string>? _explicitNullValueRegionEndpoints = default!;
 #nullable restore
 #else
-        public List<string> RegionEndpoints { get; set; }
+        public List<string> RegionEndpoints { get => _explicitNullValueRegionEndpoints; set { _explicitNullValueRegionEndpoints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regionEndpoints"); else _explicitNullProperties?.Remove("regionEndpoints"); } }
+        private List<string> _explicitNullValueRegionEndpoints = default!;
 #endif
         /// <summary>The slug used to identify the Destination in the Segment app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get; set; }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get; set; }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>Support status of the Destination.</summary>
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Status? Status { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Status? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1Status? _explicitNullValueStatus = default!;
         /// <summary>Features that this Destination supports.Config API note: holds `browserUnbundling` fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures? SupportedFeatures { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures? SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedFeatures"); else _explicitNullProperties?.Remove("supportedFeatures"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures? _explicitNullValueSupportedFeatures = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures SupportedFeatures { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures SupportedFeatures { get => _explicitNullValueSupportedFeatures; set { _explicitNullValueSupportedFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedFeatures"); else _explicitNullProperties?.Remove("supportedFeatures"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedFeatures _explicitNullValueSupportedFeatures = default!;
 #endif
         /// <summary>Methods that this Destination supports.Config API note: equal to `methods`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods? SupportedMethods { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods? SupportedMethods { get => _explicitNullValueSupportedMethods; set { _explicitNullValueSupportedMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedMethods"); else _explicitNullProperties?.Remove("supportedMethods"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods? _explicitNullValueSupportedMethods = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods SupportedMethods { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods SupportedMethods { get => _explicitNullValueSupportedMethods; set { _explicitNullValueSupportedMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedMethods"); else _explicitNullProperties?.Remove("supportedMethods"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods _explicitNullValueSupportedMethods = default!;
 #endif
         /// <summary>Platforms from which the Destination receives events.Config API note: equal to `platforms`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms? SupportedPlatforms { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms? SupportedPlatforms { get => _explicitNullValueSupportedPlatforms; set { _explicitNullValueSupportedPlatforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedPlatforms"); else _explicitNullProperties?.Remove("supportedPlatforms"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms? _explicitNullValueSupportedPlatforms = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms SupportedPlatforms { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms SupportedPlatforms { get => _explicitNullValueSupportedPlatforms; set { _explicitNullValueSupportedPlatforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedPlatforms"); else _explicitNullProperties?.Remove("supportedPlatforms"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms _explicitNullValueSupportedPlatforms = default!;
 #endif
         /// <summary>A list of supported regions for this Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SupportedRegions { get; set; }
+        public List<string>? SupportedRegions { get => _explicitNullValueSupportedRegions; set { _explicitNullValueSupportedRegions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedRegions"); else _explicitNullProperties?.Remove("supportedRegions"); } }
+        private List<string>? _explicitNullValueSupportedRegions = default!;
 #nullable restore
 #else
-        public List<string> SupportedRegions { get; set; }
+        public List<string> SupportedRegions { get => _explicitNullValueSupportedRegions; set { _explicitNullValueSupportedRegions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedRegions"); else _explicitNullProperties?.Remove("supportedRegions"); } }
+        private List<string> _explicitNullValueSupportedRegions = default!;
 #endif
         /// <summary>A website URL for this Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Website { get; set; }
+        public string? Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private string? _explicitNullValueWebsite = default!;
 #nullable restore
 #else
-        public string Website { get; set; }
+        public string Website { get => _explicitNullValueWebsite; set { _explicitNullValueWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("website"); else _explicitNullProperties?.Remove("website"); } }
+        private string _explicitNullValueWebsite = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -177,7 +245,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -237,7 +305,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedMethods>("supportedMethods", SupportedMethods);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataV1SupportedPlatforms>("supportedPlatforms", SupportedPlatforms);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedRegions", SupportedRegions);
-            writer.WriteStringValue("website", Website);
+            writer.WriteStringValue("website", Website);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

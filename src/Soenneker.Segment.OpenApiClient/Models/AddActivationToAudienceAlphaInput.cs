@@ -12,50 +12,76 @@ namespace Soenneker.Segment.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AddActivationToAudienceAlphaInput : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activationName") is { } nullNodeActivationName && nullNodeActivationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationName = null;
+            if (parseNode.GetChildNode("activationType") is { } nullNodeActivationType && nullNodeActivationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActivationType = null;
+            if (parseNode.GetChildNode("destinationMapping") is { } nullNodeDestinationMapping && nullNodeDestinationMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationMapping = null;
+            if (parseNode.GetChildNode("displayName") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("performResync") is { } nullNodePerformResync && nullNodePerformResync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PerformResync = null;
+            if (parseNode.GetChildNode("personalization") is { } nullNodePersonalization && nullNodePersonalization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Personalization = null;
+        }
+
         /// <summary>Activation name. For Warehouse Destinations, this is used as the table name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActivationName { get; set; }
+        public string? ActivationName { get => _explicitNullValueActivationName; set { _explicitNullValueActivationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationName"); else _explicitNullProperties?.Remove("activationName"); } }
+        private string? _explicitNullValueActivationName = default!;
 #nullable restore
 #else
-        public string ActivationName { get; set; }
+        public string ActivationName { get => _explicitNullValueActivationName; set { _explicitNullValueActivationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationName"); else _explicitNullProperties?.Remove("activationName"); } }
+        private string _explicitNullValueActivationName = default!;
 #endif
         /// <summary>Determines when an event is sent to the Destination.Possible values:- **Audience Entered**: Sends an event when a profile or entity enters the audience.- **Audience Exited**: Sends an event when a profile or entity exits the audience.- **Audience Membership Changed**: Sends an event for both entries and exits. This does not apply to entities.- **Entity Added**: Sends an event when an entity is added to the audience.- **Entity Removed**: Sends an event when an entity is removed from the audience.- **Entity Values Changed**: Sends an event when an entity&apos;s property values change. Restricted to freshness-enabled Destinations.- **All Events**: Sends events for all trigger conditions (enters, exits, and entity value changes for freshness Destinations; enters and exits only for non-freshness Destinations).Note that events are sent for the profile, unless the audience is a Linked Audience. In that case, events are sent for the target entity defined for that audience.Activations on Warehouse Destinations support only track-based activation types. **Audience Membership Changed** is identify-based, so requests using it for a Warehouse Destination are rejected. Use **Audience Entered** or **Audience Exited** instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActivationType { get; set; }
+        public string? ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationType"); else _explicitNullProperties?.Remove("activationType"); } }
+        private string? _explicitNullValueActivationType = default!;
 #nullable restore
 #else
-        public string ActivationType { get; set; }
+        public string ActivationType { get => _explicitNullValueActivationType; set { _explicitNullValueActivationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activationType"); else _explicitNullProperties?.Remove("activationType"); } }
+        private string _explicitNullValueActivationType = default!;
 #endif
         /// <summary>Defines the specific action and data mapping for the Destination. Only applicable for Action Destinations.Action id: Specifies which action to perform on the Destination (for example: add contact, update list).Settings/Mapping: Defines how event data (including personalization traits) populates specific fields in the Destination.Use the List Supported Destinations from Audience endpoint to find available action ids and the specific Destination fields you can map.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping? DestinationMapping { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping? DestinationMapping { get => _explicitNullValueDestinationMapping; set { _explicitNullValueDestinationMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMapping"); else _explicitNullProperties?.Remove("destinationMapping"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping? _explicitNullValueDestinationMapping = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping DestinationMapping { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping DestinationMapping { get => _explicitNullValueDestinationMapping; set { _explicitNullValueDestinationMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationMapping"); else _explicitNullProperties?.Remove("destinationMapping"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputDestinationMapping _explicitNullValueDestinationMapping = default!;
 #endif
         /// <summary>Optional human-readable label for the activation. Only supported for Warehouse Destinations. When omitted, the activationName is used as the label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get; set; }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get; set; }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayName"); else _explicitNullProperties?.Remove("displayName"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>Determines whether an activation is enabled.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Determines whether to perform a full resync upon creation. If true, the entire audience is resent to the Destination from scratch. If false, only future changes will be synced.</summary>
-        public bool? PerformResync { get; set; }
+        public bool? PerformResync { get => _explicitNullValuePerformResync; set { _explicitNullValuePerformResync = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("performResync"); else _explicitNullProperties?.Remove("performResync"); } }
+        private bool? _explicitNullValuePerformResync = default!;
         /// <summary>The data points used to enrich the event. Defines which profile traits and/or entity properties are included in the event sent to the Destination.For Action Destinations, any traits or properties specified here must also be included in the destinationMapping to define which Destination fields should be populated.May be omitted to create an activation without personalization, in which case the created activation is returned with no profile properties and no entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization? Personalization { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization? Personalization { get => _explicitNullValuePersonalization; set { _explicitNullValuePersonalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalization"); else _explicitNullProperties?.Remove("personalization"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization? _explicitNullValuePersonalization = default!;
 #nullable restore
 #else
-        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization Personalization { get; set; }
+        public global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization Personalization { get => _explicitNullValuePersonalization; set { _explicitNullValuePersonalization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalization"); else _explicitNullProperties?.Remove("personalization"); } }
+        private global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization _explicitNullValuePersonalization = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -65,7 +91,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public static global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,7 +123,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("performResync", PerformResync);
-            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization>("personalization", Personalization);
+            writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.AddActivationToAudienceAlphaInputPersonalization>("personalization", Personalization);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }
