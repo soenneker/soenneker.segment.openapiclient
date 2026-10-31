@@ -865,6 +865,77 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201Response"
+                }
+              },
+              "application/vnd.segment.v1beta\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201SegmentV1BetaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201SegmentV1AlphaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "status": "CONNECTED"
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/AddConnectionFromSourceToWarehouse201SegmentV2JsonResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -6379,6 +6450,74 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCredentialSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "credential": {
+                      "id": "cred_2JzKWb8FGhGVYZ3xVqQGc7NkYPl",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Production Snowflake",
+                      "settings": {
+                        "type": "Snowflake",
+                        "username": "prod_user",
+                        "account": "xy12345.us-east-1",
+                        "warehouse": "COMPUTE_WH",
+                        "database": "ANALYTICS_DB",
+                        "authentication": {
+                          "type": "keypair",
+                          "privateKey": "\u003Credacted\u003E",
+                          "privateKeyPassphrase": "\u003Credacted\u003E"
+                        }
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateCredential201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCredentialSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "credential": {
+                      "id": "cred_2JzKWb8FGhGVYZ3xVqQGc7NkYPl",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Production Snowflake",
+                      "settings": {
+                        "type": "Snowflake",
+                        "username": "prod_user",
+                        "account": "xy12345.us-east-1",
+                        "warehouse": "COMPUTE_WH",
+                        "database": "ANALYTICS_DB",
+                        "authentication": {
+                          "type": "keypair",
+                          "privateKey": "\u003Credacted\u003E",
+                          "privateKeyPassphrase": "\u003Credacted\u003E"
+                        }
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateCredential201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -10472,6 +10611,72 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInvitesSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "emails": [
+                      "foo@example.com"
+                    ]
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateInvites201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInvitesSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "emails": [
+                      "foo@example.com"
+                    ]
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateInvites201Response"
+                }
+              },
+              "application/vnd.segment.v1beta\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInvitesSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "emails": [
+                      "foo@example.com"
+                    ]
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateInvites201SegmentV1BetaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInvitesSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "emails": [
+                      "foo@example.com"
+                    ]
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateInvites201SegmentV1AlphaJsonResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -11049,6 +11254,80 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLabelSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "label": {
+                      "key": "environment",
+                      "value": "yolo",
+                      "description": "an environment for courageous devs"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateLabel201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLabelSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "label": {
+                      "key": "environment",
+                      "value": "yolo",
+                      "description": "an environment for courageous devs"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateLabel201Response"
+                }
+              },
+              "application/vnd.segment.v1beta\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLabelSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "label": {
+                      "key": "environment",
+                      "value": "yolo",
+                      "description": "an environment for courageous devs"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateLabel201SegmentV1BetaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLabelSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "label": {
+                      "key": "environment",
+                      "value": "yolo",
+                      "description": "an environment for courageous devs"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateLabel201SegmentV1AlphaJsonResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -11573,6 +11852,42 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProfilesWarehouse201SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "profilesWarehouse": {
+                      "id": "qABd3NVTPfTLQ3kXWoBhgi",
+                      "spaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "metadata": {
+                        "id": "CCIl4HLQPz",
+                        "slug": "snowflake",
+                        "name": "Snowflake",
+                        "description": "Data warehouse built for the cloud",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/JrQWOYvMRRCVvSHp4HL0",
+                          "mark": "https://cdn.filepicker.io/api/file/OBhrGoCRKaSyvAhDX3fw",
+                          "alt": ""
+                        },
+                        "options": []
+                      },
+                      "settings": {
+                        "name": "Snowflake"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -11994,6 +12309,30 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateReverseEtlModel201SegmentV1AlphaJsonResponse"
+                },
+                "example": {
+                  "data": {
+                    "reverseEtlModel": {
+                      "id": "pmoNLgeTB2AGfSDgoTT6qA",
+                      "sourceId": "qQEHquLrjRDN9j1ByrChyn",
+                      "name": "Model 1",
+                      "description": "This model is very useful.",
+                      "enabled": true,
+                      "query": "SELECT \u0027user_1\u0027 AS id",
+                      "queryIdentifierColumn": "id"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -12457,6 +12796,188 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSourceSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "source": {
+                      "id": "9btKuCR4Wq674VajpuLDNV",
+                      "slug": "my-test-source-2gwoon",
+                      "name": "my-test-source-2gwoon",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "writeKeys": [
+                        "3qvaDYqXPZjAcVM0nAPlfQrREHEFTcVz"
+                      ],
+                      "metadata": {
+                        "id": "IqDTy1TpoU",
+                        "slug": "javascript",
+                        "name": "Javascript",
+                        "categories": [
+                          "Website"
+                        ],
+                        "description": "This is our most flexible and powerful tracking system, using analytics.js.  Track and analyze information about your visitors and customers, and every action that they take, in any of our 140 integrations, business intelligence tools, or directly with SQL tools.",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "alt": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "mark": "https://cdn.filepicker.io/api/file/kBpmEoSSaakidAvoFmzd"
+                        },
+                        "options": [],
+                        "isCloudEventSource": false,
+                        "status": "PUBLIC",
+                        "partnerOwned": false
+                      },
+                      "settings": {
+                        "apiHost": "api.segment.build/v1"
+                      },
+                      "labels": []
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateSource201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSourceSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "source": {
+                      "id": "9btKuCR4Wq674VajpuLDNV",
+                      "slug": "my-test-source-2gwoon",
+                      "name": "my-test-source-2gwoon",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "writeKeys": [
+                        "3qvaDYqXPZjAcVM0nAPlfQrREHEFTcVz"
+                      ],
+                      "metadata": {
+                        "id": "IqDTy1TpoU",
+                        "slug": "javascript",
+                        "name": "Javascript",
+                        "categories": [
+                          "Website"
+                        ],
+                        "description": "This is our most flexible and powerful tracking system, using analytics.js.  Track and analyze information about your visitors and customers, and every action that they take, in any of our 140 integrations, business intelligence tools, or directly with SQL tools.",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "alt": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "mark": "https://cdn.filepicker.io/api/file/kBpmEoSSaakidAvoFmzd"
+                        },
+                        "options": [],
+                        "isCloudEventSource": false,
+                        "status": "PUBLIC",
+                        "partnerOwned": false
+                      },
+                      "settings": {
+                        "apiHost": "api.segment.build/v1"
+                      },
+                      "labels": []
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateSource201Response"
+                }
+              },
+              "application/vnd.segment.v1beta\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSourceSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "source": {
+                      "id": "XuSrrLPwgKpJUMhYo8Evs",
+                      "slug": "my-test-source-ydw29x",
+                      "name": "my-test-source-ydw29x",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "writeKeys": [
+                        "73bH2aRYIyuxr9uTcA9LYM6g4MlMB1yL"
+                      ],
+                      "metadata": {
+                        "id": "IqDTy1TpoU",
+                        "slug": "javascript",
+                        "name": "Javascript",
+                        "categories": [
+                          "Website"
+                        ],
+                        "description": "This is our most flexible and powerful tracking system, using analytics.js.  Track and analyze information about your visitors and customers, and every action that they take, in any of our 140 integrations, business intelligence tools, or directly with SQL tools.",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "alt": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "mark": "https://cdn.filepicker.io/api/file/kBpmEoSSaakidAvoFmzd"
+                        },
+                        "options": [],
+                        "isCloudEventSource": false,
+                        "status": "PUBLIC",
+                        "partnerOwned": false
+                      },
+                      "settings": {
+                        "apiHost": "api.segment.build/v1"
+                      },
+                      "labels": []
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateSource201SegmentV1BetaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSourceSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "source": {
+                      "id": "6vqREqT87Bq4CfcCjwkrPz",
+                      "slug": "my-test-source-egfsfe",
+                      "name": "My Source",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "writeKeys": [
+                        "BgfVXlNu1oRMeG5Szbd8bMtHK8lM0cDF"
+                      ],
+                      "metadata": {
+                        "id": "IqDTy1TpoU",
+                        "slug": "javascript",
+                        "name": "Javascript",
+                        "categories": [
+                          "Website"
+                        ],
+                        "description": "This is our most flexible and powerful tracking system, using analytics.js.  Track and analyze information about your visitors and customers, and every action that they take, in any of our 140 integrations, business intelligence tools, or directly with SQL tools.",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "alt": "https://cdn.filepicker.io/api/file/aRgo4XJQZausZxD4gZQq",
+                          "mark": "https://cdn.filepicker.io/api/file/kBpmEoSSaakidAvoFmzd"
+                        },
+                        "options": [],
+                        "isCloudEventSource": false,
+                        "status": "PUBLIC",
+                        "partnerOwned": false
+                      },
+                      "settings": {
+                        "apiHost": "api.segment.build/v1"
+                      },
+                      "labels": []
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateSource201SegmentV1AlphaJsonResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
@@ -15878,6 +16399,168 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/vnd.segment.v1\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "sYpBdHf9aHd7sXEuExZisp",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "metadata": {
+                        "id": "CCIl4HLQPz",
+                        "slug": "snowflake",
+                        "name": "Snowflake",
+                        "description": "Data warehouse built for the cloud",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/JrQWOYvMRRCVvSHp4HL0",
+                          "mark": "https://cdn.filepicker.io/api/file/OBhrGoCRKaSyvAhDX3fw",
+                          "alt": ""
+                        },
+                        "options": []
+                      },
+                      "settings": {
+                        "name": "Snowflake"
+                      }
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201SegmentV1JsonResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "sYpBdHf9aHd7sXEuExZisp",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "metadata": {
+                        "id": "CCIl4HLQPz",
+                        "slug": "snowflake",
+                        "name": "Snowflake",
+                        "description": "Data warehouse built for the cloud",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/JrQWOYvMRRCVvSHp4HL0",
+                          "mark": "https://cdn.filepicker.io/api/file/OBhrGoCRKaSyvAhDX3fw",
+                          "alt": ""
+                        },
+                        "options": []
+                      },
+                      "settings": {
+                        "name": "Snowflake"
+                      }
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201Response"
+                }
+              },
+              "application/vnd.segment.v1beta\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "4H5kGXNPmSE1uJP8Zgdf7o",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "metadata": {
+                        "id": "CCIl4HLQPz",
+                        "slug": "snowflake",
+                        "name": "Snowflake",
+                        "description": "Data warehouse built for the cloud",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/JrQWOYvMRRCVvSHp4HL0",
+                          "mark": "https://cdn.filepicker.io/api/file/OBhrGoCRKaSyvAhDX3fw",
+                          "alt": ""
+                        },
+                        "options": []
+                      },
+                      "settings": {
+                        "name": "Snowflake"
+                      }
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201SegmentV1BetaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v1alpha\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "3dr9gHgGJGR7UQKsKvxtJh",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "enabled": true,
+                      "metadata": {
+                        "id": "CCIl4HLQPz",
+                        "slug": "snowflake",
+                        "name": "Snowflake",
+                        "description": "Data warehouse built for the cloud",
+                        "logos": {
+                          "default": "https://cdn.filepicker.io/api/file/JrQWOYvMRRCVvSHp4HL0",
+                          "mark": "https://cdn.filepicker.io/api/file/OBhrGoCRKaSyvAhDX3fw",
+                          "alt": ""
+                        },
+                        "options": []
+                      },
+                      "settings": {
+                        "name": "Snowflake"
+                      }
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201SegmentV1AlphaJsonResponse"
+                }
+              },
+              "application/vnd.segment.v2\u002Bjson": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWarehouseSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "warehouse": {
+                      "id": "sYpBdHf9aHd7sXEuExZisp",
+                      "workspaceId": "9aQ1Lj62S4bomZKLF4DPqW",
+                      "name": "Analytics Warehouse",
+                      "enabled": true,
+                      "credentialId": "crd_2geY9JXJypYTuhwysuRTgm",
+                      "settings": {
+                        "hostname": "address.us-west-2.redshift.amazonaws.com",
+                        "port": "5439",
+                        "database": "db",
+                        "username": "user",
+                        "password": "\u003Credacted\u003E"
+                      },
+                      "createdAt": "2006-01-02T15:04:05.000Z",
+                      "updatedAt": "2006-01-02T15:04:05.000Z"
+                    }
+                  }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateWarehouse201SegmentV2JsonResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-domain-hierarchy": [
