@@ -76,7 +76,7 @@ namespace Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Destinations.Item.DeliveryMetrics.DeliveryMetricsRequestBuilder.DeliveryMetricsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/destinations/{destinationId}/delivery-metrics", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;

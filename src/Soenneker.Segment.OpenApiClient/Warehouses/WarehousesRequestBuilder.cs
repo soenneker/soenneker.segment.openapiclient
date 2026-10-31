@@ -126,7 +126,7 @@ namespace Soenneker.Segment.OpenApiClient.Warehouses
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Warehouses.WarehousesRequestBuilder.WarehousesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/warehouses", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json, application/vnd.segment.v2+json");
             return requestInfo;
@@ -147,7 +147,7 @@ namespace Soenneker.Segment.OpenApiClient.Warehouses
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/warehouses", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json, application/vnd.segment.v2+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);

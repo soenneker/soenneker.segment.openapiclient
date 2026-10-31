@@ -76,7 +76,7 @@ namespace Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Sources.Item.ConnectedDestinations.ConnectedDestinationsRequestBuilder.ConnectedDestinationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/sources/{sourceId}/connected-destinations", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;

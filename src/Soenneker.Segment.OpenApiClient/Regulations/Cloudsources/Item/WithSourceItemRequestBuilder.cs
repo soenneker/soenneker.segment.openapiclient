@@ -80,7 +80,7 @@ namespace Soenneker.Segment.OpenApiClient.Regulations.Cloudsources.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/regulations/cloudsources/{sourceId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);

@@ -120,7 +120,7 @@ namespace Soenneker.Segment.OpenApiClient.Functions
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Functions.FunctionsRequestBuilder.FunctionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/functions?resourceType={resourceType}{&pagination*}", RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/functions", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/functions?resourceType={resourceType}{&pagination*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.Segment.OpenApiClient.Functions
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/functions", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json, application/vnd.segment.v1beta+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1beta+json", body);

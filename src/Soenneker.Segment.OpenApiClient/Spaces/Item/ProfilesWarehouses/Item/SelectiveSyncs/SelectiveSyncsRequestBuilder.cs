@@ -107,7 +107,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses.Item.Se
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses.Item.SelectiveSyncs.SelectiveSyncsRequestBuilder.SelectiveSyncsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/spaces/{spaceId}/profiles-warehouses/{warehouseId}/selective-syncs", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             return requestInfo;
@@ -128,7 +128,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses.Item.Se
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/spaces/{spaceId}/profiles-warehouses/{warehouseId}/selective-syncs", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1alpha+json", body);

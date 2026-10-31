@@ -76,7 +76,7 @@ namespace Soenneker.Segment.OpenApiClient.DeliveryOverview.FilteredAtSource
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.DeliveryOverview.FilteredAtSource.FilteredAtSourceRequestBuilder.FilteredAtSourceRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/delivery-overview/filtered-at-source", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1beta+json");
             return requestInfo;

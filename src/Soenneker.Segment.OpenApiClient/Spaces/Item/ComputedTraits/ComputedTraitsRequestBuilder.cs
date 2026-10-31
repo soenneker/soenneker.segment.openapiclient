@@ -120,7 +120,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ComputedTraits
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.ComputedTraits.ComputedTraitsRequestBuilder.ComputedTraitsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/spaces/{spaceId}/computed-traits", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             return requestInfo;
@@ -141,7 +141,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ComputedTraits
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/spaces/{spaceId}/computed-traits", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/vnd.segment.v1alpha+json", body);

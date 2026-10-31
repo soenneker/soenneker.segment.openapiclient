@@ -89,7 +89,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.Entities.Item.Properties
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Segment.OpenApiClient.Spaces.Item.Entities.Item.Properties.PropertiesRequestBuilder.PropertiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.segmentapis.com", "/spaces/{spaceId}/entities/{entitySlug}/properties", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/vnd.segment.v1alpha+json");
             return requestInfo;
