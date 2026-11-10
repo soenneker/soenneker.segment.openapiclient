@@ -76,7 +76,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses
             return await RequestAdapter.SendAsync<global::Soenneker.Segment.OpenApiClient.Models.ListProfilesWarehouseInSpace200SegmentV1AlphaJsonResponse>(requestInfo, global::Soenneker.Segment.OpenApiClient.Models.ListProfilesWarehouseInSpace200SegmentV1AlphaJsonResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new Profiles Warehouse.• When called, this endpoint may generate the `Profiles Sync Warehouse Created` event in the [audit trail](/tag/Audit-Trail).      
+        /// Creates a new Profiles Warehouse.&lt;div style=&quot;background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;&quot;&gt;  &lt;ul style=&quot;margin: 0; padding-left: 20px; font-size: 13px;&quot;&gt;    &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;WARN&lt;/strong&gt;: Please be careful to not use this API to link multiple Warehouses to a single Space. This is not officially supported. Although the Warehouse will be linked, it won&apos;t show up on the UI and can lead to various other unforeseen issues.&lt;/li&gt;  &lt;/ul&gt;&lt;/div&gt;• When called, this endpoint may generate the `Profiles Sync Warehouse Created` event in the [audit trail](/tag/Audit-Trail).      
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Segment.OpenApiClient.Models.CreateProfilesWarehouse201SegmentV1AlphaJsonResponse"/></returns>
         /// <param name="body">Create a new Profiles Warehouse based on a set of parameters.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Segment.OpenApiClient.Spaces.Item.ProfilesWarehouses
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new Profiles Warehouse.• When called, this endpoint may generate the `Profiles Sync Warehouse Created` event in the [audit trail](/tag/Audit-Trail).      
+        /// Creates a new Profiles Warehouse.&lt;div style=&quot;background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;&quot;&gt;  &lt;ul style=&quot;margin: 0; padding-left: 20px; font-size: 13px;&quot;&gt;    &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;WARN&lt;/strong&gt;: Please be careful to not use this API to link multiple Warehouses to a single Space. This is not officially supported. Although the Warehouse will be linked, it won&apos;t show up on the UI and can lead to various other unforeseen issues.&lt;/li&gt;  &lt;/ul&gt;&lt;/div&gt;• When called, this endpoint may generate the `Profiles Sync Warehouse Created` event in the [audit trail](/tag/Audit-Trail).      
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Create a new Profiles Warehouse based on a set of parameters.</param>

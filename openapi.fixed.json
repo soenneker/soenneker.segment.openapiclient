@@ -11717,7 +11717,7 @@
           "Profiles Sync"
         ],
         "summary": "Create Profiles Warehouse",
-        "description": "Creates a new Profiles Warehouse.\n\n\n\n\u2022 When called, this endpoint may generate the \u0060Profiles Sync Warehouse Created\u0060 event in the [audit trail](/tag/Audit-Trail).\n      ",
+        "description": "Creates a new Profiles Warehouse.\n\n\u003Cdiv style=\u0022background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;\u0022\u003E\n  \u003Cul style=\u0022margin: 0; padding-left: 20px; font-size: 13px;\u0022\u003E\n    \u003Cli style=\u0022margin-bottom: 6px;\u0022\u003E\u003Cstrong\u003EWARN\u003C/strong\u003E: Please be careful to not use this API to link multiple Warehouses to a single Space. This is not officially supported. Although the Warehouse will be linked, it won\u0027t show up on the UI and can lead to various other unforeseen issues.\u003C/li\u003E\n  \u003C/ul\u003E\n\u003C/div\u003E\n\n\n\n\u2022 When called, this endpoint may generate the \u0060Profiles Sync Warehouse Created\u0060 event in the [audit trail](/tag/Audit-Trail).\n      ",
         "operationId": "CreateProfilesWarehouse",
         "parameters": [
           {
@@ -49326,6 +49326,33 @@
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
       },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
+      },
       "AuditEventV1": {
         "title": "AuditEventV1",
         "required": [
@@ -49643,33 +49670,6 @@
         },
         "additionalProperties": false,
         "description": "Delete computed trait endpoint output."
-      },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "CredentialV1": {
         "title": "CredentialV1",
