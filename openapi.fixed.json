@@ -49326,33 +49326,6 @@
         "additionalProperties": false,
         "description": "Output for updating a Destination for an Audience."
       },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
-      },
       "AuditEventV1": {
         "title": "AuditEventV1",
         "required": [
@@ -49431,6 +49404,33 @@
         },
         "additionalProperties": false,
         "description": "Returns a list of Audit Trail events for the current Workspace."
+      },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "ComputedTraitsDefinition": {
         "title": "ComputedTraitsDefinition",
@@ -49865,41 +49865,6 @@
         },
         "additionalProperties": false,
         "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
-      },
-      "CreateDownloadAlphaInput": {
-        "title": "CreateDownloadAlphaInput",
-        "required": [
-          "collectionId",
-          "hour"
-        ],
-        "type": "object",
-        "properties": {
-          "collectionId": {
-            "title": "collectionId",
-            "type": "string",
-            "description": "The collection\u0027s unique id."
-          },
-          "hour": {
-            "title": "hour",
-            "type": "string",
-            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Input to create presigned URLs for Granular Observability Collection logs."
-      },
-      "CreateDownloadAlphaOutput": {
-        "title": "CreateDownloadAlphaOutput",
-        "required": [
-          "download"
-        ],
-        "type": "object",
-        "properties": {
-          "download": {
-            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
-          }
-        },
-        "additionalProperties": false
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -51265,6 +51230,41 @@
         },
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
+      },
+      "CreateDownloadAlphaInput": {
+        "title": "CreateDownloadAlphaInput",
+        "required": [
+          "collectionId",
+          "hour"
+        ],
+        "type": "object",
+        "properties": {
+          "collectionId": {
+            "title": "collectionId",
+            "type": "string",
+            "description": "The collection\u0027s unique id."
+          },
+          "hour": {
+            "title": "hour",
+            "type": "string",
+            "description": "The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data for. E.g.: 2025-05-07T23:00:00Z\nObjects are bucketed by hour and a month of data is retained."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input to create presigned URLs for Granular Observability Collection logs."
+      },
+      "CreateDownloadAlphaOutput": {
+        "title": "CreateDownloadAlphaOutput",
+        "required": [
+          "download"
+        ],
+        "type": "object",
+        "properties": {
+          "download": {
+            "$ref": "#/components/schemas/CreateDownloadAlphaOutputDownload"
+          }
+        },
+        "additionalProperties": false
       },
       "CreateDbtModelSyncTriggerInput": {
         "title": "CreateDbtModelSyncTriggerInput",
@@ -60642,25 +60642,6 @@
         "additionalProperties": false,
         "description": "Information about the pagination of the Sources list."
       },
-      "CreateDownloadAlphaOutputDownload": {
-        "title": "download",
-        "required": [
-          "urls"
-        ],
-        "type": "object",
-        "properties": {
-          "urls": {
-            "title": "urls",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of presigned URLs from S3."
-          }
-        },
-        "additionalProperties": false,
-        "description": "An object containing the downloaded data."
-      },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
         "required": [
@@ -62633,6 +62614,25 @@
         },
         "additionalProperties": false,
         "description": "The run information."
+      },
+      "CreateDownloadAlphaOutputDownload": {
+        "title": "download",
+        "required": [
+          "urls"
+        ],
+        "type": "object",
+        "properties": {
+          "urls": {
+            "title": "urls",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of presigned URLs from S3."
+          }
+        },
+        "additionalProperties": false,
+        "description": "An object containing the downloaded data."
       },
       "CreateDbtModelSyncTriggerOutputDbtModelSyncTrigger": {
         "title": "dbtModelSyncTrigger",
@@ -79603,24 +79603,6 @@
       "additionalProperties": false,
       "description": "Looks up the Warehouses and Sources that consume a Credential."
     },
-    "Download": {
-      "title": "Download",
-      "required": [
-        "urls"
-      ],
-      "type": "object",
-      "properties": {
-        "urls": {
-          "title": "urls",
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "List of presigned URLs from S3."
-        }
-      },
-      "additionalProperties": false
-    },
     "GetAudienceAlphaInput": {
       "title": "GetAudienceAlphaInput",
       "type": "object",
@@ -80000,6 +79982,24 @@
       "type": "object",
       "additionalProperties": false,
       "description": "Input to force execute an audience run."
+    },
+    "Download": {
+      "title": "Download",
+      "required": [
+        "urls"
+      ],
+      "type": "object",
+      "properties": {
+        "urls": {
+          "title": "urls",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of presigned URLs from S3."
+        }
+      },
+      "additionalProperties": false
     },
     "DbtModelSyncTrigger": {
       "title": "DbtModelSyncTrigger",
