@@ -274,7 +274,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(21)
             {
                 { "actions", n => { Actions = n.GetCollectionOfObjectValues<global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1>(global::Soenneker.Segment.OpenApiClient.Models.DestinationMetadataActionV1.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

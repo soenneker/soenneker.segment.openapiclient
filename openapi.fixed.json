@@ -8,7 +8,7 @@
       "url": "https://docs.segmentapis.com",
       "email": "friends@segment.com"
     },
-    "version": "74.0.1",
+    "version": "74.1.0",
     "x-logo": {
       "url": "https://assets.twilio.com/public_assets/segment-assets/1.0.0/logos/twilio-segment.webp",
       "backgroundColor": "#ebf4ff",
@@ -49197,10 +49197,12 @@
           "activationType",
           "audienceId",
           "connectionId",
+          "createdAt",
           "enabled",
           "id",
           "personalization",
           "spaceId",
+          "updatedAt",
           "workspaceId"
         ],
         "type": "object",
@@ -49261,6 +49263,16 @@
             "title": "performResync",
             "type": "boolean",
             "description": "Indicates if a full resync is currently pending or in progress."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "When the activation was created, as an ISO-8601 string."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "When the activation was last updated, as an ISO-8601 string. Advances on every update, including changes to only the personalization or destinationMapping."
           }
         },
         "additionalProperties": false,
@@ -49404,33 +49416,6 @@
         },
         "additionalProperties": false,
         "description": "Returns a list of Audit Trail events for the current Workspace."
-      },
-      "AllowedLabelBeta": {
-        "title": "AllowedLabelBeta",
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "title": "key",
-            "type": "string",
-            "description": "The key identifier for this label."
-          },
-          "value": {
-            "title": "value",
-            "type": "string",
-            "description": "The value of this label."
-          },
-          "description": {
-            "title": "description",
-            "type": "string",
-            "description": "A description of what this label represents."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a label that you may apply to resources within a Workspace."
       },
       "ComputedTraitsDefinition": {
         "title": "ComputedTraitsDefinition",
@@ -49670,6 +49655,228 @@
         },
         "additionalProperties": false,
         "description": "Delete computed trait endpoint output."
+      },
+      "AllowedLabelBeta": {
+        "title": "AllowedLabelBeta",
+        "required": [
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "key",
+            "type": "string",
+            "description": "The key identifier for this label."
+          },
+          "value": {
+            "title": "value",
+            "type": "string",
+            "description": "The value of this label."
+          },
+          "description": {
+            "title": "description",
+            "type": "string",
+            "description": "A description of what this label represents."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a label that you may apply to resources within a Workspace."
+      },
+      "CredentialV1": {
+        "title": "CredentialV1",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
+      },
+      "CreateCredentialV1Input": {
+        "title": "CreateCredentialV1Input",
+        "required": [
+          "name",
+          "settings"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Create a new Credential based on a set of parameters."
+      },
+      "CreateCredentialV1Output": {
+        "title": "CreateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the newly created Credential."
+      },
+      "UpdateCredentialV1Input": {
+        "title": "UpdateCredentialV1Input",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "An optional human-readable name to associate with this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
+      },
+      "UpdateCredentialV1Output": {
+        "title": "UpdateCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the updated Credential."
+      },
+      "ListCredentialsV1Output": {
+        "title": "ListCredentialsV1Output",
+        "required": [
+          "credentials",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "credentials": {
+            "title": "credentials",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CredentialV1"
+            },
+            "description": "A list of Credentials that belong to the Workspace."
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a list of Credentials that belong to a Workspace."
+      },
+      "GetCredentialV1Output": {
+        "title": "GetCredentialV1Output",
+        "required": [
+          "credential"
+        ],
+        "type": "object",
+        "properties": {
+          "credential": {
+            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns a Credential."
+      },
+      "DeleteCredentialV1Output": {
+        "title": "DeleteCredentialV1Output",
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SuccessStatus"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the status of a Credential deletion."
+      },
+      "ListCredentialConsumersV1Output": {
+        "title": "ListCredentialConsumersV1Output",
+        "required": [
+          "sources",
+          "sourcesPagination",
+          "warehouses",
+          "warehousesPagination"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouses": {
+            "title": "warehouses",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WarehouseV1"
+            },
+            "description": "The Warehouses that use this Credential."
+          },
+          "warehousesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
+          },
+          "sources": {
+            "title": "sources",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SourceV1"
+            },
+            "description": "The Sources that use this Credential."
+          },
+          "sourcesPagination": {
+            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
       },
       "CreateAudienceAlphaInput": {
         "title": "CreateAudienceAlphaInput",
@@ -51035,201 +51242,6 @@
         },
         "additionalProperties": false,
         "description": "Output when forcing execution of an audience run."
-      },
-      "CredentialV1": {
-        "title": "CredentialV1",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines a reusable Credential that can be used to connect one or more Warehouses to a data Warehouse."
-      },
-      "CreateCredentialV1Input": {
-        "title": "CreateCredentialV1Input",
-        "required": [
-          "name",
-          "settings"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CreateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Create a new Credential based on a set of parameters."
-      },
-      "CreateCredentialV1Output": {
-        "title": "CreateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/CreateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the newly created Credential."
-      },
-      "UpdateCredentialV1Input": {
-        "title": "UpdateCredentialV1Input",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "An optional human-readable name to associate with this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/UpdateCredentialV1InputSettings"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Updates an existing Credential based on a set of parameters.\n\nThe Credential\u0027s type (\u0060settings.type\u0060) is immutable and cannot be changed after creation."
-      },
-      "UpdateCredentialV1Output": {
-        "title": "UpdateCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/UpdateCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the updated Credential."
-      },
-      "ListCredentialsV1Output": {
-        "title": "ListCredentialsV1Output",
-        "required": [
-          "credentials",
-          "pagination"
-        ],
-        "type": "object",
-        "properties": {
-          "credentials": {
-            "title": "credentials",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialV1"
-            },
-            "description": "A list of Credentials that belong to the Workspace."
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/ListCredentialsV1OutputPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a list of Credentials that belong to a Workspace."
-      },
-      "GetCredentialV1Output": {
-        "title": "GetCredentialV1Output",
-        "required": [
-          "credential"
-        ],
-        "type": "object",
-        "properties": {
-          "credential": {
-            "$ref": "#/components/schemas/GetCredentialV1OutputCredential"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns a Credential."
-      },
-      "DeleteCredentialV1Output": {
-        "title": "DeleteCredentialV1Output",
-        "required": [
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/SuccessStatus"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the status of a Credential deletion."
-      },
-      "ListCredentialConsumersV1Output": {
-        "title": "ListCredentialConsumersV1Output",
-        "required": [
-          "sources",
-          "sourcesPagination",
-          "warehouses",
-          "warehousesPagination"
-        ],
-        "type": "object",
-        "properties": {
-          "warehouses": {
-            "title": "warehouses",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WarehouseV1"
-            },
-            "description": "The Warehouses that use this Credential."
-          },
-          "warehousesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputWarehousesPagination"
-          },
-          "sources": {
-            "title": "sources",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SourceV1"
-            },
-            "description": "The Sources that use this Credential."
-          },
-          "sourcesPagination": {
-            "$ref": "#/components/schemas/ListCredentialConsumersV1OutputSourcesPagination"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Returns the Warehouses and Sources that consume a Credential. The two lists are paginated\nindependently, so a caller can page through one without affecting the other."
       },
       "CreateDownloadAlphaInput": {
         "title": "CreateDownloadAlphaInput",
@@ -59591,10 +59603,12 @@
           "activationType",
           "audienceId",
           "connectionId",
+          "createdAt",
           "enabled",
           "id",
           "personalization",
           "spaceId",
+          "updatedAt",
           "workspaceId"
         ],
         "type": "object",
@@ -59655,6 +59669,16 @@
             "title": "performResync",
             "type": "boolean",
             "description": "Indicates if a full resync is currently pending or in progress."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "When the activation was created, as an ISO-8601 string."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "When the activation was last updated, as an ISO-8601 string. Advances on every update, including changes to only the personalization or destinationMapping."
           }
         },
         "additionalProperties": false,
@@ -59667,10 +59691,12 @@
           "activationType",
           "audienceId",
           "connectionId",
+          "createdAt",
           "enabled",
           "id",
           "personalization",
           "spaceId",
+          "updatedAt",
           "workspaceId"
         ],
         "type": "object",
@@ -59731,6 +59757,16 @@
             "title": "performResync",
             "type": "boolean",
             "description": "Indicates if a full resync is currently pending or in progress."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "When the activation was created, as an ISO-8601 string."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "When the activation was last updated, as an ISO-8601 string. Advances on every update, including changes to only the personalization or destinationMapping."
           }
         },
         "additionalProperties": false,
@@ -59743,10 +59779,12 @@
           "activationType",
           "audienceId",
           "connectionId",
+          "createdAt",
           "enabled",
           "id",
           "personalization",
           "spaceId",
+          "updatedAt",
           "workspaceId"
         ],
         "type": "object",
@@ -59807,6 +59845,16 @@
             "title": "performResync",
             "type": "boolean",
             "description": "Indicates if a full resync is currently pending or in progress."
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "When the activation was created, as an ISO-8601 string."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "When the activation was last updated, as an ISO-8601 string. Advances on every update, including changes to only the personalization or destinationMapping."
           }
         },
         "additionalProperties": false,
@@ -60392,6 +60440,255 @@
         },
         "additionalProperties": false,
         "description": "Information about the pagination of this response.\n\n[See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info."
+      },
+      "CredentialV1Settings": {
+        "title": "settings",
+        "type": "object",
+        "additionalProperties": {},
+        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
+      },
+      "CreateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "additionalProperties": {},
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
+      },
+      "CreateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The newly created Credential."
+      },
+      "UpdateCredentialV1InputSettings": {
+        "title": "settings",
+        "type": "object",
+        "additionalProperties": {},
+        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
+      },
+      "UpdateCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The updated Credential."
+      },
+      "ListCredentialsV1OutputPagination": {
+        "title": "pagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about the pagination of this response."
+      },
+      "GetCredentialV1OutputCredential": {
+        "title": "credential",
+        "required": [
+          "createdAt",
+          "id",
+          "name",
+          "settings",
+          "updatedAt",
+          "workspaceId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The id of the Credential."
+          },
+          "workspaceId": {
+            "title": "workspaceId",
+            "type": "string",
+            "description": "The id of the Workspace that owns this Credential."
+          },
+          "name": {
+            "title": "name",
+            "type": "string",
+            "description": "A human-readable name for this Credential."
+          },
+          "settings": {
+            "$ref": "#/components/schemas/CredentialV1Settings"
+          },
+          "createdAt": {
+            "title": "createdAt",
+            "type": "string",
+            "description": "The time this Credential was created."
+          },
+          "updatedAt": {
+            "title": "updatedAt",
+            "type": "string",
+            "description": "The time this Credential was last updated."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The returned Credential object."
+      },
+      "ListCredentialConsumersV1OutputWarehousesPagination": {
+        "title": "warehousesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about the pagination of the Warehouses list."
+      },
+      "ListCredentialConsumersV1OutputSourcesPagination": {
+        "title": "sourcesPagination",
+        "required": [
+          "current"
+        ],
+        "type": "object",
+        "properties": {
+          "current": {
+            "title": "current",
+            "type": "string",
+            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
+          },
+          "next": {
+            "title": "next",
+            "type": "string",
+            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "previous": {
+            "title": "previous",
+            "type": "string",
+            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
+            "nullable": true
+          },
+          "totalEntries": {
+            "title": "totalEntries",
+            "type": "number",
+            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about the pagination of the Sources list."
       },
       "CreateAudienceAlphaInputDefinition": {
         "title": "definition",
@@ -62365,255 +62662,6 @@
         },
         "additionalProperties": false,
         "description": "The run information."
-      },
-      "CredentialV1Settings": {
-        "title": "settings",
-        "type": "object",
-        "additionalProperties": {},
-        "description": "The settings associated with this Credential.\n\n\u0060settings.type\u0060 determines the Credential type (for example \u0060Snowflake\u0060 or \u0060Redshift\u0060) and which\nother settings fields are expected. Sensitive fields are redacted in responses."
-      },
-      "CreateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "additionalProperties": {},
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\n\u0060settings.type\u0060 is required and determines the Credential type (for example \u0060Snowflake\u0060 or\n\u0060Redshift\u0060). Different types require different settings; see the \u0060settings.type\u0060 discriminator\nin the OpenAPI spec for the full set of required and optional fields per type."
-      },
-      "CreateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The newly created Credential."
-      },
-      "UpdateCredentialV1InputSettings": {
-        "title": "settings",
-        "type": "object",
-        "additionalProperties": {},
-        "description": "A key-value object that contains type-specific settings for this Credential.\n\nSupports partial updates \u2014 only the fields you want to change need to be provided. \u0060settings.type\u0060\ncannot be changed."
-      },
-      "UpdateCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The updated Credential."
-      },
-      "ListCredentialsV1OutputPagination": {
-        "title": "pagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Information about the pagination of this response."
-      },
-      "GetCredentialV1OutputCredential": {
-        "title": "credential",
-        "required": [
-          "createdAt",
-          "id",
-          "name",
-          "settings",
-          "updatedAt",
-          "workspaceId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "type": "string",
-            "description": "The id of the Credential."
-          },
-          "workspaceId": {
-            "title": "workspaceId",
-            "type": "string",
-            "description": "The id of the Workspace that owns this Credential."
-          },
-          "name": {
-            "title": "name",
-            "type": "string",
-            "description": "A human-readable name for this Credential."
-          },
-          "settings": {
-            "$ref": "#/components/schemas/CredentialV1Settings"
-          },
-          "createdAt": {
-            "title": "createdAt",
-            "type": "string",
-            "description": "The time this Credential was created."
-          },
-          "updatedAt": {
-            "title": "updatedAt",
-            "type": "string",
-            "description": "The time this Credential was last updated."
-          }
-        },
-        "additionalProperties": false,
-        "description": "The returned Credential object."
-      },
-      "ListCredentialConsumersV1OutputWarehousesPagination": {
-        "title": "warehousesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Information about the pagination of the Warehouses list."
-      },
-      "ListCredentialConsumersV1OutputSourcesPagination": {
-        "title": "sourcesPagination",
-        "required": [
-          "current"
-        ],
-        "type": "object",
-        "properties": {
-          "current": {
-            "title": "current",
-            "type": "string",
-            "description": "The current cursor within a collection.\n\nConsumers of the API must treat this value as opaque."
-          },
-          "next": {
-            "title": "next",
-            "type": "string",
-            "description": "A pointer to the next page.\n\nThis does not return when you retrieve the last page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "previous": {
-            "title": "previous",
-            "type": "string",
-            "description": "A pointer to the previous page.\n\nThis does not return when you retrieve the first page.\n\nConsumers of the API must treat this value as opaque.",
-            "nullable": true
-          },
-          "totalEntries": {
-            "title": "totalEntries",
-            "type": "number",
-            "description": "The total number of entries available in the collection.\n\nIf calculating it impacts performance, the response may omit this field."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Information about the pagination of the Sources list."
       },
       "CreateDownloadAlphaOutputDownload": {
         "title": "download",
@@ -79573,6 +79621,36 @@
       "additionalProperties": false,
       "description": "Input to delete a computed trait."
     },
+    "CredentialSettingsV1": {
+      "title": "CredentialSettingsV1",
+      "type": "object",
+      "additionalProperties": {},
+      "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
+    },
+    "ListCredentialsV1Input": {
+      "title": "ListCredentialsV1Input",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Gets a list of Credentials belonging to a Workspace."
+    },
+    "GetCredentialV1Input": {
+      "title": "GetCredentialV1Input",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Looks up a Credential by id."
+    },
+    "DeleteCredentialV1Input": {
+      "title": "DeleteCredentialV1Input",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Deletes a Credential."
+    },
+    "ListCredentialConsumersV1Input": {
+      "title": "ListCredentialConsumersV1Input",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Looks up the Warehouses and Sources that consume a Credential."
+    },
     "GetAudienceAlphaInput": {
       "title": "GetAudienceAlphaInput",
       "type": "object",
@@ -79952,36 +80030,6 @@
       "type": "object",
       "additionalProperties": false,
       "description": "Input to force execute an audience run."
-    },
-    "CredentialSettingsV1": {
-      "title": "CredentialSettingsV1",
-      "type": "object",
-      "additionalProperties": {},
-      "description": "A key-value object that contains type-specific settings for a Credential, plus a required \u0060type\u0060\ndiscriminator (for example \u0060Snowflake\u0060, \u0060Redshift\u0060) that determines which fields are expected."
-    },
-    "ListCredentialsV1Input": {
-      "title": "ListCredentialsV1Input",
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Gets a list of Credentials belonging to a Workspace."
-    },
-    "GetCredentialV1Input": {
-      "title": "GetCredentialV1Input",
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Looks up a Credential by id."
-    },
-    "DeleteCredentialV1Input": {
-      "title": "DeleteCredentialV1Input",
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Deletes a Credential."
-    },
-    "ListCredentialConsumersV1Input": {
-      "title": "ListCredentialConsumersV1Input",
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Looks up the Warehouses and Sources that consume a Credential."
     },
     "Download": {
       "title": "Download",

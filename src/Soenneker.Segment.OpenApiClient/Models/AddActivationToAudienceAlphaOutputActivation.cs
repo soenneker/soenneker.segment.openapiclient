@@ -26,6 +26,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             else if (parseNode.GetChildNode("audienceId") is { } nullNodeAudienceId && nullNodeAudienceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AudienceId = null;
             if (parseNode.GetChildNode("connectionId") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connectionId"); }
             else if (parseNode.GetChildNode("connectionId") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("destinationMapping") is null) { _explicitNullValueDestinationMapping = default!; _explicitNullProperties?.Remove("destinationMapping"); }
             else if (parseNode.GetChildNode("destinationMapping") is { } nullNodeDestinationMapping && nullNodeDestinationMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationMapping = null;
             if (parseNode.GetChildNode("displayName") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("displayName"); }
@@ -40,6 +42,8 @@ namespace Soenneker.Segment.OpenApiClient.Models
             else if (parseNode.GetChildNode("personalization") is { } nullNodePersonalization && nullNodePersonalization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Personalization = null;
             if (parseNode.GetChildNode("spaceId") is null) { _explicitNullValueSpaceId = default!; _explicitNullProperties?.Remove("spaceId"); }
             else if (parseNode.GetChildNode("spaceId") is { } nullNodeSpaceId && nullNodeSpaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpaceId = null;
+            if (parseNode.GetChildNode("updatedAt") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updatedAt"); }
+            else if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
             if (parseNode.GetChildNode("workspaceId") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspaceId"); }
             else if (parseNode.GetChildNode("workspaceId") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
@@ -83,6 +87,16 @@ namespace Soenneker.Segment.OpenApiClient.Models
 #else
         public string ConnectionId { get => _explicitNullValueConnectionId; set { _explicitNullValueConnectionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connectionId"); else _explicitNullProperties?.Remove("connectionId"); } }
         private string _explicitNullValueConnectionId = default!;
+#endif
+        /// <summary>When the activation was created, as an ISO-8601 string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private string? _explicitNullValueCreatedAt = default!;
+#nullable restore
+#else
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>The action and data mapping configured for the Destination. Only present for Action Destinations.Action id: The action performed on the Destination.Settings/Mapping: How event data populates specific fields in the Destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -140,6 +154,16 @@ namespace Soenneker.Segment.OpenApiClient.Models
         public string SpaceId { get => _explicitNullValueSpaceId; set { _explicitNullValueSpaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spaceId"); else _explicitNullProperties?.Remove("spaceId"); } }
         private string _explicitNullValueSpaceId = default!;
 #endif
+        /// <summary>When the activation was last updated, as an ISO-8601 string. Advances on every update, including changes to only the personalization or destinationMapping.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string? _explicitNullValueUpdatedAt = default!;
+#nullable restore
+#else
+        public string UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private string _explicitNullValueUpdatedAt = default!;
+#endif
         /// <summary>The WORKSPACE id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,12 +190,13 @@ namespace Soenneker.Segment.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "activationName", n => { ActivationName = n.GetStringValue(); } },
                 { "activationType", n => { ActivationType = n.GetStringValue(); } },
                 { "audienceId", n => { AudienceId = n.GetStringValue(); } },
                 { "connectionId", n => { ConnectionId = n.GetStringValue(); } },
+                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "destinationMapping", n => { DestinationMapping = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping>(global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
@@ -179,6 +204,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
                 { "performResync", n => { PerformResync = n.GetBoolValue(); } },
                 { "personalization", n => { Personalization = n.GetObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization>(global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization.CreateFromDiscriminatorValue); } },
                 { "spaceId", n => { SpaceId = n.GetStringValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
                 { "workspaceId", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -193,6 +219,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteStringValue("activationType", ActivationType);
             writer.WriteStringValue("audienceId", AudienceId);
             writer.WriteStringValue("connectionId", ConnectionId);
+            writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputDestinationMapping>("destinationMapping", DestinationMapping);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enabled", Enabled);
@@ -200,6 +227,7 @@ namespace Soenneker.Segment.OpenApiClient.Models
             writer.WriteBoolValue("performResync", PerformResync);
             writer.WriteObjectValue<global::Soenneker.Segment.OpenApiClient.Models.ActivationOutputPersonalization>("personalization", Personalization);
             writer.WriteStringValue("spaceId", SpaceId);
+            writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("workspaceId", WorkspaceId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
